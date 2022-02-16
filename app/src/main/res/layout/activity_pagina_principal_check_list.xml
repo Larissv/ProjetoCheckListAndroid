@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/prolog_logo"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="500dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/prolog_logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <View
+        android:id="@+id/item_pacote_divisor"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:layout_marginBottom="93dp"
+        android:background="@android:color/holo_blue_dark"
+        app:layout_constraintBottom_toTopOf="@+id/botao_telainicial_novo_checklist"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/prolog_logo" />
+
+    <TextView
+        android:id="@+id/mensagem_tela_inicial"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="O controle de sua frota na palma da mão."
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/prolog_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_pacote_divisor"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/botao_telainicial_novo_checklist"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="70dp"
+        android:background="@android:color/holo_blue_dark"
+        android:text="Novo Checklist"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/prolog_logo" />
+
+    <Button
+        android:id="@+id/botao_telainicial_mostrar_todos"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/holo_blue_dark"
+        android:text="Mostrar todos"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/botao_telainicial_novo_checklist"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/botao_telainicial_novo_checklist"
+        app:layout_constraintTop_toBottomOf="@+id/botao_telainicial_novo_checklist" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,7 +2,8 @@ package com.cursoandroid.projetochecklistandroid.model;
 
 public class CheckList {
     private int id;
-    private String saidaRetorno;
+    private String saida;
+    private String retorno;
     private String dataC;
     private String hora;
     private String placa;
@@ -24,7 +25,7 @@ public class CheckList {
     private String pedais;
     private String aberturaPortas;
 
-    public CheckList(int id, String saidaRetorno, String dataC, String hora, String placa,
+    public CheckList(int id, String saida, String retorno, String dataC, String hora, String placa,
                      String motorista, String km, String tracao, String calibragemPneu,
                      String estepe, String freioDianteiro, String freioTraseiro,
                      String balanceamento, String limpezaRadiador, String oleoMotor,
@@ -32,7 +33,8 @@ public class CheckList {
                      String placasCaminhao, String cintoSeguranca, String pedais,
                      String aberturaPortas) {
         this.id = id;
-        this.saidaRetorno = saidaRetorno;
+        this.saida = saida;
+        this.retorno = retorno;
         this.dataC = dataC;
         this.hora = hora;
         this.placa = placa;
@@ -66,12 +68,20 @@ public class CheckList {
         this.id = id;
     }
 
-    public String getSaidaRetorno() {
-        return saidaRetorno;
+    public String getSaida() {
+        return saida;
     }
 
-    public void setSaidaRetorno(String saidaRetorno) {
-        this.saidaRetorno = saidaRetorno;
+    public void setSaida(String saida) {
+        this.saida = saida;
+    }
+
+    public String getRetorno() {
+        return retorno;
+    }
+
+    public void setRetorno(String retorno) {
+        this.retorno = retorno;
     }
 
     public String getDataC() {

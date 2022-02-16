@@ -8,6 +8,19 @@
         android:label="Check List"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ProjetoCheckListAndroid" />
+        android:theme="@style/Theme.ProjetoCheckListAndroid" >
 
-</manifest>
+    <activity
+        android:name=".activity.PaginaPrincipalActivity"
+        android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+    <activity android:name=".activity.FormularioCheckListActivity">
+    </activity>
+
+</application>
+
+    </manifest>

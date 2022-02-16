@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/item_check_list_hora"
+            android:layout_width="71dp"
+            android:layout_height="32dp"
+            android:layout_margin="8dp"
+            android:layout_marginStart="234dp"
+            android:layout_marginLeft="234dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="220dp"
+            android:layout_marginRight="220dp"
+            android:maxLines="6"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/item_check_list_hora"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Hora" />
+
+        <TextView
+            android:id="@+id/item_check_list_data"
+            android:layout_width="81dp"
+            android:layout_height="28dp"
+            android:layout_margin="8dp"
+            android:layout_marginTop="12dp"
+            android:maxLines="6"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/item_check_list_data"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Data" />
+
+        <TextView
+            android:id="@+id/item_check_list_placa"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:maxLines="6"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/item_check_list_data"
+            app:layout_constraintTop_toBottomOf="@id/item_check_list_data"
+            app:layout_constraintVertical_bias="0.179"
+            tools:text="Placa" />
+
+        <TextView
+            android:id="@+id/item_check_list_motorista"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:maxLines="6"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/item_check_list_placa"
+            app:layout_constraintTop_toBottomOf="@id/item_check_list_placa"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="Motorista" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.ProjetoCheckListAndroid" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimary">@android:color/holo_blue_dark</item>
         <item name="colorPrimaryDark">@color/purple_700</item>
         <item name="colorAccent">@color/teal_200</item>
         <!-- Customize your theme here. -->
