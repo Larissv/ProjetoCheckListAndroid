@@ -3,12 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.21302083333333333" />
-        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.21302083333333333" />
-        <entry key="app/src/main/res/layout/activity_formulario_check_list.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/activity_lista_check_lists.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_pagina_principal_check_list.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/item_check_list_lista.xml" value="0.33" />
+        <entry key="app/src/main/res/drawable/menu_formulario_salva_check_list_background.xml" value="0.15555555555555556" />
+        <entry key="app/src/main/res/drawable/menu_formulario_salva_check_list_foreground.xml" value="0.15555555555555556" />
+        <entry key="app/src/main/res/layout/activity_formulario_check_list.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_lista_check_lists.xml" value="0.17426545086119555" />
+        <entry key="app/src/main/res/layout/activity_pagina_principal_check_list.xml" value="0.17426545086119555" />
+        <entry key="app/src/main/res/layout/item_check_list_lista.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/menu_formulario_salva_check_list.xml" value="0.30462962962962964" />
       </map>
     </option>
   </component>

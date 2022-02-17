@@ -1,8 +1,11 @@
 package com.cursoandroid.projetochecklistandroid.activity;
 
+import static com.cursoandroid.projetochecklistandroid.activity.CheckListConstantesActivity.CHAVE_CHECKLIST;
+import static com.cursoandroid.projetochecklistandroid.activity.CheckListConstantesActivity.CHAVE_POSICAO;
+import static com.cursoandroid.projetochecklistandroid.activity.CheckListConstantesActivity.CODIGO_MOSTRA_CHECKLIST;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,7 +26,7 @@ import rx.schedulers.Schedulers;
 
 public class ListaCheckListsActivity extends AppCompatActivity {
 
-    public static final String TITULO_APPBAR_LISTA = "CheckLists";
+    public static final String TITULO_APPBAR_LISTA = "Check Lists";
     private ListaCheckListsAdapter listaCheckListsAdapter;
     RetrofitConfig retrofitConfig = new RetrofitConfig();
 
@@ -40,12 +43,13 @@ public class ListaCheckListsActivity extends AppCompatActivity {
     protected void onRestart() {
         super.onRestart();
         setContentView(R.layout.activity_lista_check_lists);
-
+        mostraTodosCheckLists();
     }
 
     public void mostraTodosCheckLists() {
         Observable<List<CheckList>> observable =
-                retrofitConfig.getRetrofit().create(CheckListService.class).mostraTodosCheckLists();
+                retrofitConfig.getRetrofit().create(CheckListService.class)
+                        .mostraTodosCheckLists();
         observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<List<CheckList>>() {
@@ -62,7 +66,7 @@ public class ListaCheckListsActivity extends AppCompatActivity {
                     @Override
                     public void onNext(List<CheckList> checkLists) {
                         Toast.makeText(ListaCheckListsActivity.this,
-                                "Sucesso ao mostrar!", Toast.LENGTH_SHORT).show();
+                                "Mostrando todos!", Toast.LENGTH_SHORT).show();
                         configuraRecyclerView(checkLists);
                     }
                 });
@@ -80,17 +84,17 @@ public class ListaCheckListsActivity extends AppCompatActivity {
         listaCheckListsAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(CheckList checkList, int posicao) {
-                vaiParaMostraFormularioPreenchido(checkList, posicao);
+                vaiParaMostraCheckListPreenchido(checkList, posicao);
             }
         });
     }
 
-    private void vaiParaMostraFormularioPreenchido(CheckList checkList, int posicao) {
+    private void vaiParaMostraCheckListPreenchido(CheckList checkList, int posicao) {
         Intent abreCheckListPreenchido = new Intent(ListaCheckListsActivity.this,
                 FormularioCheckListActivity.class);
-        abreCheckListPreenchido.putExtra("checklists", (Parcelable) checkList);
-        abreCheckListPreenchido.putExtra("posicao", posicao);
-        startActivityIfNeeded(abreCheckListPreenchido, 2);
+        abreCheckListPreenchido.putExtra(CHAVE_CHECKLIST, checkList);
+        abreCheckListPreenchido.putExtra(CHAVE_POSICAO, posicao);
+        startActivityIfNeeded(abreCheckListPreenchido, CODIGO_MOSTRA_CHECKLIST);
     }
 }
 

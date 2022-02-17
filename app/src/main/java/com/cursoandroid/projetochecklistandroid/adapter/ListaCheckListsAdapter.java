@@ -22,7 +22,6 @@ public class ListaCheckListsAdapter extends RecyclerView.Adapter<ListaCheckLists
     private final List<CheckList> checkLists;
     private final Context context;
     private OnItemClickListener onItemClickListener;
-    RetrofitConfig retrofitConfig = new RetrofitConfig();
 
     public ListaCheckListsAdapter(List<CheckList> checkLists, Context context) {
         this.checkLists = checkLists;
@@ -54,6 +53,8 @@ public class ListaCheckListsAdapter extends RecyclerView.Adapter<ListaCheckLists
     public int getItemCount() {
         return checkLists.size();
     }
+
+
 
     public class CheckListViewHolder extends RecyclerView.ViewHolder {
 

@@ -1,6 +1,8 @@
 package com.cursoandroid.projetochecklistandroid.model;
 
-public class CheckList {
+import java.io.Serializable;
+
+public class CheckList implements Serializable {
     private int id;
     private String saida;
     private String retorno;
@@ -57,7 +59,11 @@ public class CheckList {
         this.aberturaPortas = aberturaPortas;
     }
 
+    public CheckList(String s, CharSequence text, String toString, String string, String s1) {
+    }
+
     public CheckList() {
+
     }
 
     public int getId() {
@@ -243,4 +249,5 @@ public class CheckList {
     public void setAberturaPortas(String aberturaPortas) {
         this.aberturaPortas = aberturaPortas;
     }
+
 }

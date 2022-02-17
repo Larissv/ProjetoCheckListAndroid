@@ -1,11 +1,15 @@
 package com.cursoandroid.projetochecklistandroid.activity;
 
+import static com.cursoandroid.projetochecklistandroid.activity.CheckListConstantesActivity.CODIGO_INSERE_CHECKLIST;
+import static com.cursoandroid.projetochecklistandroid.activity.CheckListConstantesActivity.CODIGO_MOSTRA_CHECKLIST;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.cursoandroid.projetochecklistandroid.R;
 
 public class PaginaPrincipalActivity extends AppCompatActivity {
@@ -21,10 +25,9 @@ public class PaginaPrincipalActivity extends AppCompatActivity {
 
         configuraBotaoNovoCheckList();
         configuraBotaoMostraTodosCheckLists();
-
     }
 
-    private void configuraBotaoNovoCheckList() {
+      private void configuraBotaoNovoCheckList() {
         Button botaoNovoCheckList= findViewById(
                 R.id.botao_telainicial_novo_checklist);
         botaoNovoCheckList.setOnClickListener(new View.OnClickListener() {
@@ -39,7 +42,7 @@ public class PaginaPrincipalActivity extends AppCompatActivity {
         Intent iniciaFormularioCheckList =
                 new Intent(PaginaPrincipalActivity.this,
                         FormularioCheckListActivity.class);
-        startActivityIfNeeded(iniciaFormularioCheckList, 1);
+        startActivityIfNeeded(iniciaFormularioCheckList, CODIGO_INSERE_CHECKLIST);
     }
 
     private void configuraBotaoMostraTodosCheckLists() {
@@ -57,6 +60,6 @@ public class PaginaPrincipalActivity extends AppCompatActivity {
         Intent iniciaListarTodosCheckLists =
                 new Intent(PaginaPrincipalActivity.this,
                         ListaCheckListsActivity.class);
-        startActivityIfNeeded(iniciaListarTodosCheckLists, 2);
+        startActivityIfNeeded(iniciaListarTodosCheckLists, CODIGO_MOSTRA_CHECKLIST);
     }
 }
