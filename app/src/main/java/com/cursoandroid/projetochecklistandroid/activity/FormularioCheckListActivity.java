@@ -5,11 +5,13 @@ import static com.cursoandroid.projetochecklistandroid.activity.CheckListConstan
 import static com.cursoandroid.projetochecklistandroid.activity.CheckListConstantesActivity.CODIGO_MOSTRA_CHECKLIST;
 import static com.cursoandroid.projetochecklistandroid.activity.CheckListConstantesActivity.POSICAO_INVALIDA;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
+import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,7 +22,6 @@ import com.cursoandroid.projetochecklistandroid.model.CheckList;
 import com.cursoandroid.projetochecklistandroid.retrofit.CheckListService;
 import com.cursoandroid.projetochecklistandroid.retrofit.RetrofitConfig;
 
-import java.io.Serializable;
 import java.util.List;
 
 import rx.Observable;
@@ -33,10 +34,27 @@ public class FormularioCheckListActivity extends AppCompatActivity {
     public static final String TITULO_APPBAR_NOVO_CHECKLIST = "Novo Check List";
     public static final String TITULO_APPBAR_MOSTRA_CHECKLIST = "Visualização Checklist";
     private int posicaoRecebida = POSICAO_INVALIDA;
-    private TextView dataC;
-    private TextView hora;
-    private TextView placa;
-    private TextView motorista;
+    private RadioGroup saidaRetorno;
+    private EditText dataC;
+    private EditText hora;
+    private EditText placa;
+    private EditText motorista;
+    private EditText km;
+    private RadioGroup tracao;
+    private RadioGroup calibragemPneu;
+    private RadioGroup estepe;
+    private RadioGroup freioDianteiro;
+    private RadioGroup freioTraseiro;
+    private RadioGroup balanceamento;
+    private RadioGroup limpezaRadiador;
+    private RadioGroup oleoMotor;
+    private RadioGroup filtroOleo;
+    private RadioGroup paraChoqueDianteiro;
+    private RadioGroup paraChoqueTraseiro;
+    private RadioGroup placasCaminhao;
+    private RadioGroup cintoSeguranca;
+    private RadioGroup pedais;
+    private RadioGroup aberturaPortas;
     public CheckList updateCheckList = new CheckList();
     RetrofitConfig retrofitConfig = new RetrofitConfig();
 
@@ -50,36 +68,34 @@ public class FormularioCheckListActivity extends AppCompatActivity {
 
         Intent dadosRecebidos = getIntent();
 
-//        if(dadosRecebidos.hasExtra(CHAVE_CHECKLIST) &&
-//                dadosRecebidos.hasExtra(CHAVE_POSICAO)){
-//            setTitle(TITULO_APPBAR_MOSTRA_CHECKLIST);
-//            CheckList checkListRecebido = (CheckList) dadosRecebidos
-//                    .getSerializableExtra(CHAVE_CHECKLIST);
-//            posicaoRecebida = dadosRecebidos.getIntExtra(CHAVE_POSICAO, POSICAO_INVALIDA);
-//            preencheCheckList(checkListRecebido);
-//        }
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        setContentView(R.layout.activity_formulario_check_list);
-
+        if(dadosRecebidos.hasExtra(CHAVE_CHECKLIST) &&
+                dadosRecebidos.hasExtra(CHAVE_POSICAO)){
+            setTitle(TITULO_APPBAR_MOSTRA_CHECKLIST);
+            CheckList checkListRecebido = (CheckList) dadosRecebidos
+                    .getSerializableExtra(CHAVE_CHECKLIST);
+            posicaoRecebida = dadosRecebidos.getIntExtra(CHAVE_POSICAO, POSICAO_INVALIDA);
+            preencheCheckList(checkListRecebido);
+        }
     }
 
     private void preencheCheckList(CheckList checkListPreenchido) {
+        saidaRetorno.getCheckedRadioButtonId();
         dataC.setText(checkListPreenchido.getDataC());
         hora.setText(checkListPreenchido.getHora());
         placa.setText(checkListPreenchido.getPlaca());
         motorista.setText(checkListPreenchido.getMotorista());
+        km.setText(checkListPreenchido.getKm());
 
     }
 
+    @SuppressLint("WrongViewCast")
     private void inicializaCampos() {
-        dataC = findViewById(R.id.item_check_list_data);
-        hora = findViewById(R.id.item_check_list_hora);
-        placa = findViewById(R.id.item_check_list_placa);
-        motorista = findViewById(R.id.item_check_list_motorista);
+        saidaRetorno = findViewById(R.id.formulario_rgSaidaRetorno);
+        dataC = findViewById(R.id.formulario_check_list_data);
+        hora = findViewById(R.id.formulario_check_list_hora);
+        placa = findViewById(R.id.formulario_check_list_placa);
+        motorista = findViewById(R.id.formulario_check_list_motorista);
+        km = findViewById(R.id.formulario_check_list_km);
 
     }
 
@@ -157,10 +173,26 @@ public class FormularioCheckListActivity extends AppCompatActivity {
     }
 
     private CheckList criaCheckList() {
-        return new CheckList(dataC.getText().toString(),
+        return new CheckList(saidaRetorno.getCheckedRadioButtonId(),
+                dataC.getText().toString(),
                 hora.getText(),toString(),
                 placa.getText().toString(),
-                motorista.getText().toString());
+                motorista.getText().toString(),
+                km.getText().toString(),
+                tracao.getCheckedRadioButtonId(),
+                calibragemPneu.getCheckedRadioButtonId(),
+                estepe.getCheckedRadioButtonId(),
+                freioDianteiro.getCheckedRadioButtonId(),
+                freioTraseiro.getCheckedRadioButtonId(),
+                balanceamento.getCheckedRadioButtonId(),
+                limpezaRadiador.getCheckedRadioButtonId(),
+                oleoMotor.getCheckedRadioButtonId(),
+                filtroOleo.getCheckedRadioButtonId(),
+                paraChoqueDianteiro.getCheckedRadioButtonId(),
+                paraChoqueTraseiro.getCheckedRadioButtonId(),
+                placasCaminhao.getCheckedRadioButtonId(),
+                pedais.getCheckedRadioButtonId(),
+                aberturaPortas.getCheckedRadioButtonId());
     }
 
     public boolean validaMenuSalvar(@NonNull MenuItem item) {

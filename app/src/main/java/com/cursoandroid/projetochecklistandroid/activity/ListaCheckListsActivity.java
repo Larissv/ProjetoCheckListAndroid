@@ -11,8 +11,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.cursoandroid.projetochecklistandroid.ListaCheckListsAdapter;
 import com.cursoandroid.projetochecklistandroid.R;
-import com.cursoandroid.projetochecklistandroid.adapter.ListaCheckListsAdapter;
 import com.cursoandroid.projetochecklistandroid.model.CheckList;
 import com.cursoandroid.projetochecklistandroid.retrofit.CheckListService;
 import com.cursoandroid.projetochecklistandroid.retrofit.RetrofitConfig;
@@ -34,8 +34,8 @@ public class ListaCheckListsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_check_lists);
-
         setTitle(TITULO_APPBAR_LISTA);
+
         mostraTodosCheckLists();
     }
 
@@ -60,7 +60,8 @@ public class ListaCheckListsActivity extends AppCompatActivity {
                     @Override
                     public void onError(Throwable e) {
                         Toast.makeText(ListaCheckListsActivity.this,
-                                "Erro ao mostrar todos: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                "Erro ao mostrar todos: " + e.getMessage(),
+                                Toast.LENGTH_SHORT).show();
                     }
 
                     @Override

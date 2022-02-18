@@ -1,18 +1,18 @@
-package com.cursoandroid.projetochecklistandroid.adapter;
+package com.cursoandroid.projetochecklistandroid;
 
 import android.content.Context;
+import android.icu.number.NumberRangeFormatter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.EditText;
+import android.widget.RadioGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.cursoandroid.projetochecklistandroid.R;
 import com.cursoandroid.projetochecklistandroid.activity.OnItemClickListener;
 import com.cursoandroid.projetochecklistandroid.model.CheckList;
-import com.cursoandroid.projetochecklistandroid.retrofit.RetrofitConfig;
 
 import java.util.List;
 
@@ -58,20 +58,22 @@ public class ListaCheckListsAdapter extends RecyclerView.Adapter<ListaCheckLists
 
     public class CheckListViewHolder extends RecyclerView.ViewHolder {
 
-//        private final TextView saida;
-//        private final TextView retorno;
-        private final TextView dataC;
-        private final TextView hora;
-        private final TextView placa;
-        private final TextView motorista;
+        private final RadioGroup saidaRetorno;
+        private final EditText dataC;
+        private final EditText hora;
+        private final EditText placa;
+        private final EditText motorista;
+        private final EditText km;
         private CheckList checkList;
 
         public CheckListViewHolder(View itemView) {
             super(itemView);
+            saidaRetorno = (RadioGroup) itemView.findViewById(R.id.item_rgSaidaRetorno);
            dataC = itemView.findViewById(R.id.item_check_list_data);
            hora = itemView.findViewById(R.id.item_check_list_hora);
            placa = itemView.findViewById(R.id.item_check_list_placa);
            motorista = itemView.findViewById(R.id.item_check_list_motorista);
+           km = itemView.findViewById(R.id.item_check_list_km);
 
            itemView.setOnClickListener(new View.OnClickListener() {
                @Override
@@ -87,10 +89,12 @@ public class ListaCheckListsAdapter extends RecyclerView.Adapter<ListaCheckLists
         }
 
         private void preencheCampo(CheckList checkList) {
+            saidaRetorno.getCheckedRadioButtonId();
             dataC.setText(checkList.getDataC());
             hora.setText(checkList.getHora());
             placa.setText(checkList.getPlaca());
             motorista.setText(checkList.getMotorista());
+            km.setText(checkList.getKm());
 
         }
     }

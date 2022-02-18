@@ -9,70 +9,112 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
-        <TextView
+        <EditText
             android:id="@+id/item_check_list_hora"
-            android:layout_width="71dp"
-            android:layout_height="32dp"
+            android:layout_width="173dp"
+            android:layout_height="46dp"
             android:layout_margin="8dp"
-            android:layout_marginStart="234dp"
-            android:layout_marginLeft="234dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="220dp"
-            android:layout_marginRight="220dp"
-            android:maxLines="6"
             android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/item_check_list_hora"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Hora" />
+            app:layout_constraintEnd_toEndOf="@+id/item_check_list_km"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/item_check_list_data"
+            app:layout_constraintTop_toBottomOf="@+id/item_rgSaidaRetorno"
+            android:hint="Hora" />
 
-        <TextView
+        <EditText
             android:id="@+id/item_check_list_data"
-            android:layout_width="81dp"
-            android:layout_height="28dp"
+            android:layout_width="149dp"
+            android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:layout_marginTop="12dp"
-            android:maxLines="6"
+            android:layout_marginTop="20dp"
             android:textSize="18sp"
-            app:layout_constraintEnd_toStartOf="@+id/item_check_list_data"
+            app:layout_constraintEnd_toStartOf="@+id/item_rgSaidaRetorno"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Data" />
+            app:layout_constraintStart_toStartOf="@+id/item_check_list_km"
+            app:layout_constraintTop_toBottomOf="@+id/item_rgSaidaRetorno"
+            android:hint="Data" />
 
-        <TextView
+
+        <EditText
             android:id="@+id/item_check_list_placa"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
             android:maxLines="6"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/item_check_list_data"
-            app:layout_constraintTop_toBottomOf="@id/item_check_list_data"
-            app:layout_constraintVertical_bias="0.179"
-            tools:text="Placa" />
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/item_check_list_km"
+            android:hint="Placa" />
 
-        <TextView
+        <EditText
             android:id="@+id/item_check_list_motorista"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:maxLines="6"
+            android:hint="Motorista"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/item_check_list_placa"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/item_check_list_placa"
+            app:layout_constraintTop_toBottomOf="@+id/item_check_list_placa" />
+
+        <EditText
+            android:id="@+id/item_check_list_km"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/item_check_list_placa"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/item_check_list_placa"
+            app:layout_constraintTop_toBottomOf="@+id/item_check_list_hora"
+            android:hint="KM" />
+
+        <RadioGroup
+            android:id="@+id/item_rgSaidaRetorno"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RadioButton
+                android:id="@+id/item_rbSaida"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:layout_marginEnd="42dp"
+                android:text="Saida"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/item_rbRetorno"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <RadioButton
+                android:id="@+id/item_rbRetorno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:layout_marginEnd="92dp"
+                android:text="Retorno"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </RadioGroup>
+
+        <View
+            android:id="@+id/item_pacote_divisor"
+            android:layout_width="0dp"
+            android:layout_height="3dp"
+            android:background="@android:color/holo_blue_dark"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/item_check_list_placa"
-            app:layout_constraintTop_toBottomOf="@id/item_check_list_placa"
-            app:layout_constraintVertical_bias="0.0"
-            tools:text="Motorista" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

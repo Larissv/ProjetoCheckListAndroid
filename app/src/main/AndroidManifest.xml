@@ -21,6 +21,9 @@
     <activity android:name=".activity.FormularioCheckListActivity">
     </activity>
 
+    <activity android:name=".activity.ListaCheckListsActivity">
+    </activity>
+
 </application>
 
     </manifest>

@@ -1,5 +1,7 @@
 package com.cursoandroid.projetochecklistandroid.activity;
 
+import static com.cursoandroid.projetochecklistandroid.activity.CheckListConstantesActivity.CHAVE_CHECKLIST;
+import static com.cursoandroid.projetochecklistandroid.activity.CheckListConstantesActivity.CHAVE_POSICAO;
 import static com.cursoandroid.projetochecklistandroid.activity.CheckListConstantesActivity.CODIGO_INSERE_CHECKLIST;
 import static com.cursoandroid.projetochecklistandroid.activity.CheckListConstantesActivity.CODIGO_MOSTRA_CHECKLIST;
 
@@ -8,9 +10,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.cursoandroid.projetochecklistandroid.R;
+import com.cursoandroid.projetochecklistandroid.model.CheckList;
 
 public class PaginaPrincipalActivity extends AppCompatActivity {
 
@@ -57,9 +61,7 @@ public class PaginaPrincipalActivity extends AppCompatActivity {
     }
 
     private void vaiParaListaCheckLists() {
-        Intent iniciaListarTodosCheckLists =
-                new Intent(PaginaPrincipalActivity.this,
-                        ListaCheckListsActivity.class);
-        startActivityIfNeeded(iniciaListarTodosCheckLists, CODIGO_MOSTRA_CHECKLIST);
+            startActivity(new Intent(PaginaPrincipalActivity.this,
+                        ListaCheckListsActivity.class));
     }
 }

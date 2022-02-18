@@ -1,11 +1,12 @@
 package com.cursoandroid.projetochecklistandroid.model;
 
+import android.text.Editable;
+
 import java.io.Serializable;
 
 public class CheckList implements Serializable {
     private int id;
-    private String saida;
-    private String retorno;
+    private String saidaRetorno;
     private String dataC;
     private String hora;
     private String placa;
@@ -27,16 +28,13 @@ public class CheckList implements Serializable {
     private String pedais;
     private String aberturaPortas;
 
-    public CheckList(int id, String saida, String retorno, String dataC, String hora, String placa,
+    public CheckList(String saidaRetorno, String dataC, String hora, String placa,
                      String motorista, String km, String tracao, String calibragemPneu,
-                     String estepe, String freioDianteiro, String freioTraseiro,
-                     String balanceamento, String limpezaRadiador, String oleoMotor,
-                     String filtroOleo, String paraChoqueDianteiro, String paraChoqueTraseiro,
-                     String placasCaminhao, String cintoSeguranca, String pedais,
-                     String aberturaPortas) {
-        this.id = id;
-        this.saida = saida;
-        this.retorno = retorno;
+                     String estepe, String freioDianteiro, String freioTraseiro, String balanceamento,
+                     String limpezaRadiador, String oleoMotor, String filtroOleo,
+                     String paraChoqueDianteiro, String paraChoqueTraseiro, String placasCaminhao,
+                     String cintoSeguranca, String pedais, String aberturaPortas) {
+        this.saidaRetorno = saidaRetorno;
         this.dataC = dataC;
         this.hora = hora;
         this.placa = placa;
@@ -59,12 +57,21 @@ public class CheckList implements Serializable {
         this.aberturaPortas = aberturaPortas;
     }
 
-    public CheckList(String s, CharSequence text, String toString, String string, String s1) {
-    }
-
     public CheckList() {
-
     }
+
+    public CheckList(String saidRetorno, String dataC, Editable text, String placa, String motorista, String km, String tracao, String calibragemPneu, String estepe, String freioDianteiro, String freioTraseiro, String balanceamento, String limpezaRadiador, String oleoMotor, String filtroOleo, String paraChoqueDianteiro, String paraChoqueTraseiro, String placasCaminhao, String cintoSeguranca, String pedais, String aberturaPortas) {
+    }
+
+    public CheckList(String toString, String toString1, Editable text, String toString2, String toString3, String toString4, String toString5) {
+    }
+
+    public CheckList(int checkedRadioButtonId, String toString1, Editable text, String toString2, String toString3, String toString4, String toString5) {
+    }
+
+    public CheckList(int checkedRadioButtonId, String toString, Editable text, String toString1, String toString2, String toString3, String toString4, int checkedRadioButtonId1, int checkedRadioButtonId2, int checkedRadioButtonId3, int checkedRadioButtonId4, int checkedRadioButtonId5, int checkedRadioButtonId6, int checkedRadioButtonId7, int checkedRadioButtonId8, int checkedRadioButtonId9, int checkedRadioButtonId10, int checkedRadioButtonId11, int checkedRadioButtonId12, int checkedRadioButtonId13, int checkedRadioButtonId14) {
+    }
+
 
     public int getId() {
         return id;
@@ -74,20 +81,13 @@ public class CheckList implements Serializable {
         this.id = id;
     }
 
-    public String getSaida() {
-        return saida;
+
+    public String getSaidaRetorno() {
+        return saidaRetorno;
     }
 
-    public void setSaida(String saida) {
-        this.saida = saida;
-    }
-
-    public String getRetorno() {
-        return retorno;
-    }
-
-    public void setRetorno(String retorno) {
-        this.retorno = retorno;
+    public void setSaidaRetorno(String saidaRetorno) {
+        this.saidaRetorno = saidaRetorno;
     }
 
     public String getDataC() {
