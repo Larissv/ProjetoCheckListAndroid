@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-      android:id="@+id/menu_formulario_salva_check_list"
+        android:id="@+id/menu_formulario_salva_check_list"
+        android:icon="@drawable/ic_formulario_salva_checklist"
         android:title="Salva Check List"
-        android:icon="@drawable/ic_formulario_salva_check_list_foreground"
-        app:showAsAction="always" >
+        app:showAsAction="always">
 
     </item>
 </menu>

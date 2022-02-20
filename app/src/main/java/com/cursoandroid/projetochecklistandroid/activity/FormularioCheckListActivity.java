@@ -85,6 +85,21 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         placa.setText(checkListPreenchido.getPlaca());
         motorista.setText(checkListPreenchido.getMotorista());
         km.setText(checkListPreenchido.getKm());
+        tracao.getCheckedRadioButtonId();
+        calibragemPneu.getCheckedRadioButtonId();
+        estepe.getCheckedRadioButtonId();
+        freioDianteiro.getCheckedRadioButtonId();
+        freioTraseiro.getCheckedRadioButtonId();
+        balanceamento.getCheckedRadioButtonId();
+        limpezaRadiador.getCheckedRadioButtonId();
+        oleoMotor.getCheckedRadioButtonId();
+        filtroOleo.getCheckedRadioButtonId();
+        paraChoqueDianteiro.getCheckedRadioButtonId();
+        paraChoqueTraseiro.getCheckedRadioButtonId();
+        placasCaminhao.getCheckedRadioButtonId();
+        cintoSeguranca.getCheckedRadioButtonId();
+        pedais.getCheckedRadioButtonId();
+        aberturaPortas.getCheckedRadioButtonId();
 
     }
 
@@ -96,6 +111,21 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         placa = findViewById(R.id.formulario_check_list_placa);
         motorista = findViewById(R.id.formulario_check_list_motorista);
         km = findViewById(R.id.formulario_check_list_km);
+        tracao = findViewById(R.id.formulario_rgtracao_pneu);
+        calibragemPneu = findViewById(R.id.formulario_rgcalibragem_pneu);
+        estepe = findViewById(R.id.formulario_rgestepe_pneu);
+        freioDianteiro = findViewById(R.id.formulario_rgfreioDianteiro);
+        freioTraseiro = findViewById(R.id.formulario_rgfreioTraseiro);
+        balanceamento = findViewById(R.id.formulario_rgBalanceamento);
+        limpezaRadiador = findViewById(R.id.formulario_rgLimpezaRadiador);
+        oleoMotor = findViewById(R.id.formulario_rgOleoMotor);
+        filtroOleo = findViewById(R.id.formulario_rgfiltroOleo);
+        paraChoqueDianteiro = findViewById(R.id.formulario_rgPCDianteiro);
+        paraChoqueTraseiro = findViewById(R.id.formulario_rgPCTraseiro);
+        placasCaminhao = findViewById(R.id.formulario_rgPlacasCaminhao);
+        cintoSeguranca = findViewById(R.id.formulario_rgcinto_seguranca);
+        pedais = findViewById(R.id.formulario_rgpedais);
+        aberturaPortas = findViewById(R.id.formulario_rgabertura_portas);
 
     }
 
