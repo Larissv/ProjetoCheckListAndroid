@@ -10,7 +10,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -22,6 +24,7 @@ import com.cursoandroid.projetochecklistandroid.model.CheckList;
 import com.cursoandroid.projetochecklistandroid.retrofit.CheckListService;
 import com.cursoandroid.projetochecklistandroid.retrofit.RetrofitConfig;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import rx.Observable;
@@ -73,13 +76,14 @@ public class FormularioCheckListActivity extends AppCompatActivity {
             setTitle(TITULO_APPBAR_MOSTRA_CHECKLIST);
             CheckList checkListRecebido = (CheckList) dadosRecebidos
                     .getSerializableExtra(CHAVE_CHECKLIST);
+            updateCheckList = checkListRecebido;
             posicaoRecebida = dadosRecebidos.getIntExtra(CHAVE_POSICAO, POSICAO_INVALIDA);
             preencheCheckList(checkListRecebido);
         }
     }
 
     private void preencheCheckList(CheckList checkListPreenchido) {
-        saidaRetorno.getCheckedRadioButtonId();
+        saidaRetorno.getCheckedRadioButtonId(); ;
         dataC.setText(checkListPreenchido.getDataC());
         hora.setText(checkListPreenchido.getHora());
         placa.setText(checkListPreenchido.getPlaca());
@@ -103,7 +107,6 @@ public class FormularioCheckListActivity extends AppCompatActivity {
 
     }
 
-    @SuppressLint("WrongViewCast")
     private void inicializaCampos() {
         saidaRetorno = findViewById(R.id.formulario_rgSaidaRetorno);
         dataC = findViewById(R.id.formulario_check_list_data);
@@ -129,6 +132,17 @@ public class FormularioCheckListActivity extends AppCompatActivity {
 
     }
 
+    public void verificaRespostaRadioButtom(){
+        saidaRetorno.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                RadioButton botao = (RadioButton) radioGroup.findViewById(i);
+                String resposta = botao.getText().toString();
+            }
+        });
+
+    }
+
     @Override
     public boolean onCreateOptionsMenu(@NonNull Menu menu) {
         getMenuInflater().inflate(R.menu.menu_formulario_salva_check_list, menu);
@@ -136,36 +150,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (updateCheckList.getPlaca() != null) {
-            assert false;
-            CheckList checkListMostrado = criaCheckList();
-            retornaCheckList(checkListMostrado);
-            Observable<List<CheckList>> observable = retrofitConfig.getRetrofit().create(
-                    CheckListService.class).mostraTodosCheckLists();
-            observable.subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(new Observer<List<CheckList>>() {
-                        @Override
-                        public void onCompleted() {
-                            finish();
-                        }
-
-                        @Override
-                        public void onError(Throwable e) {
-                            Toast.makeText(FormularioCheckListActivity.this,
-                                    "Erro", Toast.LENGTH_SHORT).show();
-                        }
-
-                        @Override
-                        public void onNext(List<CheckList> checkLists) {
-                            Toast.makeText(FormularioCheckListActivity.this, "Sucesso!",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    });
-            return super.onOptionsItemSelected(item);
-        }
-
+    public boolean onOptionsItemSelected(MenuItem item) {
         if (validaMenuSalvar(item)) {
             CheckList checkListCriado = criaCheckList();
             Observable<CheckList> observable = retrofitConfig.getRetrofit().create(
@@ -228,4 +213,5 @@ public class FormularioCheckListActivity extends AppCompatActivity {
     public boolean validaMenuSalvar(@NonNull MenuItem item) {
         return item.getItemId() == R.id.menu_formulario_salva_check_list;
     }
+
 }

@@ -1,20 +1,15 @@
 package com.cursoandroid.projetochecklistandroid.activity;
 
-import static com.cursoandroid.projetochecklistandroid.activity.CheckListConstantesActivity.CHAVE_CHECKLIST;
-import static com.cursoandroid.projetochecklistandroid.activity.CheckListConstantesActivity.CHAVE_POSICAO;
 import static com.cursoandroid.projetochecklistandroid.activity.CheckListConstantesActivity.CODIGO_INSERE_CHECKLIST;
-import static com.cursoandroid.projetochecklistandroid.activity.CheckListConstantesActivity.CODIGO_MOSTRA_CHECKLIST;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.cursoandroid.projetochecklistandroid.R;
-import com.cursoandroid.projetochecklistandroid.model.CheckList;
 
 public class PaginaPrincipalActivity extends AppCompatActivity {
 

@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/menu_formulario_salva_check_list"
-        android:icon="@drawable/ic_formulario_salva_checklist"
+        android:icon="@drawable/ic_formulario_salva_check_list_foreground"
         android:title="Salva Check List"
         app:showAsAction="always">
 
