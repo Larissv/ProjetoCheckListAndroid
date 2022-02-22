@@ -125,6 +125,7 @@
             android:id="@+id/formulario_imagem_logo_prolog"
             android:layout_width="115dp"
             android:layout_height="97dp"
+            android:scaleType="fitXY"
             app:layout_constraintStart_toStartOf="@+id/item_check_list_km"
             app:layout_constraintTop_toTopOf="@+id/item_rgSaidaRetorno"
             app:srcCompat="@drawable/prolog" />

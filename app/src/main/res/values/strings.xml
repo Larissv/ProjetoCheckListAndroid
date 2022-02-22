@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">ProjetoCheckListAndroid</string>
+    <string name="pneus_do_veiculo">PNEUS DO VEÍCULO</string>
+    <string name="hora">Hora</string>
+    <string name="data">Data</string>
+    <string name="placa">Placa</string>
+    <string name="motorista">Motorista</string>
+    <string name="km">KM</string>
+    <string name="saida">Saida</string>
+    <string name="retorno">Retorno</string>
+    <string name="tracao">Tração:</string>
+    <string name="calibragem">Calibragem:</string>
+    <string name="estepe">Estepe:</string>
+    <string name="freios_e_suspensao">FREIOS E SUSPENSÃO</string>
+    <string name="freio_dianteiro">Freio Dianteiro:</string>
+    <string name="ok">OK</string>
+    <string name="nok">NOK</string>
+    <string name="freio_traseiro">Freio Traseiro:</string>
 </resources>
