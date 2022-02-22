@@ -13,6 +13,7 @@
         <entry key="app/src/main/res/layout/activity_formulario_check_list.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_lista_check_lists.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_pagina_principal_check_list.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/formulario_recycler.xml" value="0.25226449275362317" />
         <entry key="app/src/main/res/layout/item_check_list_lista.xml" value="0.22" />
         <entry key="app/src/main/res/layout/teste_formulario.xml" value="0.35833333333333334" />
         <entry key="app/src/main/res/menu/menu_formulario_salva_check_list.xml" value="0.30462962962962964" />
