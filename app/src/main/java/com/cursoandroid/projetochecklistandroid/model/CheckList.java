@@ -84,5 +84,7 @@ public class CheckList implements Serializable {
         return km;
     }
 
-
+    public int getId() {
+        return id;
+    }
 }
