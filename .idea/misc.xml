@@ -11,7 +11,7 @@
         <entry key="app/src/main/res/drawable/ic_pagina_inicial_novo_checklist_background.xml" value="0.24537037037037038" />
         <entry key="app/src/main/res/drawable/menu_formulario_salva_check_list_background.xml" value="0.15555555555555556" />
         <entry key="app/src/main/res/drawable/menu_formulario_salva_check_list_foreground.xml" value="0.15555555555555556" />
-        <entry key="app/src/main/res/layout/activity_formulario_check_list.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_formulario_check_list.xml" value="0.2098360655737705" />
         <entry key="app/src/main/res/layout/activity_lista_check_lists.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_pagina_principal_check_list.xml" value="0.33" />
         <entry key="app/src/main/res/layout/formulario_recycler.xml" value="0.25226449275362317" />

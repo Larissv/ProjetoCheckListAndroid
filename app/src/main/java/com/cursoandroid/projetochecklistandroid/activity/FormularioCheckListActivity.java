@@ -8,6 +8,7 @@ import static com.cursoandroid.projetochecklistandroid.activity.CheckListConstan
 import static com.cursoandroid.projetochecklistandroid.activity.CheckListConstantesActivity.POSICAO_INVALIDA;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -57,6 +58,8 @@ public class FormularioCheckListActivity extends AppCompatActivity {
     private RadioGroup aberturaPortas;
     public CheckList updateCheckList = new CheckList();
     RetrofitConfig retrofitConfig = new RetrofitConfig();
+    private SharedPreferences save;
+    private int indiceSelecionado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -151,7 +154,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
                             @Override
                             public void onError(Throwable e) {
                                 Toast.makeText(FormularioCheckListActivity.this,
-                                        "Erro!", Toast.LENGTH_SHORT).show();
+                                        "Erro!" + e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
 
                             @Override
@@ -163,6 +166,34 @@ public class FormularioCheckListActivity extends AppCompatActivity {
                         });
             }
         });
+
+        if (updateCheckList.getMotorista() != null){
+            CheckList checkListAlterado = criaCheckList();
+            retornaCheckList(checkListAlterado);
+            Observable<CheckList> observable = (Observable<CheckList>) retrofitConfig.getRetrofit()
+                    .create(CheckListService.class).atualizaCheckList(updateCheckList.getId(),
+                            checkListAlterado);
+            observable.subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(new Observer<CheckList>() {
+                        @Override
+                        public void onCompleted() {
+                            finish();
+                        }
+
+                        @Override
+                        public void onError(Throwable e) {
+                            Toast.makeText(FormularioCheckListActivity.this,
+                                    "Erro!", Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onNext(CheckList checkList) {
+                            Toast.makeText(FormularioCheckListActivity.this,
+                                    "Sucesso!", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }
     }
 
     private void vaiParaListaCheckLists() {
@@ -176,6 +207,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         Intent resultado = new Intent();
         resultado.putExtra(CHAVE_CHECKLIST, checkList);
         resultado.putExtra(CHAVE_POSICAO, posicaoRecebida);
+        resultado.putExtra("chave_radio", indiceSelecionado);
         setResult(CODIGO_MOSTRA_CHECKLIST, resultado);
     }
 
@@ -229,9 +261,11 @@ public class FormularioCheckListActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int id) {
                 if(id == R.id.formulario_rbSaida) {
+                    saidaRetorno.check(R.id.formulario_rbSaida);
                     Toast.makeText(getApplicationContext(),
                             "Saída", Toast.LENGTH_SHORT).show();
                 } else {
+                    saidaRetorno.check(R.id.formulario_rbRetorno);
                     Toast.makeText(getApplicationContext(),
                             "Retorno", Toast.LENGTH_SHORT).show();
                 }
