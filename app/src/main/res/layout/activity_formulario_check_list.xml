@@ -1,15 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:scrollbars="vertical">
+    android:id="@+id/activity_main" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imagem_fundo_titulo_formulario_inicio"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:background="#3D5FD9"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="@+id/formulario_rgSaidaRetorno"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/item_titulo_formulario_divisor_inicio"
+            android:layout_width="0dp"
+            android:layout_height="3dp"
+            android:background="@android:color/holo_orange_dark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imagem_fundo_titulo_formulario_inicio" />
+
+
 
         <ImageView
             android:id="@+id/formulario_imagem_logo_prolog"
@@ -42,6 +71,7 @@
                 android:minHeight="48dp"
                 android:text="@string/saida"
                 android:textSize="18sp"
+                android:textColor="@color/white"
                 app:layout_constraintEnd_toStartOf="@+id/formulario_rbRetorno"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -54,6 +84,7 @@
                 android:minHeight="48dp"
                 android:text="@string/retorno"
                 android:textSize="18sp"
+                android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -68,8 +99,8 @@
             android:inputType="date"
             android:textAlignment="center"
             android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@+id/formulario_imagem_logo_prolog"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_imagem_logo_prolog" />
+            app:layout_constraintStart_toStartOf="@+id/imagem_fundo_titulo_formulario_inicio"
+            app:layout_constraintTop_toBottomOf="@+id/imagem_fundo_titulo_formulario_inicio" />
 
         <EditText
             android:id="@+id/formulario_check_list_hora"
@@ -81,7 +112,7 @@
             android:textAlignment="center"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/formulario_check_list_data"
-            app:layout_constraintEnd_toEndOf="@+id/formulario_rgSaidaRetorno"
+            app:layout_constraintEnd_toEndOf="@+id/imagem_fundo_titulo_formulario_inicio"
             app:layout_constraintTop_toTopOf="@+id/formulario_check_list_data" />
 
         <EditText
@@ -120,14 +151,39 @@
             app:layout_constraintStart_toStartOf="@+id/formulario_check_list_placa"
             app:layout_constraintTop_toBottomOf="@+id/formulario_check_list_placa" />
 
+        <ImageView
+            android:id="@+id/imagem_fundo_titulo_formulario_pneu"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:background="#3D5FD9"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/formulario_check_list_motorista" />
+
+        <View
+            android:id="@+id/item_titulo_formulario_divisor_pneu"
+            android:layout_width="0dp"
+            android:layout_height="3dp"
+            android:background="@android:color/holo_orange_dark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imagem_fundo_titulo_formulario_pneu" />
+
         <TextView
             android:id="@+id/formulario_titulo_pneu"
             android:layout_width="140dp"
             android:layout_height="22dp"
-            android:layout_marginTop="35dp"
             android:text="@string/pneus_do_veiculo"
-            app:layout_constraintStart_toStartOf="@+id/formulario_check_list_motorista"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_check_list_motorista" />
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/imagem_fundo_titulo_formulario_pneu"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.911"
+            app:layout_constraintStart_toStartOf="@+id/imagem_fundo_titulo_formulario_pneu"
+            app:layout_constraintTop_toTopOf="@+id/imagem_fundo_titulo_formulario_pneu"
+            app:layout_constraintVertical_bias="0.571" />
 
         <View
             android:id="@+id/formulario_pacote_divisor2"
@@ -143,12 +199,12 @@
             android:id="@+id/imagem_formulario_pneu_tracao"
             android:layout_width="75dp"
             android:layout_height="75dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="24dp"
             app:layout_constraintEnd_toStartOf="@+id/formulario_tracao"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/formulario_titulo_pneu"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_titulo_pneu"
+            app:layout_constraintTop_toBottomOf="@+id/item_titulo_formulario_divisor_pneu"
             app:srcCompat="@drawable/pneu" />
+
 
         <TextView
             android:id="@+id/formulario_tracao"
@@ -200,7 +256,7 @@
             android:id="@+id/imagem_formulario_pneu_calibragem"
             android:layout_width="75dp"
             android:layout_height="75dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="@+id/imagem_formulario_pneu_tracao"
             app:layout_constraintTop_toBottomOf="@+id/imagem_formulario_pneu_tracao"
             app:srcCompat="@drawable/pneu_calibragem" />
@@ -304,22 +360,46 @@
 
         </RadioGroup>
 
+        <ImageView
+            android:id="@+id/imagem_fundo_titulo_formulario_freios_suspensao"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:background="#3D5FD9"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/formulario_rgestepe_pneu" />
+
+        <View
+            android:id="@+id/item_titulo_formulario_divisor_freios_suspensao"
+            android:layout_width="0dp"
+            android:layout_height="3dp"
+            android:background="@android:color/holo_orange_dark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imagem_fundo_titulo_formulario_freios_suspensao" />
+
         <TextView
-            android:id="@+id/formulario_titulo_freios_suspensao"
-            android:layout_width="200dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="35dp"
+            android:layout_width="150dp"
+            android:layout_height="22dp"
             android:text="@string/freios_e_suspensao"
-            app:layout_constraintStart_toStartOf="@+id/formulario_imagem_pneu_estepe"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_imagem_pneu_estepe" />
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/imagem_fundo_titulo_formulario_freios_suspensao"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.908"
+            app:layout_constraintStart_toStartOf="@+id/imagem_fundo_titulo_formulario_freios_suspensao"
+            app:layout_constraintTop_toTopOf="@+id/imagem_fundo_titulo_formulario_freios_suspensao"
+            app:layout_constraintVertical_bias="0.535" />
 
         <ImageView
             android:id="@+id/formulario_imagem_freio1"
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="@+id/formulario_titulo_freios_suspensao"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_titulo_freios_suspensao"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/formulario_pacote_divisor2"
             app:srcCompat="@drawable/freio_freio" />
 
         <TextView
@@ -991,3 +1071,5 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

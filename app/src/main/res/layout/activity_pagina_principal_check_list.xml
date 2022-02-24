@@ -49,6 +49,15 @@
         app:layout_constraintTop_toBottomOf="@+id/item_pacote_divisor"
         app:layout_constraintVertical_bias="0.451" />
 
+    <View
+        android:id="@+id/item_dividor_tela_inicial"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:background="@android:color/holo_orange_dark"
+        app:layout_constraintEnd_toEndOf="@+id/mensagem_tela_inicial"
+        app:layout_constraintStart_toStartOf="@+id/mensagem_tela_inicial"
+        app:layout_constraintTop_toBottomOf="@+id/mensagem_tela_inicial"> </View>
+
     <Button
         android:id="@+id/botao_telainicial_novo_checklist"
         android:layout_width="0dp"
@@ -57,7 +66,7 @@
         android:layout_marginTop="240dp"
         android:layout_marginEnd="70dp"
         android:background="#3D5FD9"
-        android:text="Novo Checklist"
+        android:text="Iniciar Checklist"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -70,7 +79,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:background="#3D5FD9"
-        android:text="Mostrar todos"
+        android:text="Mostrar CheckLists"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/botao_telainicial_novo_checklist"
         app:layout_constraintHorizontal_bias="1.0"

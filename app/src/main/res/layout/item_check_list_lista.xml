@@ -11,71 +11,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/item_check_list_hora"
-            android:layout_width="173dp"
-            android:layout_height="46dp"
-            android:layout_margin="8dp"
-            android:hint="Hora"
-            android:textAlignment="center"
-            android:inputType="time"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/item_rgSaidaRetorno"
-            app:layout_constraintHorizontal_bias="0.835"
-            app:layout_constraintStart_toEndOf="@+id/item_check_list_data"
-            tools:layout_editor_absoluteY="124dp" />
-
-        <EditText
-            android:id="@+id/item_check_list_data"
-            android:layout_width="149dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:hint="Data"
-            android:textAlignment="center"
-            android:inputType="date"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toStartOf="@+id/item_rgSaidaRetorno"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/item_check_list_km"
-            tools:layout_editor_absoluteY="124dp" />
-
-        <EditText
-            android:id="@+id/item_check_list_placa"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:maxLines="6"
-            android:textSize="18sp"
+        <ImageView
+            android:id="@+id/formulario_imagem_logo_prolog"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/item_check_list_km"
-            android:hint="Placa"
-            android:textAlignment="center"  />
-
-        <EditText
-            android:id="@+id/item_check_list_motorista"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="Motorista"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/item_check_list_placa"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/item_check_list_placa"
-            app:layout_constraintTop_toBottomOf="@+id/item_check_list_placa" />
-
-        <EditText
-            android:id="@+id/item_check_list_km"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/item_check_list_placa"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/item_check_list_placa"
-            app:layout_constraintTop_toBottomOf="@+id/item_check_list_hora"
-            android:hint="KM"
-            android:textAlignment="center" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/prolog" />
 
         <RadioGroup
             android:id="@+id/item_rgSaidaRetorno"
@@ -88,47 +34,91 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <RadioButton
-                android:id="@+id/item_rbSaida"
+                android:id="@+id/formulario_rbSaida"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="36dp"
                 android:layout_marginEnd="42dp"
-                android:text="Saida"
+                android:minHeight="48dp"
+                android:text="@string/saida"
                 android:textSize="18sp"
-                app:layout_constraintEnd_toStartOf="@+id/item_rbRetorno"
+                app:layout_constraintEnd_toStartOf="@+id/formulario_rbRetorno"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <RadioButton
-                android:id="@+id/item_rbRetorno"
+                android:id="@+id/formulario_rbRetorno"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="36dp"
                 android:layout_marginEnd="92dp"
-                android:text="Retorno"
+                android:minHeight="48dp"
+                android:text="@string/retorno"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </RadioGroup>
 
-        <View
-            android:id="@+id/item_pacote_divisor"
-            android:layout_width="0dp"
-            android:layout_height="3dp"
-            android:background="@android:color/holo_blue_dark"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="parent" />
+        <EditText
+            android:id="@+id/item_check_list_data"
+            android:layout_width="150dp"
+            android:layout_height="45dp"
+            android:layout_margin="8dp"
+            android:hint="Data"
+            android:inputType="date"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/formulario_imagem_logo_prolog"
+            app:layout_constraintTop_toBottomOf="@+id/formulario_imagem_logo_prolog" />
 
-        <ImageView
-            android:id="@+id/formulario_imagem_logo_prolog"
-            android:layout_width="115dp"
-            android:layout_height="97dp"
-            android:scaleType="fitXY"
+        <EditText
+            android:id="@+id/item_check_list_hora"
+            android:layout_width="150dp"
+            android:layout_height="45dp"
+            android:layout_margin="8dp"
+            android:hint="Hora"
+            android:inputType="time"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/item_check_list_data"
+            app:layout_constraintEnd_toEndOf="@+id/item_rgSaidaRetorno"
+            app:layout_constraintTop_toTopOf="@+id/item_check_list_data" />
+
+        <EditText
+            android:id="@+id/item_check_list_km"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:hint="KM"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/item_rgSaidaRetorno"
+            app:layout_constraintStart_toStartOf="@+id/item_check_list_data"
+            app:layout_constraintTop_toBottomOf="@+id/item_check_list_hora" />
+
+        <EditText
+            android:id="@+id/item_check_list_placa"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Placa"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/item_check_list_km"
             app:layout_constraintStart_toStartOf="@+id/item_check_list_km"
-            app:layout_constraintTop_toTopOf="@+id/item_rgSaidaRetorno"
-            app:srcCompat="@drawable/prolog" />
+            app:layout_constraintTop_toBottomOf="@+id/item_check_list_km" />
+
+        <EditText
+            android:id="@+id/item_check_list_motorista"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Motorista"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/item_check_list_placa"
+            app:layout_constraintStart_toStartOf="@+id/item_check_list_placa"
+            app:layout_constraintTop_toBottomOf="@+id/item_check_list_placa" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
