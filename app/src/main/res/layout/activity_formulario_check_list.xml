@@ -11,1065 +11,1072 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/imagem_fundo_titulo_formulario_inicio"
-            android:layout_width="0dp"
-            android:layout_height="150dp"
-            android:background="#3D5FD9"
-            android:scaleType="centerCrop"
-            app:layout_constraintBottom_toBottomOf="@+id/formulario_rgSaidaRetorno"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <View
-            android:id="@+id/item_titulo_formulario_divisor_inicio"
-            android:layout_width="0dp"
-            android:layout_height="3dp"
-            android:background="@android:color/holo_orange_dark"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imagem_fundo_titulo_formulario_inicio" />
-
-
-
-        <ImageView
-            android:id="@+id/formulario_imagem_logo_prolog"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/prolog" />
-
-        <RadioGroup
-            android:id="@+id/formulario_rgSaidaRetorno"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="16dp"
-            android:orientation="horizontal"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <RadioButton
-                android:id="@+id/formulario_rbSaida"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="36dp"
-                android:layout_marginEnd="42dp"
-                android:minHeight="48dp"
-                android:text="@string/saida"
-                android:textSize="18sp"
-                android:textColor="@color/white"
-                app:layout_constraintEnd_toStartOf="@+id/formulario_rbRetorno"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <RadioButton
-                android:id="@+id/formulario_rbRetorno"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="36dp"
-                android:layout_marginEnd="92dp"
-                android:minHeight="48dp"
-                android:text="@string/retorno"
-                android:textSize="18sp"
-                android:textColor="@color/white"
+            <ImageView
+                android:id="@+id/imagem_fundo_titulo_formulario_inicio"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:background="#3D5FD9"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="@+id/formulario_rgSaidaRetorno"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-        </RadioGroup>
-
-        <EditText
-            android:id="@+id/formulario_check_list_data"
-            android:layout_width="150dp"
-            android:layout_height="45dp"
-            android:layout_margin="8dp"
-            android:hint="Data"
-            android:inputType="date"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@+id/imagem_fundo_titulo_formulario_inicio"
-            app:layout_constraintTop_toBottomOf="@+id/imagem_fundo_titulo_formulario_inicio" />
-
-        <EditText
-            android:id="@+id/formulario_check_list_hora"
-            android:layout_width="150dp"
-            android:layout_height="45dp"
-            android:layout_margin="8dp"
-            android:hint="Hora"
-            android:inputType="time"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@+id/formulario_check_list_data"
-            app:layout_constraintEnd_toEndOf="@+id/imagem_fundo_titulo_formulario_inicio"
-            app:layout_constraintTop_toTopOf="@+id/formulario_check_list_data" />
-
-        <EditText
-            android:id="@+id/formulario_check_list_km"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:hint="KM"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/formulario_rgSaidaRetorno"
-            app:layout_constraintStart_toStartOf="@+id/formulario_check_list_data"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_check_list_hora" />
-
-        <EditText
-            android:id="@+id/formulario_check_list_placa"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="Placa"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/formulario_check_list_km"
-            app:layout_constraintStart_toStartOf="@+id/formulario_check_list_km"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_check_list_km" />
-
-        <EditText
-            android:id="@+id/formulario_check_list_motorista"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="Motorista"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/formulario_check_list_placa"
-            app:layout_constraintStart_toStartOf="@+id/formulario_check_list_placa"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_check_list_placa" />
-
-        <ImageView
-            android:id="@+id/imagem_fundo_titulo_formulario_pneu"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="30dp"
-            android:background="#3D5FD9"
-            android:scaleType="centerCrop"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_check_list_motorista" />
-
-        <View
-            android:id="@+id/item_titulo_formulario_divisor_pneu"
-            android:layout_width="0dp"
-            android:layout_height="3dp"
-            android:background="@android:color/holo_orange_dark"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imagem_fundo_titulo_formulario_pneu" />
-
-        <TextView
-            android:id="@+id/formulario_titulo_pneu"
-            android:layout_width="140dp"
-            android:layout_height="22dp"
-            android:text="@string/pneus_do_veiculo"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="@+id/imagem_fundo_titulo_formulario_pneu"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.911"
-            app:layout_constraintStart_toStartOf="@+id/imagem_fundo_titulo_formulario_pneu"
-            app:layout_constraintTop_toTopOf="@+id/imagem_fundo_titulo_formulario_pneu"
-            app:layout_constraintVertical_bias="0.571" />
-
-        <View
-            android:id="@+id/formulario_pacote_divisor2"
-            android:layout_width="0dp"
-            android:layout_height="3dp"
-            android:background="@android:color/holo_blue_dark"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="parent" />
-
-        <ImageView
-            android:id="@+id/imagem_formulario_pneu_tracao"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="24dp"
-            app:layout_constraintEnd_toStartOf="@+id/formulario_tracao"
-            app:layout_constraintTop_toBottomOf="@+id/item_titulo_formulario_divisor_pneu"
-            app:srcCompat="@drawable/pneu" />
+            <View
+                android:id="@+id/item_titulo_formulario_divisor_inicio"
+                android:layout_width="0dp"
+                android:layout_height="3dp"
+                android:background="@android:color/holo_orange_dark"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imagem_fundo_titulo_formulario_inicio" />
 
 
-        <TextView
-            android:id="@+id/formulario_tracao"
-            android:layout_width="89dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="204dp"
-            android:text="@string/tracao"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imagem_formulario_pneu_tracao" />
+            <ImageView
+                android:id="@+id/formulario_imagem_logo_prolog"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/prolog" />
 
-        <RadioGroup
-            android:id="@+id/formulario_rgtracao_pneu"
-            android:layout_width="169dp"
-            android:layout_height="30dp"
-            android:layout_marginEnd="125dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="@+id/imagem_formulario_pneu_tracao"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/formulario_tracao"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_tracao">
-
-            <RadioButton
-                android:id="@+id/formulario_rb_tracao_nok"
-                android:layout_width="75dp"
+            <RadioGroup
+                android:id="@+id/formulario_rgSaidaRetorno"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:text="OK"
-                app:layout_constraintBottom_toBottomOf="@+id/formulario_rbtracao_ok"
-                app:layout_constraintStart_toStartOf="@+id/formulario_rgtracao_pneu"
-                app:layout_constraintTop_toTopOf="@+id/formulario_rbtracao_ok"
-                app:layout_constraintVertical_bias="0.0"
-                tools:ignore="TouchTargetSizeCheck" />
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="16dp"
+                android:orientation="horizontal"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-            <RadioButton
-                android:id="@+id/formulario_rbtracao_ok"
-                android:layout_width="75dp"
+                <RadioButton
+                    android:id="@+id/formulario_rbSaida"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginEnd="42dp"
+                    android:checked="true"
+                    android:minHeight="48dp"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="@string/saida"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toStartOf="@+id/formulario_rbRetorno"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <RadioButton
+                    android:id="@+id/formulario_rbRetorno"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginEnd="92dp"
+                    android:minHeight="48dp"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="@string/retorno"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/formulario_check_list_data"
+                android:layout_width="150dp"
+                android:layout_height="45dp"
+                android:layout_margin="8dp"
+                android:hint="Data"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/imagem_fundo_titulo_formulario_inicio"
+                app:layout_constraintTop_toBottomOf="@+id/imagem_fundo_titulo_formulario_inicio" />
+
+            <EditText
+                android:id="@+id/formulario_check_list_hora"
+                android:layout_width="150dp"
+                android:layout_height="45dp"
+                android:layout_margin="8dp"
+                android:hint="Hora"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/formulario_check_list_data"
+                app:layout_constraintEnd_toEndOf="@+id/imagem_fundo_titulo_formulario_inicio"
+                app:layout_constraintTop_toTopOf="@+id/formulario_check_list_data" />
+
+            <EditText
+                android:id="@+id/formulario_check_list_km"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="NOK"
-                app:layout_constraintBottom_toBottomOf="@+id/formulario_rgtracao_pneu"
-                app:layout_constraintEnd_toEndOf="@+id/formulario_rgtracao_pneu"
-                app:layout_constraintTop_toTopOf="@+id/formulario_rgtracao_pneu"
-                app:layout_constraintVertical_bias="0.0"
-                tools:ignore="TouchTargetSizeCheck" />
+                android:layout_marginTop="30dp"
+                android:hint="KM"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/formulario_rgSaidaRetorno"
+                app:layout_constraintStart_toStartOf="@+id/formulario_check_list_data"
+                app:layout_constraintTop_toBottomOf="@+id/formulario_check_list_hora" />
 
-        </RadioGroup>
-
-        <ImageView
-            android:id="@+id/imagem_formulario_pneu_calibragem"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginTop="20dp"
-            app:layout_constraintStart_toStartOf="@+id/imagem_formulario_pneu_tracao"
-            app:layout_constraintTop_toBottomOf="@+id/imagem_formulario_pneu_tracao"
-            app:srcCompat="@drawable/pneu_calibragem" />
-
-        <TextView
-            android:id="@+id/formulario_calibragem"
-            android:layout_width="100dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="192dp"
-            android:text="@string/calibragem"
-            android:textSize="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imagem_formulario_pneu_calibragem" />
-
-        <RadioGroup
-            android:id="@+id/formulario_rgcalibragem_pneu"
-            android:layout_width="169dp"
-            android:layout_height="30dp"
-            android:layout_marginEnd="125dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="@+id/imagem_formulario_pneu_calibragem"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/formulario_calibragem"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_calibragem">
-
-            <RadioButton
-                android:id="@+id/formulario_rbcalibragem_ok"
-                android:layout_width="75dp"
+            <EditText
+                android:id="@+id/formulario_check_list_placa"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="OK"
-                app:layout_constraintBottom_toBottomOf="@+id/formulario_rbcalibragem_ok"
-                app:layout_constraintStart_toStartOf="@+id/formulario_rgcalibragem_pneu"
-                app:layout_constraintTop_toTopOf="@+id/formulario_rbcalibragem_ok"
-                app:layout_constraintVertical_bias="0.0"
-                tools:ignore="TouchTargetSizeCheck" />
+                android:layout_marginTop="10dp"
+                android:hint="Placa"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/formulario_check_list_km"
+                app:layout_constraintStart_toStartOf="@+id/formulario_check_list_km"
+                app:layout_constraintTop_toBottomOf="@+id/formulario_check_list_km" />
 
-            <RadioButton
-                android:id="@+id/formulario_rbcalibragem_nok"
-                android:layout_width="75dp"
+            <EditText
+                android:id="@+id/formulario_check_list_motorista"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="NOK"
-                app:layout_constraintBottom_toBottomOf="@+id/formulario_rgcalibragem_pneu"
-                app:layout_constraintEnd_toEndOf="@+id/formulario_rgcalibragem_pneu"
-                app:layout_constraintTop_toTopOf="@+id/formulario_rgcalibragem_pneu"
-                tools:ignore="TouchTargetSizeCheck" />
+                android:layout_marginTop="10dp"
+                android:hint="Motorista"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/formulario_check_list_placa"
+                app:layout_constraintStart_toStartOf="@+id/formulario_check_list_placa"
+                app:layout_constraintTop_toBottomOf="@+id/formulario_check_list_placa" />
 
-        </RadioGroup>
+            <!--        <ImageView-->
+            <!--            android:id="@+id/imagem_fundo_titulo_formulario_pneu"-->
+            <!--            android:layout_width="0dp"-->
+            <!--            android:layout_height="50dp"-->
+            <!--            android:layout_marginTop="30dp"-->
+            <!--            android:background="#3D5FD9"-->
+            <!--            android:scaleType="centerCrop"-->
+            <!--            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--            app:layout_constraintHorizontal_bias="0.0"-->
+            <!--            app:layout_constraintStart_toStartOf="parent"-->
+            <!--            app:layout_constraintTop_toBottomOf="@+id/formulario_check_list_motorista" />-->
 
-        <ImageView
-            android:id="@+id/formulario_imagem_pneu_estepe"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="@+id/imagem_formulario_pneu_calibragem"
-            app:layout_constraintTop_toBottomOf="@+id/imagem_formulario_pneu_calibragem"
-            app:srcCompat="@drawable/pneu_estepe" />
+            <!--        <View-->
+            <!--            android:id="@+id/item_titulo_formulario_divisor_pneu"-->
+            <!--            android:layout_width="0dp"-->
+            <!--            android:layout_height="3dp"-->
+            <!--            android:background="@android:color/holo_orange_dark"-->
+            <!--            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--            app:layout_constraintStart_toStartOf="parent"-->
+            <!--            app:layout_constraintTop_toBottomOf="@id/imagem_fundo_titulo_formulario_pneu" />-->
 
-        <TextView
-            android:id="@+id/formulario_estepe"
-            android:layout_width="80dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="212dp"
-            android:text="@string/estepe"
-            android:textSize="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/formulario_imagem_pneu_estepe" />
+            <TextView
+                android:id="@+id/formulario_titulo_pneu"
+                android:layout_width="140dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/pneus_do_veiculo"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/formulario_check_list_motorista" />
 
-        <RadioGroup
-            android:id="@+id/formulario_rgestepe_pneu"
-            android:layout_width="169dp"
-            android:layout_height="30dp"
-            android:layout_marginEnd="125dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="@+id/formulario_imagem_pneu_estepe"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/formulario_estepe"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_estepe">
+            <View
+                android:id="@+id/formulario_pacote_divisor2"
+                android:layout_width="0dp"
+                android:layout_height="3dp"
+                android:background="@android:color/holo_blue_dark"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
 
-            <RadioButton
-                android:id="@+id/formulario_rbestepe_ok"
+            <ImageView
+                android:id="@+id/imagem_formulario_pneu_tracao"
                 android:layout_width="75dp"
-                android:layout_height="wrap_content"
-                android:text="OK"
-                app:layout_constraintBottom_toBottomOf="@+id/formulario_rbestepe_ok"
-                app:layout_constraintStart_toStartOf="@+id/formulario_rgestepe_pneu"
-                app:layout_constraintTop_toTopOf="@+id/formulario_rbestepe_ok"
-                app:layout_constraintVertical_bias="0.0"
-                tools:ignore="TouchTargetSizeCheck" />
+                android:layout_height="75dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintEnd_toStartOf="@+id/formulario_tracao"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/formulario_titulo_pneu"
+                app:srcCompat="@drawable/pneu" />
 
-            <RadioButton
-                android:id="@+id/formulario_rbestepe_nok"
+
+            <TextView
+                android:id="@+id/formulario_tracao"
+                android:layout_width="89dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="204dp"
+                android:text="@string/tracao"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imagem_formulario_pneu_tracao" />
+
+            <RadioGroup
+                android:id="@+id/formulario_rgtracao_pneu"
+                android:layout_width="169dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="125dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/imagem_formulario_pneu_tracao"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/formulario_tracao"
+                app:layout_constraintTop_toBottomOf="@+id/formulario_tracao">
+
+                <RadioButton
+                    android:id="@+id/formulario_rb_tracao_ok"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="OK"
+                    app:layout_constraintBottom_toBottomOf="@+id/formulario_rbtracao_ok"
+                    app:layout_constraintStart_toStartOf="@+id/formulario_rgtracao_pneu"
+                    app:layout_constraintTop_toTopOf="@+id/formulario_rbtracao_ok"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <RadioButton
+                    android:id="@+id/formulario_rbtracao_nok"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="NOK"
+                    app:layout_constraintBottom_toBottomOf="@+id/formulario_rgtracao_pneu"
+                    app:layout_constraintEnd_toEndOf="@+id/formulario_rgtracao_pneu"
+                    app:layout_constraintTop_toTopOf="@+id/formulario_rgtracao_pneu"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+            </RadioGroup>
+
+            <ImageView
+                android:id="@+id/imagem_formulario_pneu_calibragem"
                 android:layout_width="75dp"
-                android:layout_height="wrap_content"
-                android:text="NOK"
-                app:layout_constraintBottom_toBottomOf="@+id/formulario_rgestepe_pneu"
-                app:layout_constraintEnd_toEndOf="@+id/formulario_rgestepe_pneu"
-                app:layout_constraintTop_toTopOf="@+id/formulario_rgestepe_pneu"
-                tools:ignore="TouchTargetSizeCheck" />
+                android:layout_height="75dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintEnd_toStartOf="@+id/formulario_calibragem"
+                app:layout_constraintStart_toStartOf="@+id/imagem_formulario_pneu_tracao"
+                app:layout_constraintTop_toBottomOf="@+id/imagem_formulario_pneu_tracao"
+                app:srcCompat="@drawable/pneu_calibragem" />
 
-        </RadioGroup>
+            <TextView
+                android:id="@+id/formulario_calibragem"
+                android:layout_width="100dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="192dp"
+                android:text="@string/calibragem"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imagem_formulario_pneu_calibragem" />
 
-        <ImageView
-            android:id="@+id/imagem_fundo_titulo_formulario_freios_suspensao"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="30dp"
-            android:background="#3D5FD9"
-            android:scaleType="centerCrop"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_rgestepe_pneu" />
+            <RadioGroup
+                android:id="@+id/formulario_rgcalibragem_pneu"
+                android:layout_width="169dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="125dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/imagem_formulario_pneu_calibragem"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/formulario_calibragem"
+                app:layout_constraintTop_toBottomOf="@+id/formulario_calibragem">
 
-        <View
-            android:id="@+id/item_titulo_formulario_divisor_freios_suspensao"
-            android:layout_width="0dp"
-            android:layout_height="3dp"
-            android:background="@android:color/holo_orange_dark"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imagem_fundo_titulo_formulario_freios_suspensao" />
+                <RadioButton
+                    android:id="@+id/formulario_rbcalibragem_ok"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="OK"
+                    app:layout_constraintBottom_toBottomOf="@+id/formulario_rbcalibragem_ok"
+                    app:layout_constraintStart_toStartOf="@+id/formulario_rgcalibragem_pneu"
+                    app:layout_constraintTop_toTopOf="@+id/formulario_rbcalibragem_ok"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:ignore="TouchTargetSizeCheck" />
 
-        <TextView
-            android:layout_width="150dp"
-            android:layout_height="22dp"
-            android:text="@string/freios_e_suspensao"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="@+id/imagem_fundo_titulo_formulario_freios_suspensao"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.908"
-            app:layout_constraintStart_toStartOf="@+id/imagem_fundo_titulo_formulario_freios_suspensao"
-            app:layout_constraintTop_toTopOf="@+id/imagem_fundo_titulo_formulario_freios_suspensao"
-            app:layout_constraintVertical_bias="0.535" />
+                <RadioButton
+                    android:id="@+id/formulario_rbcalibragem_nok"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="NOK"
+                    app:layout_constraintBottom_toBottomOf="@+id/formulario_rgcalibragem_pneu"
+                    app:layout_constraintEnd_toEndOf="@+id/formulario_rgcalibragem_pneu"
+                    app:layout_constraintTop_toTopOf="@+id/formulario_rgcalibragem_pneu"
+                    tools:ignore="TouchTargetSizeCheck" />
 
-        <ImageView
-            android:id="@+id/formulario_imagem_freio1"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_pacote_divisor2"
-            app:srcCompat="@drawable/freio_freio" />
+            </RadioGroup>
 
-        <TextView
-            android:id="@+id/formulario_freioDianteiro"
-            android:layout_width="130dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="180dp"
-            android:text="@string/freio_dianteiro"
-            android:textSize="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.765"
-            app:layout_constraintStart_toEndOf="@+id/formulario_titulo_pneu"
-            app:layout_constraintTop_toTopOf="@+id/formulario_imagem_freio1" />
-
-        <RadioGroup
-            android:id="@+id/formulario_rgfreioDianteiro"
-            android:layout_width="169dp"
-            android:layout_height="30dp"
-            android:layout_marginEnd="125dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="@+id/formulario_imagem_freio1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/formulario_freioDianteiro"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_freioDianteiro">
-
-            <RadioButton
-                android:id="@+id/formulario_rbfreioDianteiro_ok"
+            <ImageView
+                android:id="@+id/formulario_imagem_pneu_estepe"
                 android:layout_width="75dp"
-                android:layout_height="wrap_content"
-                android:text="OK"
-                app:layout_constraintBottom_toBottomOf="@+id/formulario_rbfreioDianteiro_ok"
-                app:layout_constraintStart_toStartOf="@+id/formulario_rgfreioDianteiro"
-                app:layout_constraintTop_toTopOf="@+id/formulario_rbfreioDianteiro_ok"
-                app:layout_constraintVertical_bias="0.0" />
+                android:layout_height="75dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@+id/imagem_formulario_pneu_calibragem"
+                app:layout_constraintTop_toBottomOf="@+id/imagem_formulario_pneu_calibragem"
+                app:srcCompat="@drawable/pneu_estepe" />
 
-            <RadioButton
-                android:id="@+id/formulario_rbfreioDianteiro_nok"
+            <TextView
+                android:id="@+id/formulario_estepe"
+                android:layout_width="80dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="212dp"
+                android:text="@string/estepe"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/formulario_imagem_pneu_estepe" />
+
+            <RadioGroup
+                android:id="@+id/formulario_rgestepe_pneu"
+                android:layout_width="169dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="125dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/formulario_imagem_pneu_estepe"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/formulario_estepe"
+                app:layout_constraintTop_toBottomOf="@+id/formulario_estepe">
+
+                <RadioButton
+                    android:id="@+id/formulario_rbestepe_ok"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="OK"
+                    app:layout_constraintBottom_toBottomOf="@+id/formulario_rbestepe_ok"
+                    app:layout_constraintStart_toStartOf="@+id/formulario_rgestepe_pneu"
+                    app:layout_constraintTop_toTopOf="@+id/formulario_rbestepe_ok"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <RadioButton
+                    android:id="@+id/formulario_rbestepe_nok"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="NOK"
+                    app:layout_constraintBottom_toBottomOf="@+id/formulario_rgestepe_pneu"
+                    app:layout_constraintEnd_toEndOf="@+id/formulario_rgestepe_pneu"
+                    app:layout_constraintTop_toTopOf="@+id/formulario_rgestepe_pneu"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+            </RadioGroup>
+
+            <!--        <ImageView-->
+            <!--            android:id="@+id/imagem_fundo_titulo_formulario_freios_suspensao"-->
+            <!--            android:layout_width="0dp"-->
+            <!--            android:layout_height="50dp"-->
+            <!--            android:layout_marginTop="30dp"-->
+            <!--            android:background="#3D5FD9"-->
+            <!--            android:scaleType="centerCrop"-->
+            <!--            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--            app:layout_constraintHorizontal_bias="1.0"-->
+            <!--            app:layout_constraintStart_toStartOf="parent"-->
+            <!--            app:layout_constraintTop_toBottomOf="@+id/formulario_rgestepe_pneu" />-->
+
+            <!--        <View-->
+            <!--            android:id="@+id/item_titulo_formulario_divisor_freios_suspensao"-->
+            <!--            android:layout_width="0dp"-->
+            <!--            android:layout_height="3dp"-->
+            <!--            android:background="@android:color/holo_orange_dark"-->
+            <!--            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--            app:layout_constraintStart_toStartOf="parent"-->
+            <!--            app:layout_constraintTop_toBottomOf="@id/imagem_fundo_titulo_formulario_freios_suspensao" />-->
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="150dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/freios_e_suspensao"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/formulario_imagem_pneu_estepe" />
+
+            <ImageView
+                android:id="@+id/formulario_imagem_freio1"
                 android:layout_width="75dp"
-                android:layout_height="wrap_content"
-                android:text="NOK"
-                app:layout_constraintBottom_toBottomOf="@+id/formulario_rgfreioDianteiro"
-                app:layout_constraintEnd_toEndOf="@+id/formulario_rgfreioDianteiro"
-                app:layout_constraintTop_toTopOf="@+id/formulario_rgfreioDianteiro" />
+                android:layout_height="75dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="@+id/formulario_imagem_pneu_estepe"
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                app:srcCompat="@drawable/freio_freio" />
 
-        </RadioGroup>
+            <TextView
+                android:id="@+id/formulario_freioDianteiro"
+                android:layout_width="130dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="164dp"
+                android:text="@string/freio_dianteiro"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/formulario_imagem_freio1" />
 
-        <ImageView
-            android:id="@+id/formulario_imagem_freio2"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="@+id/formulario_imagem_freio1"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_imagem_freio1"
-            app:srcCompat="@drawable/freio_freio" />
+            <RadioGroup
+                android:id="@+id/formulario_rgfreioDianteiro"
+                android:layout_width="169dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="125dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/formulario_imagem_freio1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/formulario_imagem_freio1"
+                app:layout_constraintTop_toBottomOf="@+id/formulario_freioDianteiro"
+                app:layout_constraintVertical_bias="1.0">
 
-        <TextView
-            android:id="@+id/formulario_freioTraseiro"
-            android:layout_width="130dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="164dp"
-            android:text="@string/freio_traseiro"
-            android:textSize="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/formulario_imagem_freio2" />
+                <RadioButton
+                    android:id="@+id/formulario_rbfreioDianteiro_ok"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="OK"
+                    app:layout_constraintBottom_toBottomOf="@+id/formulario_rbfreioDianteiro_ok"
+                    app:layout_constraintStart_toStartOf="@+id/formulario_rgfreioDianteiro"
+                    app:layout_constraintTop_toTopOf="@+id/formulario_rbfreioDianteiro_ok"
+                    app:layout_constraintVertical_bias="0.0" />
 
-        <RadioGroup
-            android:id="@+id/formulario_rgfreioTraseiro"
-            android:layout_width="169dp"
-            android:layout_height="30dp"
-            android:layout_marginEnd="125dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="@+id/formulario_imagem_freio2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/formulario_freioTraseiro"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_freioTraseiro">
+                <RadioButton
+                    android:id="@+id/formulario_rbfreioDianteiro_nok"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="NOK"
+                    app:layout_constraintBottom_toBottomOf="@+id/formulario_rgfreioDianteiro"
+                    app:layout_constraintEnd_toEndOf="@+id/formulario_rgfreioDianteiro"
+                    app:layout_constraintTop_toTopOf="@+id/formulario_rgfreioDianteiro" />
 
-            <RadioButton
-                android:id="@+id/formulario_rbfreioTraseiro_ok"
+            </RadioGroup>
+
+            <ImageView
+                android:id="@+id/formulario_imagem_freio2"
                 android:layout_width="75dp"
-                android:layout_height="wrap_content"
-                android:text="OK"
-                app:layout_constraintBottom_toBottomOf="@+id/formulario_rbfreioTraseiro_ok"
-                app:layout_constraintStart_toStartOf="@+id/formulario_rgfreioTraseiro"
-                app:layout_constraintTop_toTopOf="@+id/formulario_rbfreioTraseiro_ok"
-                app:layout_constraintVertical_bias="0.0" />
+                android:layout_height="75dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@+id/formulario_imagem_freio1"
+                app:layout_constraintTop_toBottomOf="@+id/formulario_imagem_freio1"
+                app:srcCompat="@drawable/freio_freio" />
 
-            <RadioButton
-                android:id="@+id/formulario_rbfreioTraseiro_nok"
+            <TextView
+                android:id="@+id/formulario_freioTraseiro"
+                android:layout_width="130dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="164dp"
+                android:text="@string/freio_traseiro"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/formulario_imagem_freio2" />
+
+            <RadioGroup
+                android:id="@+id/formulario_rgfreioTraseiro"
+                android:layout_width="169dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="125dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/formulario_imagem_freio2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/formulario_freioTraseiro"
+                app:layout_constraintTop_toBottomOf="@+id/formulario_freioTraseiro">
+
+                <RadioButton
+                    android:id="@+id/formulario_rbfreioTraseiro_ok"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="OK"
+                    app:layout_constraintBottom_toBottomOf="@+id/formulario_rbfreioTraseiro_ok"
+                    app:layout_constraintStart_toStartOf="@+id/formulario_rgfreioTraseiro"
+                    app:layout_constraintTop_toTopOf="@+id/formulario_rbfreioTraseiro_ok"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <RadioButton
+                    android:id="@+id/formulario_rbfreioTraseiro_nok"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="NOK"
+                    app:layout_constraintBottom_toBottomOf="@+id/formulario_rgfreioTraseiro"
+                    app:layout_constraintEnd_toEndOf="@+id/formulario_rgfreioTraseiro"
+                    app:layout_constraintTop_toTopOf="@+id/formulario_rgfreioTraseiro" />
+
+            </RadioGroup>
+
+            <ImageView
+                android:id="@+id/formulario_imagem_freio_balanceamento"
                 android:layout_width="75dp"
-                android:layout_height="wrap_content"
-                android:text="NOK"
-                app:layout_constraintBottom_toBottomOf="@+id/formulario_rgfreioTraseiro"
-                app:layout_constraintEnd_toEndOf="@+id/formulario_rgfreioTraseiro"
-                app:layout_constraintTop_toTopOf="@+id/formulario_rgfreioTraseiro" />
+                android:layout_height="75dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@+id/formulario_imagem_freio2"
+                app:layout_constraintTop_toBottomOf="@+id/formulario_imagem_freio2"
+                app:srcCompat="@drawable/freios_suspensao_balanceamento" />
 
-        </RadioGroup>
+            <TextView
+                android:id="@+id/formulario_balanceamento"
+                android:layout_width="130dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="164dp"
+                android:text="Balanceamento: "
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/formulario_imagem_freio_balanceamento" />
 
-        <ImageView
-            android:id="@+id/formulario_imagem_freio_balanceamento"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="@+id/formulario_imagem_freio2"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_imagem_freio2"
-            app:srcCompat="@drawable/freios_suspensao_balanceamento" />
+            <RadioGroup
+                android:id="@+id/formulario_rgBalanceamento"
+                android:layout_width="169dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="125dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/formulario_imagem_freio_balanceamento"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/formulario_balanceamento"
+                app:layout_constraintTop_toBottomOf="@+id/formulario_balanceamento">
 
-        <TextView
-            android:id="@+id/formulario_balanceamento"
-            android:layout_width="130dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="164dp"
-            android:text="Balanceamento: "
-            android:textSize="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/formulario_imagem_freio_balanceamento" />
+                <RadioButton
+                    android:id="@+id/formulario_rbBalanceamento_ok"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="OK"
+                    app:layout_constraintBottom_toBottomOf="@+id/formulario_rbBalanceamento_ok"
+                    app:layout_constraintStart_toStartOf="@+id/formulario_rgBalanceamento"
+                    app:layout_constraintTop_toTopOf="@+id/formulario_rbBalanceamento_ok"
+                    app:layout_constraintVertical_bias="0.0" />
 
-        <RadioGroup
-            android:id="@+id/formulario_rgBalanceamento"
-            android:layout_width="169dp"
-            android:layout_height="30dp"
-            android:layout_marginEnd="125dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="@+id/formulario_imagem_freio_balanceamento"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/formulario_balanceamento"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_balanceamento">
+                <RadioButton
+                    android:id="@+id/formulario_rbBalanceamento_nok"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="NOK"
+                    app:layout_constraintBottom_toBottomOf="@+id/formulario_rgBalanceamento"
+                    app:layout_constraintEnd_toEndOf="@+id/formulario_rgBalanceamento"
+                    app:layout_constraintTop_toTopOf="@+id/formulario_rgBalanceamento" />
 
-            <RadioButton
-                android:id="@+id/formulario_rbBalanceamento_ok"
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/formulario_titulo_motor"
+                android:layout_width="200dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="35dp"
+                android:text="MOTOR"
+                app:layout_constraintStart_toStartOf="@+id/formulario_imagem_freio_balanceamento"
+                app:layout_constraintTop_toBottomOf="@+id/formulario_imagem_freio_balanceamento" />
+
+            <ImageView
+                android:id="@+id/formulario_imagem_limpeza_radiador"
                 android:layout_width="75dp"
-                android:layout_height="wrap_content"
-                android:text="OK"
-                app:layout_constraintBottom_toBottomOf="@+id/formulario_rbBalanceamento_ok"
-                app:layout_constraintStart_toStartOf="@+id/formulario_rgBalanceamento"
-                app:layout_constraintTop_toTopOf="@+id/formulario_rbBalanceamento_ok"
-                app:layout_constraintVertical_bias="0.0" />
+                android:layout_height="75dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@+id/formulario_titulo_motor"
+                app:layout_constraintTop_toBottomOf="@+id/formulario_titulo_motor"
+                app:srcCompat="@drawable/motor_limpeza_radiador" />
 
-            <RadioButton
-                android:id="@+id/formulario_rbBalanceamento_nok"
+            <TextView
+                android:id="@+id/formulario_limpezaRadiador"
+                android:layout_width="160dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="132dp"
+                android:text="Limpeza Radiador: "
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/formulario_imagem_limpeza_radiador" />
+
+            <RadioGroup
+                android:id="@+id/formulario_rgLimpezaRadiador"
+                android:layout_width="169dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="125dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/formulario_imagem_limpeza_radiador"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/formulario_limpezaRadiador"
+                app:layout_constraintTop_toBottomOf="@+id/formulario_limpezaRadiador">
+
+                <RadioButton
+                    android:id="@+id/formulario_rbLimpezaRadiador_ok"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="OK"
+                    app:layout_constraintBottom_toBottomOf="@+id/formulario_rbLimpezaRadiador_ok"
+                    app:layout_constraintStart_toStartOf="@+id/formulario_rgLimpezaRadiador"
+                    app:layout_constraintTop_toTopOf="@+id/formulario_rbLimpezaRadiador_ok"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <RadioButton
+                    android:id="@+id/formulario_rbLimpezaRadiador_nok"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="NOK"
+                    app:layout_constraintBottom_toBottomOf="@+id/formulario_rgLimpezaRadiador"
+                    app:layout_constraintEnd_toEndOf="@+id/formulario_rgLimpezaRadiador"
+                    app:layout_constraintTop_toTopOf="@+id/formulario_rgLimpezaRadiador" />
+
+            </RadioGroup>
+
+            <ImageView
+                android:id="@+id/formulario_imagem_oleo"
                 android:layout_width="75dp"
-                android:layout_height="wrap_content"
-                android:text="NOK"
-                app:layout_constraintBottom_toBottomOf="@+id/formulario_rgBalanceamento"
-                app:layout_constraintEnd_toEndOf="@+id/formulario_rgBalanceamento"
-                app:layout_constraintTop_toTopOf="@+id/formulario_rgBalanceamento" />
+                android:layout_height="75dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@+id/formulario_imagem_limpeza_radiador"
+                app:layout_constraintTop_toBottomOf="@id/formulario_imagem_limpeza_radiador"
+                app:srcCompat="@drawable/motor_oleo" />
 
-        </RadioGroup>
+            <TextView
+                android:id="@+id/formulario_oleoMotor"
+                android:layout_width="100dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="196dp"
+                android:text="Oleo Motor: "
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/formulario_imagem_oleo" />
 
-        <TextView
-            android:id="@+id/formulario_titulo_motor"
-            android:layout_width="200dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="35dp"
-            android:text="MOTOR"
-            app:layout_constraintStart_toStartOf="@+id/formulario_imagem_freio_balanceamento"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_imagem_freio_balanceamento" />
+            <RadioGroup
+                android:id="@+id/formulario_rgOleoMotor"
+                android:layout_width="169dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="125dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/formulario_imagem_oleo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/formulario_oleoMotor"
+                app:layout_constraintTop_toBottomOf="@+id/formulario_oleoMotor">
 
-        <ImageView
-            android:id="@+id/formulario_imagem_limpeza_radiador"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="@+id/formulario_titulo_motor"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_titulo_motor"
-            app:srcCompat="@drawable/motor_limpeza_radiador" />
+                <RadioButton
+                    android:id="@+id/formulario_rbOleoMotor_ok"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="OK"
+                    app:layout_constraintBottom_toBottomOf="@+id/formulario_rbOleoMotor_ok"
+                    app:layout_constraintStart_toStartOf="@+id/formulario_rgOleoMotor"
+                    app:layout_constraintTop_toTopOf="@+id/formulario_rbOleoMotor_ok"
+                    app:layout_constraintVertical_bias="0.0" />
 
-        <TextView
-            android:id="@+id/formulario_limpezaRadiador"
-            android:layout_width="160dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="132dp"
-            android:text="Limpeza Radiador: "
-            android:textSize="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/formulario_imagem_limpeza_radiador" />
+                <RadioButton
+                    android:id="@+id/formulario_rbOleoMotor_nok"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="NOK"
+                    app:layout_constraintBottom_toBottomOf="@+id/formulario_rgOleoMotor"
+                    app:layout_constraintEnd_toEndOf="@+id/formulario_rgOleoMotor"
+                    app:layout_constraintTop_toTopOf="@+id/formulario_rgOleoMotor" />
 
-        <RadioGroup
-            android:id="@+id/formulario_rgLimpezaRadiador"
-            android:layout_width="169dp"
-            android:layout_height="30dp"
-            android:layout_marginEnd="125dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="@+id/formulario_imagem_limpeza_radiador"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/formulario_limpezaRadiador"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_limpezaRadiador">
+            </RadioGroup>
 
-            <RadioButton
-                android:id="@+id/formulario_rbLimpezaRadiador_ok"
+            <ImageView
+                android:id="@+id/formulario_imagem_motor_filtro_oleo"
                 android:layout_width="75dp"
-                android:layout_height="wrap_content"
-                android:text="OK"
-                app:layout_constraintBottom_toBottomOf="@+id/formulario_rbLimpezaRadiador_ok"
-                app:layout_constraintStart_toStartOf="@+id/formulario_rgLimpezaRadiador"
-                app:layout_constraintTop_toTopOf="@+id/formulario_rbLimpezaRadiador_ok"
-                app:layout_constraintVertical_bias="0.0" />
+                android:layout_height="75dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@+id/formulario_imagem_oleo"
+                app:layout_constraintTop_toBottomOf="@+id/formulario_imagem_oleo"
+                app:srcCompat="@drawable/motor_filtro_oleo" />
 
-            <RadioButton
-                android:id="@+id/formulario_rbLimpezaRadiador_nok"
+            <TextView
+                android:id="@+id/formulario_filtroOleo"
+                android:layout_width="90dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="204dp"
+                android:text="Filtro oleo: "
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/formulario_imagem_motor_filtro_oleo" />
+
+            <RadioGroup
+                android:id="@+id/formulario_rgfiltroOleo"
+                android:layout_width="169dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="125dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/formulario_imagem_motor_filtro_oleo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/formulario_filtroOleo"
+                app:layout_constraintTop_toBottomOf="@+id/formulario_filtroOleo">
+
+                <RadioButton
+                    android:id="@+id/formulario_rbFiltroOleo_ok"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="OK"
+                    app:layout_constraintBottom_toBottomOf="@+id/formulario_rbFiltroOleo_ok"
+                    app:layout_constraintStart_toStartOf="@+id/formulario_rgfiltroOleo"
+                    app:layout_constraintTop_toTopOf="@+id/formulario_rbFiltroOleo_ok"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <RadioButton
+                    android:id="@+id/formulario_rbFiltroOleo_nok"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="NOK"
+                    app:layout_constraintBottom_toBottomOf="@+id/formulario_rgfiltroOleo"
+                    app:layout_constraintEnd_toEndOf="@+id/formulario_rgfiltroOleo"
+                    app:layout_constraintTop_toTopOf="@+id/formulario_rgfiltroOleo" />
+
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/formulario_titulo_parte_externa"
+                android:layout_width="200dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="32dp"
+                android:text="PARTE EXTERNA"
+                app:layout_constraintStart_toStartOf="@+id/formulario_imagem_motor_filtro_oleo"
+                app:layout_constraintTop_toBottomOf="@+id/formulario_imagem_motor_filtro_oleo" />
+
+            <ImageView
+                android:id="@+id/formulario_imagem_parachoque_dianteiro"
                 android:layout_width="75dp"
-                android:layout_height="wrap_content"
-                android:text="NOK"
-                app:layout_constraintBottom_toBottomOf="@+id/formulario_rgLimpezaRadiador"
-                app:layout_constraintEnd_toEndOf="@+id/formulario_rgLimpezaRadiador"
-                app:layout_constraintTop_toTopOf="@+id/formulario_rgLimpezaRadiador" />
+                android:layout_height="75dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@+id/formulario_titulo_parte_externa"
+                app:layout_constraintTop_toBottomOf="@+id/formulario_titulo_parte_externa"
+                app:srcCompat="@drawable/externo_pc_dianteiro" />
 
-        </RadioGroup>
+            <TextView
+                android:id="@+id/formulario_PCdianteiro"
+                android:layout_width="190dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="104dp"
+                android:text="Para-choque Dianteiro: "
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/formulario_imagem_parachoque_dianteiro" />
 
-        <ImageView
-            android:id="@+id/formulario_imagem_oleo"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="@+id/formulario_imagem_limpeza_radiador"
-            app:layout_constraintTop_toBottomOf="@id/formulario_imagem_limpeza_radiador"
-            app:srcCompat="@drawable/motor_oleo" />
+            <RadioGroup
+                android:id="@+id/formulario_rgPCDianteiro"
+                android:layout_width="169dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="125dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/formulario_imagem_parachoque_dianteiro"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/formulario_PCdianteiro"
+                app:layout_constraintTop_toBottomOf="@+id/formulario_PCdianteiro">
 
-        <TextView
-            android:id="@+id/formulario_oleoMotor"
-            android:layout_width="100dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="196dp"
-            android:text="Oleo Motor: "
-            android:textSize="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/formulario_imagem_oleo" />
+                <RadioButton
+                    android:id="@+id/formulario_rbPcDianteiro_ok"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="OK"
+                    app:layout_constraintBottom_toBottomOf="@+id/formulario_rbPcDianteiro_ok"
+                    app:layout_constraintStart_toStartOf="@+id/formulario_rgPCDianteiro"
+                    app:layout_constraintTop_toTopOf="@+id/formulario_rbPcDianteiro_ok"
+                    app:layout_constraintVertical_bias="0.0" />
 
-        <RadioGroup
-            android:id="@+id/formulario_rgOleoMotor"
-            android:layout_width="169dp"
-            android:layout_height="30dp"
-            android:layout_marginEnd="125dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="@+id/formulario_imagem_oleo"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/formulario_oleoMotor"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_oleoMotor">
+                <RadioButton
+                    android:id="@+id/formulario_rbPCDianteiro_nok"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="NOK"
+                    app:layout_constraintBottom_toBottomOf="@+id/formulario_rgPCDianteiro"
+                    app:layout_constraintEnd_toEndOf="@+id/formulario_rgPCDianteiro"
+                    app:layout_constraintTop_toTopOf="@+id/formulario_rgPCDianteiro" />
 
-            <RadioButton
-                android:id="@+id/formulario_rbOleoMotor_ok"
+            </RadioGroup>
+
+            <ImageView
+                android:id="@+id/formulario_imagem_pc_traseiro"
                 android:layout_width="75dp"
-                android:layout_height="wrap_content"
-                android:text="OK"
-                app:layout_constraintBottom_toBottomOf="@+id/formulario_rbOleoMotor_ok"
-                app:layout_constraintStart_toStartOf="@+id/formulario_rgOleoMotor"
-                app:layout_constraintTop_toTopOf="@+id/formulario_rbOleoMotor_ok"
-                app:layout_constraintVertical_bias="0.0" />
+                android:layout_height="75dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@+id/formulario_imagem_parachoque_dianteiro"
+                app:layout_constraintTop_toBottomOf="@+id/formulario_imagem_parachoque_dianteiro"
+                app:srcCompat="@drawable/externo_pc_traseiro" />
 
-            <RadioButton
-                android:id="@+id/formulario_rbOleoMotor_nok"
+            <TextView
+                android:id="@+id/formulario_PCtraseiro"
+                android:layout_width="190dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="104dp"
+                android:text="Para-choque Traseiro: "
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/formulario_imagem_pc_traseiro" />
+
+            <RadioGroup
+                android:id="@+id/formulario_rgPCTraseiro"
+                android:layout_width="169dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="125dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/formulario_imagem_pc_traseiro"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/formulario_PCtraseiro"
+                app:layout_constraintTop_toBottomOf="@+id/formulario_PCtraseiro">
+
+                <RadioButton
+                    android:id="@+id/formulario_rbPcTraseiro_ok"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="OK"
+                    app:layout_constraintBottom_toBottomOf="@+id/formulario_rbPcTraseiro_ok"
+                    app:layout_constraintStart_toStartOf="@+id/formulario_rgPCTraseiro"
+                    app:layout_constraintTop_toTopOf="@+id/formulario_rbPcTraseiro_ok"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <RadioButton
+                    android:id="@+id/formulario_rbPCTraseiro_nok"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="NOK"
+                    app:layout_constraintBottom_toBottomOf="@+id/formulario_rgPCTraseiro"
+                    app:layout_constraintEnd_toEndOf="@+id/formulario_rgPCTraseiro"
+                    app:layout_constraintTop_toTopOf="@+id/formulario_rgPCTraseiro" />
+
+            </RadioGroup>
+
+            <ImageView
+                android:id="@+id/formulario_imagem_externo_placas"
                 android:layout_width="75dp"
-                android:layout_height="wrap_content"
-                android:text="NOK"
-                app:layout_constraintBottom_toBottomOf="@+id/formulario_rgOleoMotor"
-                app:layout_constraintEnd_toEndOf="@+id/formulario_rgOleoMotor"
-                app:layout_constraintTop_toTopOf="@+id/formulario_rgOleoMotor" />
+                android:layout_height="75dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@+id/formulario_imagem_pc_traseiro"
+                app:layout_constraintTop_toBottomOf="@+id/formulario_imagem_pc_traseiro"
+                app:srcCompat="@drawable/externo_placas" />
 
-        </RadioGroup>
+            <TextView
+                android:id="@+id/formulario_placasCaminhao"
+                android:layout_width="150dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="144dp"
+                android:text="Placa caminhao: "
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/formulario_imagem_externo_placas" />
 
-        <ImageView
-            android:id="@+id/formulario_imagem_motor_filtro_oleo"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="@+id/formulario_imagem_oleo"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_imagem_oleo"
-            app:srcCompat="@drawable/motor_filtro_oleo" />
+            <RadioGroup
+                android:id="@+id/formulario_rgPlacasCaminhao"
+                android:layout_width="169dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="125dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/formulario_imagem_externo_placas"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/formulario_placasCaminhao"
+                app:layout_constraintTop_toBottomOf="@+id/formulario_placasCaminhao">
 
-        <TextView
-            android:id="@+id/formulario_filtroOleo"
-            android:layout_width="90dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="204dp"
-            android:text="Filtro oleo: "
-            android:textSize="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/formulario_imagem_motor_filtro_oleo" />
+                <RadioButton
+                    android:id="@+id/formulario_rbPlacasCaminhao_ok"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="OK"
+                    app:layout_constraintBottom_toBottomOf="@+id/formulario_rbPlacasCaminhao_ok"
+                    app:layout_constraintStart_toStartOf="@+id/formulario_rgPlacasCaminhao"
+                    app:layout_constraintTop_toTopOf="@+id/formulario_rbPlacasCaminhao_ok"
+                    app:layout_constraintVertical_bias="0.0" />
 
-        <RadioGroup
-            android:id="@+id/formulario_rgfiltroOleo"
-            android:layout_width="169dp"
-            android:layout_height="30dp"
-            android:layout_marginEnd="125dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="@+id/formulario_imagem_motor_filtro_oleo"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/formulario_filtroOleo"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_filtroOleo">
+                <RadioButton
+                    android:id="@+id/formulario_rbPlacasCaminhao_nok"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="NOK"
+                    app:layout_constraintBottom_toBottomOf="@+id/formulario_rgPlacasCaminhao"
+                    app:layout_constraintEnd_toEndOf="@+id/formulario_rgPlacasCaminhao"
+                    app:layout_constraintTop_toTopOf="@+id/formulario_rgPlacasCaminhao" />
 
-            <RadioButton
-                android:id="@+id/formulario_rbFiltroOleo_ok"
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/formulario_titulo_parte_interna"
+                android:layout_width="200dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="35dp"
+                android:text="PARTE INTERNA"
+                app:layout_constraintStart_toStartOf="@+id/formulario_imagem_externo_placas"
+                app:layout_constraintTop_toBottomOf="@+id/formulario_imagem_externo_placas" />
+
+            <ImageView
+                android:id="@+id/formulario_imagem_interno_cinto_seguranca"
                 android:layout_width="75dp"
-                android:layout_height="wrap_content"
-                android:text="OK"
-                app:layout_constraintBottom_toBottomOf="@+id/formulario_rbFiltroOleo_ok"
-                app:layout_constraintStart_toStartOf="@+id/formulario_rgfiltroOleo"
-                app:layout_constraintTop_toTopOf="@+id/formulario_rbFiltroOleo_ok"
-                app:layout_constraintVertical_bias="0.0" />
+                android:layout_height="75dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@+id/formulario_titulo_parte_interna"
+                app:layout_constraintTop_toBottomOf="@+id/formulario_titulo_parte_interna"
+                app:srcCompat="@drawable/interno_cinto_seguranca" />
 
-            <RadioButton
-                android:id="@+id/formulario_rbFiltroOleo_nok"
+            <TextView
+                android:id="@+id/formulario_cinto_seguranca"
+                android:layout_width="180dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="116dp"
+                android:text="Cinto de segurança: "
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/formulario_imagem_interno_cinto_seguranca" />
+
+            <RadioGroup
+                android:id="@+id/formulario_rgcinto_seguranca"
+                android:layout_width="169dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="125dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/formulario_imagem_interno_cinto_seguranca"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/formulario_cinto_seguranca"
+                app:layout_constraintTop_toBottomOf="@+id/formulario_cinto_seguranca">
+
+                <RadioButton
+                    android:id="@+id/formulario_rbcinto_seguranca_ok"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="OK"
+                    app:layout_constraintBottom_toBottomOf="@+id/formulario_rbcinto_seguranca_ok"
+                    app:layout_constraintStart_toStartOf="@+id/formulario_rgcinto_seguranca"
+                    app:layout_constraintTop_toTopOf="@+id/formulario_rbcinto_seguranca_ok"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <RadioButton
+                    android:id="@+id/formulario_rbcinto_seguranca_nok"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="NOK"
+                    app:layout_constraintBottom_toBottomOf="@+id/formulario_rgcinto_seguranca"
+                    app:layout_constraintEnd_toEndOf="@+id/formulario_rgcinto_seguranca"
+                    app:layout_constraintTop_toTopOf="@+id/formulario_rgcinto_seguranca" />
+
+            </RadioGroup>
+
+            <ImageView
+                android:id="@+id/formulario_imagem_interno_pedais"
                 android:layout_width="75dp"
-                android:layout_height="wrap_content"
-                android:text="NOK"
-                app:layout_constraintBottom_toBottomOf="@+id/formulario_rgfiltroOleo"
-                app:layout_constraintEnd_toEndOf="@+id/formulario_rgfiltroOleo"
-                app:layout_constraintTop_toTopOf="@+id/formulario_rgfiltroOleo" />
+                android:layout_height="75dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@+id/formulario_imagem_interno_cinto_seguranca"
+                app:layout_constraintTop_toBottomOf="@+id/formulario_imagem_interno_cinto_seguranca"
+                app:srcCompat="@drawable/interno_pedais" />
 
-        </RadioGroup>
+            <TextView
+                android:id="@+id/formulario_pedais"
+                android:layout_width="150dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="144dp"
+                android:text="Pedais: "
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/formulario_imagem_interno_pedais" />
 
+            <RadioGroup
+                android:id="@+id/formulario_rgpedais"
+                android:layout_width="169dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="125dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/formulario_imagem_interno_pedais"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/formulario_pedais"
+                app:layout_constraintTop_toBottomOf="@+id/formulario_pedais">
 
-        <TextView
-            android:id="@+id/formulario_titulo_parte_externa"
-            android:layout_width="200dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="32dp"
-            android:text="PARTE EXTERNA"
-            app:layout_constraintStart_toStartOf="@+id/formulario_imagem_motor_filtro_oleo"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_imagem_motor_filtro_oleo" />
+                <RadioButton
+                    android:id="@+id/formulario_rbpedais_ok"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="OK"
+                    app:layout_constraintBottom_toBottomOf="@+id/formulario_rbpedais_ok"
+                    app:layout_constraintStart_toStartOf="@+id/formulario_rgpedais"
+                    app:layout_constraintTop_toTopOf="@+id/formulario_rbpedais_ok"
+                    app:layout_constraintVertical_bias="0.0" />
 
-        <ImageView
-            android:id="@+id/formulario_imagem_parachoque_dianteiro"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="@+id/formulario_titulo_parte_externa"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_titulo_parte_externa"
-            app:srcCompat="@drawable/externo_pc_dianteiro" />
+                <RadioButton
+                    android:id="@+id/formulario_rbpedais_nok"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="NOK"
+                    app:layout_constraintBottom_toBottomOf="@+id/formulario_rgpedais"
+                    app:layout_constraintEnd_toEndOf="@+id/formulario_rgpedais"
+                    app:layout_constraintTop_toTopOf="@+id/formulario_rgpedais" />
 
-        <TextView
-            android:id="@+id/formulario_PCdianteiro"
-            android:layout_width="190dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="104dp"
-            android:text="Para-choque Dianteiro: "
-            android:textSize="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/formulario_imagem_parachoque_dianteiro" />
+            </RadioGroup>
 
-        <RadioGroup
-            android:id="@+id/formulario_rgPCDianteiro"
-            android:layout_width="169dp"
-            android:layout_height="30dp"
-            android:layout_marginEnd="125dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="@+id/formulario_imagem_parachoque_dianteiro"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/formulario_PCdianteiro"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_PCdianteiro">
-
-            <RadioButton
-                android:id="@+id/formulario_rbPcDianteiro_ok"
+            <ImageView
+                android:id="@+id/formulario_imagem_interno_abertura_portas"
                 android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@+id/formulario_imagem_interno_pedais"
+                app:layout_constraintTop_toBottomOf="@+id/formulario_imagem_interno_pedais"
+                app:srcCompat="@drawable/interno_portas" />
+
+            <TextView
+                android:id="@+id/formulario_abertura_portas"
+                android:layout_width="200dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="92dp"
+                android:text="Abertura de portas: "
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/formulario_imagem_interno_abertura_portas" />
+
+            <RadioGroup
+                android:id="@+id/formulario_rgabertura_portas"
+                android:layout_width="169dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="125dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/formulario_imagem_interno_abertura_portas"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/formulario_abertura_portas"
+                app:layout_constraintTop_toBottomOf="@+id/formulario_abertura_portas">
+
+                <RadioButton
+                    android:id="@+id/formulario_rbabertura_portas_ok"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="OK"
+                    app:layout_constraintBottom_toBottomOf="@+id/formulario_rbabertura_portas_ok"
+                    app:layout_constraintStart_toStartOf="@+id/formulario_rgabertura_portas"
+                    app:layout_constraintTop_toTopOf="@+id/formulario_rbabertura_portas_ok"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <RadioButton
+                    android:id="@+id/formulario_rbabertura_portas_nok"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="NOK"
+                    app:layout_constraintBottom_toBottomOf="@+id/formulario_rgabertura_portas"
+                    app:layout_constraintEnd_toEndOf="@+id/formulario_rgabertura_portas"
+                    app:layout_constraintTop_toTopOf="@+id/formulario_rgabertura_portas" />
+
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/botao_formulario_cancelar"
+                android:layout_width="190dp"
                 android:layout_height="wrap_content"
-                android:text="OK"
-                app:layout_constraintBottom_toBottomOf="@+id/formulario_rbPcDianteiro_ok"
-                app:layout_constraintStart_toStartOf="@+id/formulario_rgPCDianteiro"
-                app:layout_constraintTop_toTopOf="@+id/formulario_rbPcDianteiro_ok"
-                app:layout_constraintVertical_bias="0.0" />
+                android:layout_marginTop="35dp"
+                android:background="#3D5FD9"
+                android:text="Cancelar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/formulario_imagem_interno_abertura_portas" />
 
-            <RadioButton
-                android:id="@+id/formulario_rbPCDianteiro_nok"
-                android:layout_width="75dp"
+            <Button
+                android:id="@+id/botao_formulario_salvar"
+                android:layout_width="190dp"
                 android:layout_height="wrap_content"
-                android:text="NOK"
-                app:layout_constraintBottom_toBottomOf="@+id/formulario_rgPCDianteiro"
-                app:layout_constraintEnd_toEndOf="@+id/formulario_rgPCDianteiro"
-                app:layout_constraintTop_toTopOf="@+id/formulario_rgPCDianteiro" />
-
-        </RadioGroup>
-
-        <ImageView
-            android:id="@+id/formulario_imagem_pc_traseiro"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="@+id/formulario_imagem_parachoque_dianteiro"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_imagem_parachoque_dianteiro"
-            app:srcCompat="@drawable/externo_pc_traseiro" />
-
-        <TextView
-            android:id="@+id/formulario_PCtraseiro"
-            android:layout_width="190dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="104dp"
-            android:text="Para-choque Traseiro: "
-            android:textSize="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/formulario_imagem_pc_traseiro" />
-
-        <RadioGroup
-            android:id="@+id/formulario_rgPCTraseiro"
-            android:layout_width="169dp"
-            android:layout_height="30dp"
-            android:layout_marginEnd="125dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="@+id/formulario_imagem_pc_traseiro"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/formulario_PCtraseiro"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_PCtraseiro">
-
-            <RadioButton
-                android:id="@+id/formulario_rbPcTraseiro_ok"
-                android:layout_width="75dp"
-                android:layout_height="wrap_content"
-                android:text="OK"
-                app:layout_constraintBottom_toBottomOf="@+id/formulario_rbPcTraseiro_ok"
-                app:layout_constraintStart_toStartOf="@+id/formulario_rgPCTraseiro"
-                app:layout_constraintTop_toTopOf="@+id/formulario_rbPcTraseiro_ok"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <RadioButton
-                android:id="@+id/formulario_rbPCTraseiro_nok"
-                android:layout_width="75dp"
-                android:layout_height="wrap_content"
-                android:text="NOK"
-                app:layout_constraintBottom_toBottomOf="@+id/formulario_rgPCTraseiro"
-                app:layout_constraintEnd_toEndOf="@+id/formulario_rgPCTraseiro"
-                app:layout_constraintTop_toTopOf="@+id/formulario_rgPCTraseiro" />
-
-        </RadioGroup>
-
-        <ImageView
-            android:id="@+id/formulario_imagem_externo_placas"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="@+id/formulario_imagem_pc_traseiro"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_imagem_pc_traseiro"
-            app:srcCompat="@drawable/externo_placas" />
-
-        <TextView
-            android:id="@+id/formulario_placasCaminhao"
-            android:layout_width="150dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="144dp"
-            android:text="Placa caminhao: "
-            android:textSize="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/formulario_imagem_externo_placas" />
-
-        <RadioGroup
-            android:id="@+id/formulario_rgPlacasCaminhao"
-            android:layout_width="169dp"
-            android:layout_height="30dp"
-            android:layout_marginEnd="125dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="@+id/formulario_imagem_externo_placas"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/formulario_placasCaminhao"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_placasCaminhao">
-
-            <RadioButton
-                android:id="@+id/formulario_rbPlacasCaminhao_ok"
-                android:layout_width="75dp"
-                android:layout_height="wrap_content"
-                android:text="OK"
-                app:layout_constraintBottom_toBottomOf="@+id/formulario_rbPlacasCaminhao_ok"
-                app:layout_constraintStart_toStartOf="@+id/formulario_rgPlacasCaminhao"
-                app:layout_constraintTop_toTopOf="@+id/formulario_rbPlacasCaminhao_ok"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <RadioButton
-                android:id="@+id/formulario_rbPlacasCaminhao_nok"
-                android:layout_width="75dp"
-                android:layout_height="wrap_content"
-                android:text="NOK"
-                app:layout_constraintBottom_toBottomOf="@+id/formulario_rgPlacasCaminhao"
-                app:layout_constraintEnd_toEndOf="@+id/formulario_rgPlacasCaminhao"
-                app:layout_constraintTop_toTopOf="@+id/formulario_rgPlacasCaminhao" />
-
-        </RadioGroup>
-
-        <TextView
-            android:id="@+id/formulario_titulo_parte_interna"
-            android:layout_width="200dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="35dp"
-            android:text="PARTE INTERNA"
-            app:layout_constraintStart_toStartOf="@+id/formulario_imagem_externo_placas"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_imagem_externo_placas" />
-
-        <ImageView
-            android:id="@+id/formulario_imagem_interno_cinto_seguranca"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="@+id/formulario_titulo_parte_interna"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_titulo_parte_interna"
-            app:srcCompat="@drawable/interno_cinto_seguranca" />
-
-        <TextView
-            android:id="@+id/formulario_cinto_seguranca"
-            android:layout_width="180dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="116dp"
-            android:text="Cinto de segurança: "
-            android:textSize="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/formulario_imagem_interno_cinto_seguranca" />
-
-        <RadioGroup
-            android:id="@+id/formulario_rgcinto_seguranca"
-            android:layout_width="169dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="125dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="@+id/formulario_imagem_interno_cinto_seguranca"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/formulario_cinto_seguranca"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_cinto_seguranca">
-
-            <RadioButton
-                android:id="@+id/formulario_rbcinto_seguranca_ok"
-                android:layout_width="75dp"
-                android:layout_height="wrap_content"
-                android:text="OK"
-                app:layout_constraintBottom_toBottomOf="@+id/formulario_rbcinto_seguranca_ok"
-                app:layout_constraintStart_toStartOf="@+id/formulario_rgcinto_seguranca"
-                app:layout_constraintTop_toTopOf="@+id/formulario_rbcinto_seguranca_ok"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <RadioButton
-                android:id="@+id/formulario_rbcinto_seguranca_nok"
-                android:layout_width="75dp"
-                android:layout_height="wrap_content"
-                android:text="NOK"
-                app:layout_constraintBottom_toBottomOf="@+id/formulario_rgcinto_seguranca"
-                app:layout_constraintEnd_toEndOf="@+id/formulario_rgcinto_seguranca"
-                app:layout_constraintTop_toTopOf="@+id/formulario_rgcinto_seguranca" />
-
-        </RadioGroup>
-
-        <ImageView
-            android:id="@+id/formulario_imagem_interno_pedais"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="@+id/formulario_imagem_interno_cinto_seguranca"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_imagem_interno_cinto_seguranca"
-            app:srcCompat="@drawable/interno_pedais" />
-
-        <TextView
-            android:id="@+id/formulario_pedais"
-            android:layout_width="150dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="144dp"
-            android:text="Pedais: "
-            android:textSize="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/formulario_imagem_interno_pedais" />
-
-        <RadioGroup
-            android:id="@+id/formulario_rgpedais"
-            android:layout_width="169dp"
-            android:layout_height="30dp"
-            android:layout_marginEnd="125dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="@+id/formulario_imagem_interno_pedais"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/formulario_pedais"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_pedais">
-
-            <RadioButton
-                android:id="@+id/formulario_rbpedais_ok"
-                android:layout_width="75dp"
-                android:layout_height="wrap_content"
-                android:text="OK"
-                app:layout_constraintBottom_toBottomOf="@+id/formulario_rbpedais_ok"
-                app:layout_constraintStart_toStartOf="@+id/formulario_rgpedais"
-                app:layout_constraintTop_toTopOf="@+id/formulario_rbpedais_ok"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <RadioButton
-                android:id="@+id/formulario_rbpedais_nok"
-                android:layout_width="75dp"
-                android:layout_height="wrap_content"
-                android:text="NOK"
-                app:layout_constraintBottom_toBottomOf="@+id/formulario_rgpedais"
-                app:layout_constraintEnd_toEndOf="@+id/formulario_rgpedais"
-                app:layout_constraintTop_toTopOf="@+id/formulario_rgpedais" />
-
-        </RadioGroup>
-
-        <ImageView
-            android:id="@+id/formulario_imagem_interno_abertura_portas"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="@+id/formulario_imagem_interno_pedais"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_imagem_interno_pedais"
-            app:srcCompat="@drawable/interno_portas" />
-
-        <TextView
-            android:id="@+id/formulario_abertura_portas"
-            android:layout_width="200dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="92dp"
-            android:text="Abertura de portas: "
-            android:textSize="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/formulario_imagem_interno_abertura_portas" />
-
-        <RadioGroup
-            android:id="@+id/formulario_rgabertura_portas"
-            android:layout_width="169dp"
-            android:layout_height="30dp"
-            android:layout_marginEnd="125dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="@+id/formulario_imagem_interno_abertura_portas"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/formulario_abertura_portas"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_abertura_portas">
-
-            <RadioButton
-                android:id="@+id/formulario_rbabertura_portas_ok"
-                android:layout_width="75dp"
-                android:layout_height="wrap_content"
-                android:text="OK"
-                app:layout_constraintBottom_toBottomOf="@+id/formulario_rbabertura_portas_ok"
-                app:layout_constraintStart_toStartOf="@+id/formulario_rgabertura_portas"
-                app:layout_constraintTop_toTopOf="@+id/formulario_rbabertura_portas_ok"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <RadioButton
-                android:id="@+id/formulario_rbabertura_portas_nok"
-                android:layout_width="75dp"
-                android:layout_height="wrap_content"
-                android:text="NOK"
-                app:layout_constraintBottom_toBottomOf="@+id/formulario_rgabertura_portas"
-                app:layout_constraintEnd_toEndOf="@+id/formulario_rgabertura_portas"
-                app:layout_constraintTop_toTopOf="@+id/formulario_rgabertura_portas" />
-
-        </RadioGroup>
-
-        <Button
-            android:id="@+id/botao_formulario_cancelar"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Cancelar"
-            app:layout_constraintEnd_toStartOf="@+id/botao_formulario_salvar"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_imagem_interno_abertura_portas" />
-
-        <Button
-            android:id="@+id/botao_formulario_salvar"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:text="Salvar"
-            app:layout_constraintBottom_toBottomOf="@+id/botao_formulario_cancelar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/botao_formulario_cancelar" />
+                android:background="#3D5FD9"
+                android:text="Salvar"
+                app:layout_constraintBottom_toBottomOf="@+id/botao_formulario_cancelar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/botao_formulario_cancelar" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-</ScrollView>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

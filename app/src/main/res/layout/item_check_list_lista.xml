@@ -12,7 +12,28 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/formulario_imagem_logo_prolog"
+            android:id="@+id/imagem_fundo_titulo_item"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:background="#3D5FD9"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="@+id/item_rgSaidaRetorno"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/item_titulo_item_divisor"
+            android:layout_width="0dp"
+            android:layout_height="3dp"
+            android:background="@android:color/holo_orange_dark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imagem_fundo_titulo_item" />
+
+        <ImageView
+            android:id="@+id/item_imagem_logo_prolog"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginStart="8dp"
@@ -62,39 +83,43 @@
         <EditText
             android:id="@+id/item_check_list_data"
             android:layout_width="150dp"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:layout_margin="8dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="8dp"
             android:hint="Data"
             android:inputType="date"
             android:textAlignment="center"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@+id/formulario_imagem_logo_prolog"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_imagem_logo_prolog" />
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imagem_fundo_titulo_item" />
 
         <EditText
             android:id="@+id/item_check_list_hora"
             android:layout_width="150dp"
-            android:layout_height="45dp"
+            android:layout_height="35dp"
             android:layout_margin="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="8dp"
             android:hint="Hora"
             android:inputType="time"
             android:textAlignment="center"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@+id/item_check_list_data"
-            app:layout_constraintEnd_toEndOf="@+id/item_rgSaidaRetorno"
-            app:layout_constraintTop_toTopOf="@+id/item_check_list_data" />
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/item_check_list_data"
+            app:layout_constraintVertical_bias="0.072" />
 
         <EditText
             android:id="@+id/item_check_list_km"
-            android:layout_width="0dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:hint="KM"
             android:textAlignment="center"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/item_rgSaidaRetorno"
-            app:layout_constraintStart_toStartOf="@+id/item_check_list_data"
-            app:layout_constraintTop_toBottomOf="@+id/item_check_list_hora" />
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/formulario_imagem_logo_prolog"
+            app:layout_constraintTop_toBottomOf="@+id/imagem_fundo_titulo_item" />
 
         <EditText
             android:id="@+id/item_check_list_placa"
@@ -103,7 +128,7 @@
             android:layout_marginTop="10dp"
             android:hint="Placa"
             android:textAlignment="center"
-            android:textSize="18sp"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="@+id/item_check_list_km"
             app:layout_constraintStart_toStartOf="@+id/item_check_list_km"
             app:layout_constraintTop_toBottomOf="@+id/item_check_list_km" />
@@ -115,7 +140,7 @@
             android:layout_marginTop="10dp"
             android:hint="Motorista"
             android:textAlignment="center"
-            android:textSize="18sp"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="@+id/item_check_list_placa"
             app:layout_constraintStart_toStartOf="@+id/item_check_list_placa"
             app:layout_constraintTop_toBottomOf="@+id/item_check_list_placa" />
