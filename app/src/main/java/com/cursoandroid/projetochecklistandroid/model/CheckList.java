@@ -4,62 +4,59 @@ import java.io.Serializable;
 
 public class CheckList implements Serializable {
     private int id;
-    private int saidaRetorno;
+    private String saidaRetorno;
     private String dataC;
     private String hora;
     private String placa;
     private String motorista;
     private String km;
-    private int tracao;
-    private int calibragemPneu;
-    private int estepe;
-    private int freioDianteiro;
-    private int freioTraseiro;
-    private int balanceamento;
-    private int limpezaRadiador;
-    private int oleoMotor;
-    private int filtroOleo;
-    private int paraChoqueDianteiro;
-    private int paraChoqueTraseiro;
-    private int placasCaminhao;
-    private int cintoSeguranca;
-    private int pedais;
-    private int aberturaPortas;
+    private String tracao;
+    private String calibragemPneu;
+    private String estepe;
+    private String freioDianteiro;
+    private String freioTraseiro;
+    private String balanceamento;
+    private String limpezaRadiador;
+    private String oleoMotor;
+    private String filtroOleo;
+    private String paraChoqueDianteiro;
+    private String paraChoqueTraseiro;
+    private String placasCaminhao;
+    private String cintoSeguranca;
+    private String pedais;
+    private String aberturaPortas;
 
     public CheckList() {
     }
 
-    public CheckList(int checkedRadioButtonId, String toString, String fontFeatureSettings,
-                     String toString1, String toString2, String toString3,
-                     int checkedRadioButtonId1, int checkedRadioButtonId2,
-                     int checkedRadioButtonId3, int checkedRadioButtonId4,
-                     int checkedRadioButtonId5, int checkedRadioButtonId6,
-                     int checkedRadioButtonId7, int checkedRadioButtonId8,
-                     int checkedRadioButtonId9, int checkedRadioButtonId10,
-                     int checkedRadioButtonId11, int checkedRadioButtonId12,
-                     int checkedRadioButtonId13, int checkedRadioButtonId14, int checkedRadioButtonId15) {
-
-        this.saidaRetorno = checkedRadioButtonId;
-        this.dataC = toString;
-        this.hora = fontFeatureSettings;
-        this.placa = toString1;
-        this.motorista = toString2;
-        this.km = toString3;
-        this.tracao = checkedRadioButtonId1;
-        this.calibragemPneu = checkedRadioButtonId2;
-        this.estepe = checkedRadioButtonId3;
-        this.freioDianteiro = checkedRadioButtonId4;
-        this.freioTraseiro = checkedRadioButtonId5;
-        this.balanceamento = checkedRadioButtonId6;
-        this.limpezaRadiador = checkedRadioButtonId7;
-        this.oleoMotor = checkedRadioButtonId8;
-        this.filtroOleo = checkedRadioButtonId9;
-        this.paraChoqueDianteiro = checkedRadioButtonId10;
-        this.paraChoqueTraseiro = checkedRadioButtonId11;
-        this.placasCaminhao = checkedRadioButtonId12;
-        this.cintoSeguranca = checkedRadioButtonId13;
-        this.pedais = checkedRadioButtonId14;
-        this.aberturaPortas = checkedRadioButtonId15;
+    public CheckList(String saidaRetorno, String dataC, String hora, String placa,
+                     String motorista, String km, String tracao, String calibragemPneu,
+                     String estepe, String freioDianteiro, String freioTraseiro,
+                     String balanceamento, String limpezaRadiador, String oleoMotor,
+                     String filtroOleo, String paraChoqueDianteiro, String paraChoqueTraseiro,
+                     String placasCaminhao, String cintoSeguranca, String pedais,
+                     String aberturaPortas) {
+        this.saidaRetorno = saidaRetorno;
+        this.dataC = dataC;
+        this.hora = hora;
+        this.placa = placa;
+        this.motorista = motorista;
+        this.km = km;
+        this.tracao = tracao;
+        this.calibragemPneu = calibragemPneu;
+        this.estepe = estepe;
+        this.freioDianteiro = freioDianteiro;
+        this.freioTraseiro = freioTraseiro;
+        this.balanceamento = balanceamento;
+        this.limpezaRadiador = limpezaRadiador;
+        this.oleoMotor = oleoMotor;
+        this.filtroOleo = filtroOleo;
+        this.paraChoqueDianteiro = paraChoqueDianteiro;
+        this.paraChoqueTraseiro = paraChoqueTraseiro;
+        this.placasCaminhao = placasCaminhao;
+        this.cintoSeguranca = cintoSeguranca;
+        this.pedais = pedais;
+        this.aberturaPortas = aberturaPortas;
     }
 
     public String getDataC() {

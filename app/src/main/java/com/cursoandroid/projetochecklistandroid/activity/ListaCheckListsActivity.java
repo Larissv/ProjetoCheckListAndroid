@@ -6,8 +6,14 @@ import static com.cursoandroid.projetochecklistandroid.activity.CheckListConstan
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.ContextMenu;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -44,6 +50,28 @@ public class ListaCheckListsActivity extends AppCompatActivity {
         super.onRestart();
         setContentView(R.layout.activity_lista_check_lists);
         mostraTodosCheckLists();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(@NonNull Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_lista_remover, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        getMenuInflater()
+                .inflate(R.menu.menu_lista_remover, menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        int itemId = item.getItemId();
+        if (itemId == R.id.item_menu_lista_remover) {
+            listaCheckListsAdapter.removeCheckList(itemId);
+        }
+        return super.onContextItemSelected(item);
     }
 
     public void mostraTodosCheckLists() {

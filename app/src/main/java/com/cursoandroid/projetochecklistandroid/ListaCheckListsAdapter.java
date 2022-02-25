@@ -1,10 +1,14 @@
 package com.cursoandroid.projetochecklistandroid;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.icu.number.NumberRangeFormatter;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 
@@ -13,8 +17,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.cursoandroid.projetochecklistandroid.activity.OnItemClickListener;
 import com.cursoandroid.projetochecklistandroid.model.CheckList;
+import com.cursoandroid.projetochecklistandroid.retrofit.CheckListService;
+import com.cursoandroid.projetochecklistandroid.retrofit.RetrofitConfig;
 
 import java.util.List;
+
+import rx.Observable;
+import rx.Observer;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 public class ListaCheckListsAdapter extends RecyclerView.Adapter<ListaCheckListsAdapter
         .CheckListViewHolder> {
@@ -22,6 +33,8 @@ public class ListaCheckListsAdapter extends RecyclerView.Adapter<ListaCheckLists
     private final List<CheckList> checkLists;
     private final Context context;
     private OnItemClickListener onItemClickListener;
+    private ListaCheckListsAdapter adapter;
+    RetrofitConfig retrofitConfig = new RetrofitConfig();
 
     public ListaCheckListsAdapter(List<CheckList> checkLists, Context context) {
         this.checkLists = checkLists;
@@ -46,7 +59,6 @@ public class ListaCheckListsAdapter extends RecyclerView.Adapter<ListaCheckLists
                                  int position) {
         CheckList checkList = checkLists.get(position);
         holder.vincula(checkList);
-
     }
 
     @Override
@@ -54,6 +66,35 @@ public class ListaCheckListsAdapter extends RecyclerView.Adapter<ListaCheckLists
         return checkLists.size();
     }
 
+    public void removeCheckList(int posicao) {
+        removeCheckList(checkLists.get(posicao).getId(), posicao);
+        notifyDataSetChanged();
+
+    }
+
+    public void removeCheckList(int id, int posicao){
+        List<CheckList> checkLists = null;
+        Observable<CheckList> observable = (Observable<CheckList>) retrofitConfig.getRetrofit()
+                .create(CheckListService.class).removeCheckList(id);
+        observable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<CheckList>() {
+                    @Override
+                    public void onCompleted() {
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.i("Erro!", e.getLocalizedMessage());
+                    }
+
+                    @Override
+                    public void onNext(CheckList checkList) {
+                        Log.e("Check list removido!", "Removido!");
+                        checkLists.remove(id);
+                    }
+                });
+    }
 
 
     public class CheckListViewHolder extends RecyclerView.ViewHolder {
@@ -63,7 +104,6 @@ public class ListaCheckListsAdapter extends RecyclerView.Adapter<ListaCheckLists
         private final EditText hora;
         private final EditText placa;
         private final EditText motorista;
-        private final EditText km;
         private CheckList checkList;
 
         public CheckListViewHolder(View itemView) {
@@ -73,7 +113,6 @@ public class ListaCheckListsAdapter extends RecyclerView.Adapter<ListaCheckLists
            hora = itemView.findViewById(R.id.item_check_list_hora);
            placa = itemView.findViewById(R.id.item_check_list_placa);
            motorista = itemView.findViewById(R.id.item_check_list_motorista);
-           km = itemView.findViewById(R.id.item_check_list_km);
 
            itemView.setOnClickListener(new View.OnClickListener() {
                @Override
@@ -94,8 +133,6 @@ public class ListaCheckListsAdapter extends RecyclerView.Adapter<ListaCheckLists
             hora.setText(checkList.getHora());
             placa.setText(checkList.getPlaca());
             motorista.setText(checkList.getMotorista());
-            km.setText(checkList.getKm());
-
         }
     }
 }
