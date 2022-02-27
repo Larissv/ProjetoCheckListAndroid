@@ -1,4 +1,4 @@
-package com.cursoandroid.projetochecklistandroid.activity;
+package com.cursoandroid.projetochecklistandroid.activity.listener;
 
 import com.cursoandroid.projetochecklistandroid.model.CheckList;
 

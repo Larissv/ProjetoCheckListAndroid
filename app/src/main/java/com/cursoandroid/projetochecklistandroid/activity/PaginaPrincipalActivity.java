@@ -1,19 +1,18 @@
 package com.cursoandroid.projetochecklistandroid.activity;
 
-import static com.cursoandroid.projetochecklistandroid.activity.CheckListConstantesActivity.CODIGO_INSERE_CHECKLIST;
+import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CODIGO_INSERE_CHECKLIST;
+import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.TITULO_APP_BAR_TELAINICIAL;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.cursoandroid.projetochecklistandroid.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class PaginaPrincipalActivity extends AppCompatActivity {
-
-    public static final String TITULO_APP_BAR_TELAINICIAL = "ProCheck";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +25,9 @@ public class PaginaPrincipalActivity extends AppCompatActivity {
         configuraBotaoMostraTodosCheckLists();
     }
 
-      private void configuraBotaoNovoCheckList() {
-        Button botaoNovoCheckList= findViewById(
-                R.id.botao_telainicial_novo_checklist);
+    private void configuraBotaoNovoCheckList() {
+        FloatingActionButton botaoNovoCheckList = findViewById(
+                R.id.botao_fab_pagina_inicial_novo_checklist);
         botaoNovoCheckList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,8 +44,8 @@ public class PaginaPrincipalActivity extends AppCompatActivity {
     }
 
     private void configuraBotaoMostraTodosCheckLists() {
-        Button botaoMostrarTodosCheckLists= findViewById(
-                R.id.botao_telainicial_mostrar_todos);
+        FloatingActionButton botaoMostrarTodosCheckLists = findViewById(
+                R.id.botao_fab_pagina_inicial_lista_checklist);
         botaoMostrarTodosCheckLists.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,7 +55,7 @@ public class PaginaPrincipalActivity extends AppCompatActivity {
     }
 
     private void vaiParaListaCheckLists() {
-            startActivity(new Intent(PaginaPrincipalActivity.this,
-                        ListaCheckListsActivity.class));
+        startActivity(new Intent(PaginaPrincipalActivity.this,
+                ListaCheckListsActivity.class));
     }
 }

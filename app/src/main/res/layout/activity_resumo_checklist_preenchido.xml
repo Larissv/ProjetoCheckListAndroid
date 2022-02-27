@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/activity_main" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <View
+                android:id="@+id/item_resumo_checklist_preenchido"
+                android:layout_width="0dp"
+                android:layout_height="3dp"
+                android:background="#FF7B22"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/item_resumo_checklist_preenchido2"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="140dp"
+                android:background="#FF7B22"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/resumo_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="15dp"
+                android:text=""
+                app:layout_constraintEnd_toStartOf="@+id/resumo_hora"
+                app:layout_constraintTop_toBottomOf="@+id/item_resumo_checklist_preenchido" />
+
+            <TextView
+                android:id="@+id/resumo_hora"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:text=""
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item_resumo_checklist_preenchido" />
+
+            <TextView
+                android:id="@+id/tx_resumo_motorista"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Motorista"
+                app:layout_constraintStart_toStartOf="@+id/tx_resumo_motivo"
+                app:layout_constraintTop_toBottomOf="@+id/tx_resumo_motivo" />
+
+            <TextView
+                android:id="@+id/resumo_motorista"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text=""
+                app:layout_constraintStart_toEndOf="@+id/tx_resumo_motorista"
+                app:layout_constraintTop_toTopOf="@+id/tx_resumo_motorista" />
+
+            <TextView
+                android:id="@+id/tx_resumo_km"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="137dp"
+                android:text="KM:"
+                app:layout_constraintStart_toEndOf="@+id/resumo_placa"
+                app:layout_constraintTop_toTopOf="@+id/resumo_placa" />
+
+            <TextView
+                android:id="@+id/tx_resumo_placa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Placa:"
+                app:layout_constraintStart_toStartOf="@+id/tx_resumo_motorista"
+                app:layout_constraintTop_toBottomOf="@+id/tx_resumo_motorista" />
+
+            <TextView
+                android:id="@+id/tx_resumo_motivo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="Motivo:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/resumo_data" />
+
+            <TextView
+                android:id="@+id/resumo_motivo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text=""
+                app:layout_constraintStart_toEndOf="@+id/tx_resumo_motivo"
+                app:layout_constraintTop_toTopOf="@+id/tx_resumo_motivo" />
+
+            <TextView
+                android:id="@+id/resumo_placa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text=""
+                app:layout_constraintStart_toEndOf="@+id/tx_resumo_placa"
+                app:layout_constraintTop_toBottomOf="@+id/tx_resumo_motorista" />
+
+            <TextView
+                android:id="@+id/resumo_km"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="56dp"
+                android:text=""
+                app:layout_constraintStart_toEndOf="@+id/tx_resumo_km"
+                app:layout_constraintTop_toBottomOf="@+id/resumo_data" />
+
+            <TextView
+                android:id="@+id/resumo_titulo_pneu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="PNEUS"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item_resumo_checklist_preenchido2" />
+
+            <TextView
+                android:id="@+id/tx_resumo_tracao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="15dp"
+                android:text="Tração:"
+                app:layout_constraintStart_toStartOf="@+id/resumo_titulo_pneu"
+                app:layout_constraintTop_toBottomOf="@+id/resumo_titulo_pneu" />
+
+            <TextView
+                android:id="@+id/resumo_tracao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text=""
+                app:layout_constraintStart_toEndOf="@+id/tx_resumo_tracao"
+                app:layout_constraintTop_toTopOf="@+id/tx_resumo_tracao" />
+
+            <TextView
+                android:id="@+id/tx_resumo_calibragem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Calibragem:"
+                app:layout_constraintStart_toStartOf="@+id/tx_resumo_tracao"
+                app:layout_constraintTop_toBottomOf="@+id/tx_resumo_tracao" />
+
+            <TextView
+                android:id="@+id/tx_resumo_estepe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Estepe:"
+                app:layout_constraintStart_toStartOf="@+id/tx_resumo_calibragem"
+                app:layout_constraintTop_toBottomOf="@+id/tx_resumo_calibragem" />
+
+            <TextView
+                android:id="@+id/titulo_resumo_freio_suspensao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="FREIOS E SUSPENSÃO"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tx_resumo_estepe" />
+
+            <TextView
+                android:id="@+id/tx_freio_dianteiro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="15dp"
+                android:text="Freio dianteiro:"
+                app:layout_constraintStart_toStartOf="@+id/titulo_resumo_freio_suspensao"
+                app:layout_constraintTop_toBottomOf="@+id/titulo_resumo_freio_suspensao" />
+
+            <TextView
+                android:id="@+id/tx_freio_traseiro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Freio traseiro:"
+                app:layout_constraintStart_toStartOf="@+id/tx_freio_dianteiro"
+                app:layout_constraintTop_toBottomOf="@+id/tx_freio_dianteiro" />
+
+            <TextView
+                android:id="@+id/tx_resumo_balanceamento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Balanceamento:"
+                app:layout_constraintStart_toStartOf="@+id/tx_freio_traseiro"
+                app:layout_constraintTop_toBottomOf="@+id/tx_freio_traseiro" />
+
+            <TextView
+                android:id="@+id/titulo_resumo_motor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="MOTOR"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tx_resumo_balanceamento" />
+
+            <TextView
+                android:id="@+id/tx_resumo_limpeza_radiador"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="15dp"
+                android:text="Limpeza do radiador:"
+                app:layout_constraintStart_toStartOf="@+id/titulo_resumo_motor"
+                app:layout_constraintTop_toBottomOf="@+id/titulo_resumo_motor" />
+
+            <TextView
+                android:id="@+id/tx_oleo_motor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Óleo do motor:"
+                app:layout_constraintStart_toStartOf="@+id/tx_resumo_limpeza_radiador"
+                app:layout_constraintTop_toBottomOf="@+id/tx_resumo_limpeza_radiador" />
+
+            <TextView
+                android:id="@+id/tx_filtro_oleo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Filtro de óleo:"
+                app:layout_constraintStart_toStartOf="@+id/tx_oleo_motor"
+                app:layout_constraintTop_toBottomOf="@+id/tx_oleo_motor" />
+
+            <TextView
+                android:id="@+id/titulo_resumo_parte_externa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="EXTERNO"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tx_filtro_oleo" />
+
+            <TextView
+                android:id="@+id/tx_resumo_pc_dianteiro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="15dp"
+                android:text="Para-choque Dianteiro: "
+                app:layout_constraintStart_toStartOf="@+id/titulo_resumo_parte_externa"
+                app:layout_constraintTop_toBottomOf="@+id/titulo_resumo_parte_externa" />
+
+            <TextView
+                android:id="@+id/tx_pc_traseiro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Para-choque Traseiro:"
+                app:layout_constraintStart_toStartOf="@+id/tx_resumo_pc_dianteiro"
+                app:layout_constraintTop_toBottomOf="@+id/tx_resumo_pc_dianteiro" />
+
+            <TextView
+                android:id="@+id/tx_placas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Placas"
+                app:layout_constraintStart_toStartOf="@+id/tx_pc_traseiro"
+                app:layout_constraintTop_toBottomOf="@+id/tx_pc_traseiro" />
+
+            <TextView
+                android:id="@+id/titulo_resumo_interno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="INTERNO"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tx_placas" />
+
+            <TextView
+                android:id="@+id/tx_cinto_seguranca"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="15dp"
+                android:text="Cinto de segurança"
+                app:layout_constraintStart_toStartOf="@+id/titulo_resumo_interno"
+                app:layout_constraintTop_toBottomOf="@+id/titulo_resumo_interno" />
+
+            <TextView
+                android:id="@+id/tx_pedais"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Pedais"
+                app:layout_constraintStart_toStartOf="@+id/tx_cinto_seguranca"
+                app:layout_constraintTop_toBottomOf="@+id/tx_cinto_seguranca" />
+
+            <TextView
+                android:id="@+id/tx_abertura_portas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Abertura de portas"
+                app:layout_constraintStart_toStartOf="@+id/tx_pedais"
+                app:layout_constraintTop_toBottomOf="@+id/tx_pedais" />
+
+            <Button
+                android:id="@+id/botao_resumo_concluir"
+                android:layout_width="158dp"
+                android:layout_height="46dp"
+                android:layout_marginStart="250dp"
+                android:layout_marginTop="680dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:text="CONCLUIR"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item_resumo_checklist_preenchido2" />
+
+            <TextView
+                android:id="@+id/resumo_calibragem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text=""
+                app:layout_constraintStart_toEndOf="@+id/tx_resumo_calibragem"
+                app:layout_constraintTop_toTopOf="@+id/tx_resumo_calibragem" />
+
+            <TextView
+                android:id="@+id/resumo_estepe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text=""
+                app:layout_constraintStart_toEndOf="@+id/tx_resumo_estepe"
+                app:layout_constraintTop_toTopOf="@+id/tx_resumo_estepe" />
+
+            <TextView
+                android:id="@+id/resumo_limpeza_radiador"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text=""
+                app:layout_constraintStart_toEndOf="@+id/tx_resumo_limpeza_radiador"
+                app:layout_constraintTop_toTopOf="@+id/tx_resumo_limpeza_radiador" />
+
+            <TextView
+                android:id="@+id/resumo_freio_dianteiro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text=""
+                app:layout_constraintStart_toEndOf="@+id/tx_freio_dianteiro"
+                app:layout_constraintTop_toTopOf="@+id/tx_freio_dianteiro" />
+
+            <TextView
+                android:id="@+id/resumo_freio_traseiro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text=""
+                app:layout_constraintStart_toEndOf="@+id/tx_freio_traseiro"
+                app:layout_constraintTop_toTopOf="@+id/tx_freio_traseiro" />
+
+            <TextView
+                android:id="@+id/resumo_balanceamento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text=""
+                app:layout_constraintStart_toEndOf="@+id/tx_resumo_balanceamento"
+                app:layout_constraintTop_toTopOf="@+id/tx_resumo_balanceamento" />
+
+            <TextView
+                android:id="@+id/resumo_pc_dianteiro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text=""
+                app:layout_constraintStart_toEndOf="@+id/tx_resumo_pc_dianteiro"
+                app:layout_constraintTop_toTopOf="@+id/tx_resumo_pc_dianteiro" />
+
+            <TextView
+                android:id="@+id/resumo_oleo_motor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text=""
+                app:layout_constraintStart_toEndOf="@+id/tx_oleo_motor"
+                app:layout_constraintTop_toTopOf="@+id/tx_oleo_motor" />
+
+            <TextView
+                android:id="@+id/resumo_filtro_oleo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text=""
+                app:layout_constraintStart_toEndOf="@+id/tx_filtro_oleo"
+                app:layout_constraintTop_toTopOf="@+id/tx_filtro_oleo" />
+
+            <TextView
+                android:id="@+id/resumo_pc_traseiro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text=""
+                app:layout_constraintStart_toEndOf="@+id/tx_pc_traseiro"
+                app:layout_constraintTop_toTopOf="@+id/tx_pc_traseiro" />
+
+            <TextView
+                android:id="@+id/resumo_placas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text=""
+                app:layout_constraintStart_toEndOf="@+id/tx_placas"
+                app:layout_constraintTop_toTopOf="@+id/tx_placas" />
+
+            <TextView
+                android:id="@+id/resumo_cinto_seguranca"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text=""
+                app:layout_constraintStart_toEndOf="@+id/tx_cinto_seguranca"
+                app:layout_constraintTop_toTopOf="@+id/tx_cinto_seguranca" />
+
+            <TextView
+                android:id="@+id/resumo_pedais"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="TextView"
+                app:layout_constraintStart_toEndOf="@+id/tx_pedais"
+                app:layout_constraintTop_toTopOf="@+id/tx_pedais" />
+
+            <TextView
+                android:id="@+id/resumo_abertura_portas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text=""
+                app:layout_constraintStart_toEndOf="@+id/tx_abertura_portas"
+                app:layout_constraintTop_toTopOf="@+id/tx_abertura_portas" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

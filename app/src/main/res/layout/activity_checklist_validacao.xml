@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/item_divisor_inicio_validacao"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:layout_marginBottom="147dp"
+        android:background="#FF7B22"
+        app:layout_constraintBottom_toTopOf="@+id/titulo_validacao"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/titulo_validacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:text="Insira o código de segurança"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.535"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/subtitulo_validacao"
+        android:layout_width="310dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="50dp"
+        android:text="Insira o código de segurança baseado nos quatro primeiros digitos do seu CPF."
+        android:textAlignment="center"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/titulo_validacao"
+        app:layout_constraintStart_toStartOf="@+id/titulo_validacao"
+        app:layout_constraintTop_toBottomOf="@+id/titulo_validacao" />
+
+    <EditText
+        android:id="@+id/codigo_validacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="numberPassword"
+        app:layout_constraintEnd_toEndOf="@+id/subtitulo_validacao"
+        app:layout_constraintStart_toStartOf="@+id/subtitulo_validacao"
+        app:layout_constraintTop_toBottomOf="@+id/subtitulo_validacao" />
+
+    <Button
+        android:id="@+id/botao_validacao"
+        android:layout_width="130dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/botao_borda_redonda_azul"
+        android:textColor="@color/white"
+        android:text="Validar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/codigo_validacao" />
+</androidx.constraintlayout.widget.ConstraintLayout>

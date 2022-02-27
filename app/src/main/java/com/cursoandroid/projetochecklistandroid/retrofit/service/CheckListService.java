@@ -1,4 +1,4 @@
-package com.cursoandroid.projetochecklistandroid.retrofit;
+package com.cursoandroid.projetochecklistandroid.retrofit.service;
 
 
 import com.cursoandroid.projetochecklistandroid.model.CheckList;

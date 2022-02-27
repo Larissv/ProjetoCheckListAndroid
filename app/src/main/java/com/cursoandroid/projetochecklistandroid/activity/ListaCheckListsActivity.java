@@ -1,12 +1,12 @@
 package com.cursoandroid.projetochecklistandroid.activity;
 
-import static com.cursoandroid.projetochecklistandroid.activity.CheckListConstantesActivity.CHAVE_CHECKLIST;
-import static com.cursoandroid.projetochecklistandroid.activity.CheckListConstantesActivity.CHAVE_POSICAO;
-import static com.cursoandroid.projetochecklistandroid.activity.CheckListConstantesActivity.CODIGO_MOSTRA_CHECKLIST;
+import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CHAVE_CHECKLIST;
+import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CHAVE_POSICAO;
+import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CODIGO_MOSTRA_CHECKLIST;
+import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.TITULO_APPBAR_LISTA;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,10 +17,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.cursoandroid.projetochecklistandroid.ListaCheckListsAdapter;
+import com.cursoandroid.projetochecklistandroid.activity.listener.OnItemClickListener;
+import com.cursoandroid.projetochecklistandroid.retrofit.adapter.ListaCheckListsAdapter;
 import com.cursoandroid.projetochecklistandroid.R;
 import com.cursoandroid.projetochecklistandroid.model.CheckList;
-import com.cursoandroid.projetochecklistandroid.retrofit.CheckListService;
+import com.cursoandroid.projetochecklistandroid.retrofit.service.CheckListService;
 import com.cursoandroid.projetochecklistandroid.retrofit.RetrofitConfig;
 
 import java.util.List;
@@ -32,7 +33,6 @@ import rx.schedulers.Schedulers;
 
 public class ListaCheckListsActivity extends AppCompatActivity {
 
-    public static final String TITULO_APPBAR_LISTA = "Check Lists";
     private ListaCheckListsAdapter listaCheckListsAdapter;
     RetrofitConfig retrofitConfig = new RetrofitConfig();
 
@@ -50,28 +50,6 @@ public class ListaCheckListsActivity extends AppCompatActivity {
         super.onRestart();
         setContentView(R.layout.activity_lista_check_lists);
         mostraTodosCheckLists();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(@NonNull Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_lista_remover, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        super.onCreateContextMenu(menu, v, menuInfo);
-        getMenuInflater()
-                .inflate(R.menu.menu_lista_remover, menu);
-    }
-
-    @Override
-    public boolean onContextItemSelected(MenuItem item) {
-        int itemId = item.getItemId();
-        if (itemId == R.id.item_menu_lista_remover) {
-            listaCheckListsAdapter.removeCheckList(itemId);
-        }
-        return super.onContextItemSelected(item);
     }
 
     public void mostraTodosCheckLists() {

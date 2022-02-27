@@ -83,31 +83,67 @@ public class CheckList implements Serializable {
         return id;
     }
 
-    @Override
-    public String toString() {
-        return "CheckList{" +
-                "id=" + id +
-                ", saidaRetorno=" + saidaRetorno +
-                ", dataC='" + dataC + '\'' +
-                ", hora='" + hora + '\'' +
-                ", placa='" + placa + '\'' +
-                ", motorista='" + motorista + '\'' +
-                ", km='" + km + '\'' +
-                ", tracao=" + tracao +
-                ", calibragemPneu=" + calibragemPneu +
-                ", estepe=" + estepe +
-                ", freioDianteiro=" + freioDianteiro +
-                ", freioTraseiro=" + freioTraseiro +
-                ", balanceamento=" + balanceamento +
-                ", limpezaRadiador=" + limpezaRadiador +
-                ", oleoMotor=" + oleoMotor +
-                ", filtroOleo=" + filtroOleo +
-                ", paraChoqueDianteiro=" + paraChoqueDianteiro +
-                ", paraChoqueTraseiro=" + paraChoqueTraseiro +
-                ", placasCaminhao=" + placasCaminhao +
-                ", cintoSeguranca=" + cintoSeguranca +
-                ", pedais=" + pedais +
-                ", aberturaPortas=" + aberturaPortas +
-                '}';
+    public String getSaidaRetorno() {
+        return saidaRetorno;
+    }
+
+    public String getTracao() {
+        return tracao;
+    }
+
+    public String getCalibragemPneu() {
+        return calibragemPneu;
+    }
+
+    public String getEstepe() {
+        return estepe;
+    }
+
+    public String getFreioDianteiro() {
+        return freioDianteiro;
+    }
+
+    public String getFreioTraseiro() {
+        return freioTraseiro;
+    }
+
+    public String getBalanceamento() {
+        return balanceamento;
+    }
+
+    public String getLimpezaRadiador() {
+        return limpezaRadiador;
+    }
+
+    public String getOleoMotor() {
+        return oleoMotor;
+    }
+
+    public String getFiltroOleo() {
+        return filtroOleo;
+    }
+
+    public String getParaChoqueDianteiro() {
+        return paraChoqueDianteiro;
+    }
+
+    public String getParaChoqueTraseiro() {
+        return paraChoqueTraseiro;
+    }
+
+    public String getPlacasCaminhao() {
+        return placasCaminhao;
+    }
+
+    public String getCintoSeguranca() {
+        return cintoSeguranca;
+    }
+
+    public String getPedais() {
+        return pedais;
+    }
+
+    public String getAberturaPortas() {
+        return aberturaPortas;
     }
 }
