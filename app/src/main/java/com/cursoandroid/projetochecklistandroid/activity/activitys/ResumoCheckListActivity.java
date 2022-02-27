@@ -1,4 +1,4 @@
-package com.cursoandroid.projetochecklistandroid.activity;
+package com.cursoandroid.projetochecklistandroid.activity.activitys;
 
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CHAVE_CHECKLIST;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CHAVE_POSICAO;

@@ -57,7 +57,7 @@
         android:layout_width="130dp"
         android:layout_height="60dp"
         android:layout_marginTop="80dp"
-        android:background="@drawable/botao_borda_redonda_azul"
+        android:background="@drawable/fundo_borda_redonda_azul"
         android:textColor="@color/white"
         android:text="Validar"
         app:layout_constraintEnd_toEndOf="parent"

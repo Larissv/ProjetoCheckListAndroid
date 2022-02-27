@@ -1,4 +1,4 @@
-package com.cursoandroid.projetochecklistandroid.activity;
+package com.cursoandroid.projetochecklistandroid.activity.activitys;
 
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CODIGO_INSERE_CHECKLIST;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.TITULO_APP_BAR_TELAINICIAL;
@@ -23,6 +23,7 @@ public class PaginaPrincipalActivity extends AppCompatActivity {
 
         configuraBotaoNovoCheckList();
         configuraBotaoMostraTodosCheckLists();
+        configuraBotaoChat();
     }
 
     private void configuraBotaoNovoCheckList() {
@@ -58,4 +59,20 @@ public class PaginaPrincipalActivity extends AppCompatActivity {
         startActivity(new Intent(PaginaPrincipalActivity.this,
                 ListaCheckListsActivity.class));
     }
+
+    private void configuraBotaoChat() {
+        FloatingActionButton botaoChat = findViewById(R.id.botao_fab_pagina_inicial_chat);
+        botaoChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                vaiParaChat();
+            }
+        });
+    }
+
+    private void vaiParaChat() {
+        startActivity(new Intent(PaginaPrincipalActivity.this, ChatActivity.class));
+    }
+
+
 }

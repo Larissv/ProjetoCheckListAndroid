@@ -10,7 +10,7 @@ public class RetrofitConfig {
 
     public final Retrofit getRetrofit(){
 
-        // http://192.168.0.54:8080/    http://localhost:8080/
+            // http://192.168.0.54:8080/    http://localhost:8080/
 
         HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
 

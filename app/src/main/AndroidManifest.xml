@@ -14,18 +14,30 @@
         android:theme="@style/Theme.ProjetoCheckListAndroid" >
 
     <activity
-        android:name=".activity.PaginaPrincipalActivity"
+        android:name=".activity.activitys.PaginaPrincipalActivity"
         android:exported="true">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
     </activity>
-    <activity android:name=".activity.FormularioCheckListActivity">
+    <activity android:name=".activity.activitys.FormularioCheckListActivity">
     </activity>
 
-    <activity android:name=".activity.ListaCheckListsActivity">
+    <activity android:name=".activity.activitys.ListaCheckListsActivity">
     </activity>
+
+        <activity android:name=".activity.activitys.ChatActivity">
+        </activity>
+
+        <activity android:name=".activity.activitys.ResumoCheckListActivity">
+        </activity>
+
+        <activity android:name=".activity.activitys.ValidacaoActivity">
+        </activity>
+
+        <activity android:name=".activity.activitys.FinalizacaoActivity">
+        </activity>
 
 </application>
 

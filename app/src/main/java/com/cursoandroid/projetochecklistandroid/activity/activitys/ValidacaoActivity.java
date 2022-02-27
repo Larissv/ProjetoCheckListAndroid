@@ -1,7 +1,6 @@
-package com.cursoandroid.projetochecklistandroid.activity;
+package com.cursoandroid.projetochecklistandroid.activity.activitys;
 
-import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CODIGO_PAGINA_PRINCIPAL_CHECKLIST;
-import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.TITULO_APP_BAR_TELAINICIAL;
+import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CODIGO_INSERE_CHECKLIST;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.TITULO_APP_BAR_VALIDACAO;
 
 import android.content.Intent;
@@ -36,15 +35,17 @@ public class ValidacaoActivity extends AppCompatActivity {
         botaoValidar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (senhaValidacao != null){
+                    vaiParaFinalizar();
+                }
             }
         });
     }
 
-//    private void vaiParaSalvarCheckList() {
-//        Intent iniciaPaginaPrincipal =
-//                new Intent(ValidacaoActivity.this,
-//                        SalvarCheckListActivity.class);
-//        startActivityIfNeeded(iniciaPaginaPrincipal, CODIGO_PAGINA_PRINCIPAL_CHECKLIST);
-//    }
-
+    private void vaiParaFinalizar() {
+        Intent iniciaFinalizar =
+                new Intent(ValidacaoActivity.this,
+                        FinalizacaoActivity.class);
+        startActivityIfNeeded(iniciaFinalizar, CODIGO_INSERE_CHECKLIST);
+    }
 }

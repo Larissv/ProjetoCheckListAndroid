@@ -1,6 +1,7 @@
-package com.cursoandroid.projetochecklistandroid.activity;
+package com.cursoandroid.projetochecklistandroid.activity.activitys;
 
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CODIGO_PAGINA_PRINCIPAL_CHECKLIST;
+import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CODIGO_VALIDACAO_CHECKLIST;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.POSICAO_INVALIDA;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.TITULO_APPBAR_NOVO_CHECKLIST;
 
@@ -78,6 +79,68 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         configuraCalendario();
         configuraEscolhaHora();
 
+    }
+
+    private void configuraBotaoCancelar() {
+        Button botaoCancelar = findViewById(
+                R.id.botao_formulario_cancelar);
+        botaoCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                voltaParaPaginaPrincipal();
+            }
+        });
+    }
+
+    private void voltaParaPaginaPrincipal() {
+        Intent iniciaPaginaPrincipal =
+                new Intent(FormularioCheckListActivity.this,
+                        PaginaPrincipalActivity.class);
+        startActivityIfNeeded(iniciaPaginaPrincipal, CODIGO_PAGINA_PRINCIPAL_CHECKLIST);
+    }
+
+    private void configuraBotaoSalvar() {
+        Button botaoSalvar = findViewById(R.id.botao_formulario_salvar);
+        botaoSalvar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               // salvaCheckList();
+                vaiParaValidacao();
+            }
+        });
+    }
+
+    private void vaiParaValidacao() {
+        Intent iniciaValidacao =
+                new Intent(FormularioCheckListActivity.this,
+                        ValidacaoActivity.class);
+        startActivityIfNeeded(iniciaValidacao, CODIGO_VALIDACAO_CHECKLIST);
+    }
+
+    public void salvaCheckList() {
+        CheckList checkListCriado = criaCheckList();
+        verificaRadioButtonsSelecionado();
+        Observable<CheckList> observable = retrofitConfig.getRetrofit().create(
+                CheckListService.class).cadastraNovoCheckList(checkListCriado);
+        observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<CheckList>() {
+                    @Override
+                    public void onCompleted() {
+                        finish();
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Toast.makeText(FormularioCheckListActivity.this,
+                                "Erro!" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onNext(CheckList checkList) {
+                        Toast.makeText(FormularioCheckListActivity.this,
+                                "Check List salvo!", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
     public EditText configuraEscolhaHora() {
@@ -164,43 +227,6 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         aberturaPortas = findViewById(R.id.formulario_rgabertura_portas);
     }
 
-    private void configuraBotaoSalvar() {
-        Button botaoSalvar = findViewById(R.id.botao_formulario_salvar);
-        botaoSalvar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                salvaCheckList();
-            }
-        });
-    }
-
-    public void salvaCheckList() {
-        CheckList checkListCriado = criaCheckList();
-        verificaRadioButtonsSelecionado();
-        Observable<CheckList> observable = retrofitConfig.getRetrofit().create(
-                CheckListService.class).cadastraNovoCheckList(checkListCriado);
-        observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<CheckList>() {
-                    @Override
-                    public void onCompleted() {
-                        finish();
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Toast.makeText(FormularioCheckListActivity.this,
-                                "Erro!" + e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
-                    public void onNext(CheckList checkList) {
-                        Toast.makeText(FormularioCheckListActivity.this,
-                                "Check List salvo com sucesso!",
-                                Toast.LENGTH_SHORT).show();
-                    }
-                });
-    }
-
     @NonNull
     private CheckList criaCheckList() {
         return new CheckList(
@@ -225,25 +251,6 @@ public class FormularioCheckListActivity extends AppCompatActivity {
                 pegaValorRadioCintoSeguranca(),
                 pegaValorRadioCintoSPedais(),
                 pegaValorRadioAberturaPortas());
-    }
-
-
-    private void configuraBotaoCancelar() {
-        Button botaoCancelar = findViewById(
-                R.id.botao_formulario_cancelar);
-        botaoCancelar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                voltaParaPaginaPrincipal();
-            }
-        });
-    }
-
-    private void voltaParaPaginaPrincipal() {
-        Intent iniciaPaginaPrincipal =
-                new Intent(FormularioCheckListActivity.this,
-                        PaginaPrincipalActivity.class);
-        startActivityIfNeeded(iniciaPaginaPrincipal, CODIGO_PAGINA_PRINCIPAL_CHECKLIST);
     }
 
     public void verificaRadioButtonsSelecionado() {
@@ -305,7 +312,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int id) {
                 if (id == R.id.formulario_rbtracao_ok) {
-                    Toast.makeText(getApplicationContext(), "Tração - OK",
+                    Toast.makeText(getApplicationContext(), "OK",
                             Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(),
@@ -330,7 +337,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int id) {
                 if (id == R.id.formulario_rbcalibragem_ok) {
-                    Toast.makeText(getApplicationContext(), "Calibragem - OK",
+                    Toast.makeText(getApplicationContext(), "OK",
                             Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(),
@@ -355,7 +362,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int id) {
                 if (id == R.id.formulario_rbestepe_ok) {
-                    Toast.makeText(getApplicationContext(), "Estepe - OK",
+                    Toast.makeText(getApplicationContext(), "OK",
                             Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(),
@@ -380,7 +387,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int id) {
                 if (id == R.id.formulario_rbfreioDianteiro_ok) {
-                    Toast.makeText(getApplicationContext(), "Freio dianteiro - OK",
+                    Toast.makeText(getApplicationContext(), "OK",
                             Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(),
@@ -405,7 +412,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int id) {
                 if (id == R.id.formulario_rbfreioTraseiro_ok) {
-                    Toast.makeText(getApplicationContext(), "Freio traseiro - OK",
+                    Toast.makeText(getApplicationContext(), "OK",
                             Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(),
@@ -430,7 +437,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int id) {
                 if (id == R.id.formulario_rbBalanceamento_ok) {
-                    Toast.makeText(getApplicationContext(), "Balanceamento - OK",
+                    Toast.makeText(getApplicationContext(), "OK",
                             Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(),
@@ -455,7 +462,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int id) {
                 if (id == R.id.formulario_rbLimpezaRadiador_ok) {
-                    Toast.makeText(getApplicationContext(), "Limpeza do Radiador - OK",
+                    Toast.makeText(getApplicationContext(), "OK",
                             Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(),
@@ -480,7 +487,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int id) {
                 if (id == R.id.formulario_rbOleoMotor_ok) {
-                    Toast.makeText(getApplicationContext(), "Óleo do motor - OK",
+                    Toast.makeText(getApplicationContext(), "OK",
                             Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(),
@@ -505,7 +512,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int id) {
                 if (id == R.id.formulario_rbFiltroOleo_ok) {
-                    Toast.makeText(getApplicationContext(), "Filtro de óleo - OK",
+                    Toast.makeText(getApplicationContext(), "OK",
                             Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(),
@@ -530,7 +537,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int id) {
                 if (id == R.id.formulario_rbPcDianteiro_ok) {
-                    Toast.makeText(getApplicationContext(), "Para-choque dianteiro - OK",
+                    Toast.makeText(getApplicationContext(), "OK",
                             Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(),
@@ -555,7 +562,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int id) {
                 if (id == R.id.formulario_rbPcTraseiro_ok) {
-                    Toast.makeText(getApplicationContext(), "Para-choque traseiro - OK",
+                    Toast.makeText(getApplicationContext(), "OK",
                             Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(),
@@ -580,7 +587,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int id) {
                 if (id == R.id.formulario_rbPlacasCaminhao_ok) {
-                    Toast.makeText(getApplicationContext(), "Placas - OK",
+                    Toast.makeText(getApplicationContext(), "OK",
                             Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(),
@@ -605,7 +612,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int id) {
                 if (id == R.id.formulario_rbcinto_seguranca_ok) {
-                    Toast.makeText(getApplicationContext(), "Cintos de segurança - OK",
+                    Toast.makeText(getApplicationContext(), "OK",
                             Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(),
@@ -630,7 +637,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int id) {
                 if (id == R.id.formulario_rbpedais_ok) {
-                    Toast.makeText(getApplicationContext(), "Pedais - OK",
+                    Toast.makeText(getApplicationContext(), "OK",
                             Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(),
@@ -655,7 +662,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int id) {
                 if (id == R.id.formulario_rbabertura_portas_ok) {
-                    Toast.makeText(getApplicationContext(), "Abertura de portas - OK",
+                    Toast.makeText(getApplicationContext(), "OK",
                             Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(),
