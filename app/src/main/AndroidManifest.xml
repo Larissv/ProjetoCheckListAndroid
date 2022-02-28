@@ -15,28 +15,39 @@
 
     <activity
         android:name=".activity.activitys.PaginaPrincipalActivity"
+        android:screenOrientation="portrait"
         android:exported="true">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
     </activity>
-    <activity android:name=".activity.activitys.FormularioCheckListActivity">
+    <activity android:name=".activity.activitys.FormularioCheckListActivity"
+        android:screenOrientation="portrait">
     </activity>
 
-    <activity android:name=".activity.activitys.ListaCheckListsActivity">
+    <activity android:name=".activity.activitys.ListaCheckListsActivity"
+        android:screenOrientation="portrait">
     </activity>
 
-        <activity android:name=".activity.activitys.ChatActivity">
+        <activity android:name=".activity.activitys.ChatActivity"
+            android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".activity.activitys.ResumoCheckListActivity">
+        <activity android:name=".activity.activitys.ResumoCheckListActivity"
+            android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".activity.activitys.ValidacaoActivity">
+        <activity android:name=".activity.activitys.ValidacaoActivity"
+            android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".activity.activitys.FinalizacaoActivity">
+        <activity android:name=".activity.activitys.FinalizacaoActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name=".activity.activitys.FaqActivity"
+            android:screenOrientation="portrait">
         </activity>
 
 </application>

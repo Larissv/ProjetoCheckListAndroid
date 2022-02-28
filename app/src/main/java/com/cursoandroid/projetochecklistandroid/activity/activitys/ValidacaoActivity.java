@@ -1,13 +1,14 @@
 package com.cursoandroid.projetochecklistandroid.activity.activitys;
 
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CODIGO_INSERE_CHECKLIST;
-import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.TITULO_APP_BAR_VALIDACAO;
+import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.TITULO_APPBAR_VALIDACAO;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,9 +21,9 @@ public class ValidacaoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_checklist_validacao);
+        setContentView(R.layout.activity_validacao_checklist);
 
-        setTitle(TITULO_APP_BAR_VALIDACAO);
+        setTitle(TITULO_APPBAR_VALIDACAO);
 
         senhaValidacao = findViewById(R.id.codigo_validacao);
 
@@ -35,7 +36,10 @@ public class ValidacaoActivity extends AppCompatActivity {
         botaoValidar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (senhaValidacao != null){
+                if (senhaValidacao.getText().toString().equals("")){
+                    Toast.makeText(ValidacaoActivity.this, "Senha invalida",
+                            Toast.LENGTH_SHORT).show();
+                }else {
                     vaiParaFinalizar();
                 }
             }

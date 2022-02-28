@@ -1,7 +1,7 @@
 package com.cursoandroid.projetochecklistandroid.activity.activitys;
 
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CODIGO_INSERE_CHECKLIST;
-import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.TITULO_APP_BAR_TELAINICIAL;
+import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.TITULO_APPBAR_TELAINICIAL;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,13 +17,14 @@ public class PaginaPrincipalActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pagina_principal_check_list);
+        setContentView(R.layout.activity_pagina_principal_checklist);
 
-        setTitle(TITULO_APP_BAR_TELAINICIAL);
+        setTitle(TITULO_APPBAR_TELAINICIAL);
 
         configuraBotaoNovoCheckList();
         configuraBotaoMostraTodosCheckLists();
         configuraBotaoChat();
+        configuraBotaoFac();
     }
 
     private void configuraBotaoNovoCheckList() {
@@ -74,5 +75,18 @@ public class PaginaPrincipalActivity extends AppCompatActivity {
         startActivity(new Intent(PaginaPrincipalActivity.this, ChatActivity.class));
     }
 
+    private void configuraBotaoFac() {
+        FloatingActionButton botaoFaq = findViewById(R.id.botao_fab_pagina_inicial_faq);
+        botaoFaq.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                vaiParaFac();
+            }
+        });
+    }
+
+    private void vaiParaFac() {
+        startActivity(new Intent(PaginaPrincipalActivity.this, FaqActivity.class));
+    }
 
 }

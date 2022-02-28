@@ -19,16 +19,21 @@
         <entry key="app/src/main/res/drawable/menu_formulario_salva_check_list_background.xml" value="0.15555555555555556" />
         <entry key="app/src/main/res/drawable/menu_formulario_salva_check_list_foreground.xml" value="0.15555555555555556" />
         <entry key="app/src/main/res/layout/activity_chat.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/activity_checklist_validacao.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_chat_checklist.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_checklist_validacao.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/activity_fac_checklist.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_faq_checklist.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_finalizacao_checklist.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_formulario_check_list.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_formulario_checklist.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_lista_check_lists.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/activity_pagina_principal_check_list.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_pagina_principal_check_list.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/activity_pagina_principal_checklist.xml" value="0.3052536231884058" />
         <entry key="app/src/main/res/layout/activity_resumo_checklist_preenchido.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_resumo_formulario_preenchido.xml" value="0.3875" />
         <entry key="app/src/main/res/layout/formulario_radio_button_personalizado.xml" value="0.1" />
         <entry key="app/src/main/res/layout/formulario_recycler.xml" value="0.25226449275362317" />
-        <entry key="app/src/main/res/layout/item_check_list_lista.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/item_check_list_lista.xml" value="0.67" />
         <entry key="app/src/main/res/layout/tela_principal_teste.xml" value="0.25226449275362317" />
         <entry key="app/src/main/res/layout/teste_formulario.xml" value="0.35833333333333334" />
         <entry key="app/src/main/res/menu/menu_formulario_salva_check_list.xml" value="0.30462962962962964" />

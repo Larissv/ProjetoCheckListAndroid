@@ -77,4 +77,15 @@
         app:layout_constraintTop_toBottomOf="@+id/imagem_fundo_branco_finalizacao"
         app:layout_constraintVertical_bias="0.009" />
 
+    <Button
+        android:id="@+id/botao_mostrar_checklists_finalizacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:text="Ir para cheklists"
+        app:layout_constraintBottom_toBottomOf="@+id/imagem_fundo_branco_finalizacao"
+        app:layout_constraintEnd_toEndOf="@+id/subtitulo_finalizacao"
+        app:layout_constraintStart_toStartOf="@+id/subtitulo_finalizacao"
+        app:layout_constraintTop_toBottomOf="@+id/subtitulo_finalizacao" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <View
+        android:id="@+id/item_divisor_inicio_faq"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:background="#FF7B22"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/texto_inicial_faq"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="85dp"
+        android:text="Duvidas frequentes:"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/texto_pergunta1_fac"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_divisor_inicio_faq" />
+
+    <TextView
+        android:id="@+id/texto_pergunta1_fac"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
+        android:text="Como cadastrar um novo checklist?"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/texto_resposta1_fac"
+        android:layout_width="333dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="8dp"
+        android:text="No menu inicial voce encontrara um botao (+), que permitira que um novo checklist seja cadastrado."
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="@+id/texto_pergunta1_fac"
+        app:layout_constraintTop_toBottomOf="@+id/texto_pergunta1_fac" />
+
+    <TextView
+        android:id="@+id/texto_pergunta2_fac"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Como verificar o checklist preenchido?"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/texto_resposta1_fac" />
+
+    <TextView
+        android:id="@+id/texto_resposta2_fac"
+        android:layout_width="358dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="8dp"
+        android:text="No menu inicial voce encontrara o botao -CHECKLISTS, o mesmo mostrara a lista
+        de checklists preenchidos ate o momento. Basta clicar no check list de seu interesse e visualizar o resumo."
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="@+id/texto_pergunta1_fac"
+        app:layout_constraintTop_toBottomOf="@+id/texto_pergunta2_fac" />
+
+    <Button
+        android:id="@+id/botao_retornar_tela_inicial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Voltar"
+        android:background="@drawable/fundo_borda_redonda_azul"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/texto_resposta2_fac" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

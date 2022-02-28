@@ -1,7 +1,8 @@
 package com.cursoandroid.projetochecklistandroid.activity.activitys;
 
+import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CODIGO_MOSTRA_CHECKLIST;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CODIGO_PAGINA_PRINCIPAL_CHECKLIST;
-import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.TITULO_APP_BAR_FINALIZACAO;
+import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.TITULO_APPBAR_FINALIZACAO;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,9 +20,28 @@ public class FinalizacaoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finalizacao_checklist);
 
-        setTitle(TITULO_APP_BAR_FINALIZACAO);
+        setTitle(TITULO_APPBAR_FINALIZACAO);
 
         configuraBotaoVoltarInicio();
+        configuraBotaoIrParaListaCheckLists();
+    }
+
+    private void configuraBotaoIrParaListaCheckLists() {
+        Button botaoIrParaListaCheckLists = findViewById(
+                R.id.botao_mostrar_checklists_finalizacao);
+        botaoIrParaListaCheckLists.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                vaiParaListaCheckLists();
+            }
+        });
+    }
+
+    private void vaiParaListaCheckLists() {
+        Intent voltaPaginaInicial =
+                new Intent(FinalizacaoActivity.this,
+                        ListaCheckListsActivity.class);
+        startActivityIfNeeded(voltaPaginaInicial, CODIGO_MOSTRA_CHECKLIST);
     }
 
     private void configuraBotaoVoltarInicio() {

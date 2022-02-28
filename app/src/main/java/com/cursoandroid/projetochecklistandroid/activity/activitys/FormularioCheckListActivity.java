@@ -69,7 +69,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_formulario_check_list);
+        setContentView(R.layout.activity_formulario_checklist);
 
         setTitle(TITULO_APPBAR_NOVO_CHECKLIST);
         inicializaCampos();
@@ -104,7 +104,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         botaoSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // salvaCheckList();
+                salvaCheckList();
                 vaiParaValidacao();
             }
         });
@@ -249,7 +249,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
                 pegaValorRadioParaChoqueTraseiro(),
                 pegaValorRadioPlacasCaminhao(),
                 pegaValorRadioCintoSeguranca(),
-                pegaValorRadioCintoSPedais(),
+                pegaValorRadioPedais(),
                 pegaValorRadioAberturaPortas());
     }
 
@@ -325,7 +325,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
 
     public String pegaValorRadioCalibragemPneu() {
         String situacaoCalibragemPneu;
-        idSelecionado = tracao.getCheckedRadioButtonId();
+        idSelecionado = calibragemPneu.getCheckedRadioButtonId();
         selecionado = findViewById(idSelecionado);
         situacaoCalibragemPneu = String.valueOf(selecionado.getText());
 
@@ -350,7 +350,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
 
     public String pegaValorRadioEstepe() {
         String situacaoEstepe;
-        idSelecionado = tracao.getCheckedRadioButtonId();
+        idSelecionado = estepe.getCheckedRadioButtonId();
         selecionado = findViewById(idSelecionado);
         situacaoEstepe = String.valueOf(selecionado.getText());
 
@@ -375,7 +375,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
 
     public String pegaValorRadioFreioDianteiro() {
         String situacaoFreioDianteiro;
-        idSelecionado = tracao.getCheckedRadioButtonId();
+        idSelecionado = freioDianteiro.getCheckedRadioButtonId();
         selecionado = findViewById(idSelecionado);
         situacaoFreioDianteiro = String.valueOf(selecionado.getText());
 
@@ -425,7 +425,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
 
     public String pegaValorRadioBalanceamento() {
         String situacaoBalanceamento;
-        idSelecionado = freioTraseiro.getCheckedRadioButtonId();
+        idSelecionado = balanceamento.getCheckedRadioButtonId();
         selecionado = findViewById(idSelecionado);
         situacaoBalanceamento = String.valueOf(selecionado.getText());
 
@@ -450,7 +450,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
 
     public String pegaValorRadioLimpezaRadiador() {
         String situacaoLimpezaRadiador;
-        idSelecionado = freioTraseiro.getCheckedRadioButtonId();
+        idSelecionado = limpezaRadiador.getCheckedRadioButtonId();
         selecionado = findViewById(idSelecionado);
         situacaoLimpezaRadiador = String.valueOf(selecionado.getText());
 
@@ -475,7 +475,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
 
     public String pegaValorRadioOleoMotor() {
         String situacaoOleoMotor;
-        idSelecionado = freioTraseiro.getCheckedRadioButtonId();
+        idSelecionado = oleoMotor.getCheckedRadioButtonId();
         selecionado = findViewById(idSelecionado);
         situacaoOleoMotor = String.valueOf(selecionado.getText());
 
@@ -500,7 +500,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
 
     public String pegaValorRadioFiltroOleo() {
         String situacaoFiltroOleo;
-        idSelecionado = freioTraseiro.getCheckedRadioButtonId();
+        idSelecionado = filtroOleo.getCheckedRadioButtonId();
         selecionado = findViewById(idSelecionado);
         situacaoFiltroOleo = String.valueOf(selecionado.getText());
 
@@ -525,7 +525,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
 
     public String pegaValorRadioParaChoqueDianteiro() {
         String situacaoParaChoqueDianteiro;
-        idSelecionado = freioTraseiro.getCheckedRadioButtonId();
+        idSelecionado = paraChoqueDianteiro.getCheckedRadioButtonId();
         selecionado = findViewById(idSelecionado);
         situacaoParaChoqueDianteiro = String.valueOf(selecionado.getText());
 
@@ -550,7 +550,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
 
     public String pegaValorRadioParaChoqueTraseiro() {
         String situacaoParaChoqueTraseiro;
-        idSelecionado = freioTraseiro.getCheckedRadioButtonId();
+        idSelecionado = paraChoqueTraseiro.getCheckedRadioButtonId();
         selecionado = findViewById(idSelecionado);
         situacaoParaChoqueTraseiro = String.valueOf(selecionado.getText());
 
@@ -575,7 +575,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
 
     public String pegaValorRadioPlacasCaminhao() {
         String situacaoPlacasCaminhao;
-        idSelecionado = freioTraseiro.getCheckedRadioButtonId();
+        idSelecionado = placasCaminhao.getCheckedRadioButtonId();
         selecionado = findViewById(idSelecionado);
         situacaoPlacasCaminhao = String.valueOf(selecionado.getText());
 
@@ -600,7 +600,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
 
     public String pegaValorRadioCintoSeguranca() {
         String situacaoCintoSeguranca;
-        idSelecionado = freioTraseiro.getCheckedRadioButtonId();
+        idSelecionado = cintoSeguranca.getCheckedRadioButtonId();
         selecionado = findViewById(idSelecionado);
         situacaoCintoSeguranca = String.valueOf(selecionado.getText());
 
@@ -623,9 +623,9 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         });
     }
 
-    public String pegaValorRadioCintoSPedais() {
+    public String pegaValorRadioPedais() {
         String situacaoPedais;
-        idSelecionado = freioTraseiro.getCheckedRadioButtonId();
+        idSelecionado = pedais.getCheckedRadioButtonId();
         selecionado = findViewById(idSelecionado);
         situacaoPedais = String.valueOf(selecionado.getText());
 
@@ -650,7 +650,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
 
     public String pegaValorRadioAberturaPortas() {
         String situacaoAberturaPortas;
-        idSelecionado = freioTraseiro.getCheckedRadioButtonId();
+        idSelecionado = aberturaPortas.getCheckedRadioButtonId();
         selecionado = findViewById(idSelecionado);
         situacaoAberturaPortas = String.valueOf(selecionado.getText());
 
