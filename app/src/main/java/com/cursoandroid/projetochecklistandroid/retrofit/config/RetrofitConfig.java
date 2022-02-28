@@ -1,4 +1,4 @@
-package com.cursoandroid.projetochecklistandroid.retrofit;
+package com.cursoandroid.projetochecklistandroid.retrofit.config;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -10,7 +10,7 @@ public class RetrofitConfig {
 
     public final Retrofit getRetrofit(){
 
-            // http://192.168.0.54:8080/    http://localhost:8080/
+            // http://192.168.0.54:8080/
 
         HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
 
@@ -19,7 +19,7 @@ public class RetrofitConfig {
                 .build();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.0.54:8080/")
+                .baseUrl("http://192.168.0.219:8080/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .client(okHttpClient)

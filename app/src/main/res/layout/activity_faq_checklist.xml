@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="85dp"
-        android:text="Duvidas frequentes:"
+        android:text="Saiba mais sobre o ProCheck:"
         android:textAlignment="center"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -49,7 +49,7 @@
         android:layout_width="333dp"
         android:layout_height="55dp"
         android:layout_marginTop="8dp"
-        android:text="No menu inicial voce encontrara um botao (+), que permitira que um novo checklist seja cadastrado."
+        android:text="Acessando o menu inicial vocâ encontrará o botão NOVO CHECKLIST (+), levando diretamento à página de formulário para preenchimento.."
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="@+id/texto_pergunta1_fac"
         app:layout_constraintTop_toBottomOf="@+id/texto_pergunta1_fac" />
@@ -59,7 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Como verificar o checklist preenchido?"
+        android:text="Como verificar um checklist preenchido?"
         android:textSize="15dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,11 +69,11 @@
 
     <TextView
         android:id="@+id/texto_resposta2_fac"
-        android:layout_width="358dp"
-        android:layout_height="80dp"
+        android:layout_width="355dp"
+        android:layout_height="129dp"
         android:layout_marginTop="8dp"
-        android:text="No menu inicial voce encontrara o botao -CHECKLISTS, o mesmo mostrara a lista
-        de checklists preenchidos ate o momento. Basta clicar no check list de seu interesse e visualizar o resumo."
+        android:text="Acessando o menu inicial você encontrará o botão CHECKLISTS, levando você para a lista
+        de checklists preenchidos por sua empresa. Para detalhes, clique no check list de seu interesse e visualize o resumo completo."
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="@+id/texto_pergunta1_fac"
         app:layout_constraintTop_toBottomOf="@+id/texto_pergunta2_fac" />

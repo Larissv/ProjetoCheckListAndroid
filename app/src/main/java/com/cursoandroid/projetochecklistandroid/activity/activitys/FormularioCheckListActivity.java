@@ -24,7 +24,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.cursoandroid.projetochecklistandroid.R;
 import com.cursoandroid.projetochecklistandroid.model.CheckList;
 import com.cursoandroid.projetochecklistandroid.retrofit.service.CheckListService;
-import com.cursoandroid.projetochecklistandroid.retrofit.RetrofitConfig;
+import com.cursoandroid.projetochecklistandroid.retrofit.config.RetrofitConfig;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -61,7 +61,6 @@ public class FormularioCheckListActivity extends AppCompatActivity {
     private RadioGroup cintoSeguranca;
     private RadioGroup pedais;
     private RadioGroup aberturaPortas;
-    public CheckList updateCheckList = new CheckList();
     RetrofitConfig retrofitConfig = new RetrofitConfig();
     private int idSelecionado;
     RadioButton selecionado;
@@ -78,7 +77,6 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         verificaRadioButtonsSelecionado();
         configuraCalendario();
         configuraEscolhaHora();
-
     }
 
     private void configuraBotaoCancelar() {
@@ -672,5 +670,4 @@ public class FormularioCheckListActivity extends AppCompatActivity {
             }
         });
     }
-
 }

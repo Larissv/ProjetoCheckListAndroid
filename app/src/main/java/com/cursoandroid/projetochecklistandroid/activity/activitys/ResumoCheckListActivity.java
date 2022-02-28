@@ -3,21 +3,18 @@ package com.cursoandroid.projetochecklistandroid.activity.activitys;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CHAVE_CHECKLIST;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CHAVE_POSICAO;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CODIGO_PAGINA_PRINCIPAL_CHECKLIST;
-import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CODIGO_RESUMO_CHECKLIST;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.POSICAO_INVALIDA;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.TITULO_APPBAR_MOSTRA_CHECKLIST;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.TITULO_APPBAR_RESUMO_CHECKLIST;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,15 +22,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.cursoandroid.projetochecklistandroid.R;
 import com.cursoandroid.projetochecklistandroid.model.CheckList;
 import com.cursoandroid.projetochecklistandroid.retrofit.adapter.ListaCheckListsAdapter;
-import com.cursoandroid.projetochecklistandroid.retrofit.service.CheckListService;
-import com.cursoandroid.projetochecklistandroid.retrofit.RetrofitConfig;
+import com.cursoandroid.projetochecklistandroid.retrofit.config.RetrofitConfig;
 
 import java.util.List;
-
-import rx.Observable;
-import rx.Observer;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 public class ResumoCheckListActivity extends AppCompatActivity {
 
@@ -62,7 +53,6 @@ public class ResumoCheckListActivity extends AppCompatActivity {
     private List<CheckList> checkLists;
     private int posicaoRecebida = POSICAO_INVALIDA;
     public CheckList updateCheckList = new CheckList();
-    RetrofitConfig retrofitConfig = new RetrofitConfig();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.cursoandroid.projetochecklistandroid.R;
 import com.cursoandroid.projetochecklistandroid.activity.listener.OnItemClickListener;
 import com.cursoandroid.projetochecklistandroid.model.CheckList;
-import com.cursoandroid.projetochecklistandroid.retrofit.RetrofitConfig;
+import com.cursoandroid.projetochecklistandroid.retrofit.config.RetrofitConfig;
 import com.cursoandroid.projetochecklistandroid.retrofit.service.CheckListService;
 
 import java.util.List;

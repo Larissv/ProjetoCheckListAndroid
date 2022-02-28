@@ -50,7 +50,7 @@ public class FinalizacaoActivity extends AppCompatActivity {
         botaoVoltarInicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    voltaParaPaginaInicial();
+                voltaParaPaginaInicial();
             }
         });
     }

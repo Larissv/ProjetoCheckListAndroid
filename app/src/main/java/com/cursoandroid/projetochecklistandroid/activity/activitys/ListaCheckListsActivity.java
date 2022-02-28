@@ -20,7 +20,7 @@ import com.cursoandroid.projetochecklistandroid.retrofit.adapter.ListaCheckLists
 import com.cursoandroid.projetochecklistandroid.R;
 import com.cursoandroid.projetochecklistandroid.model.CheckList;
 import com.cursoandroid.projetochecklistandroid.retrofit.service.CheckListService;
-import com.cursoandroid.projetochecklistandroid.retrofit.RetrofitConfig;
+import com.cursoandroid.projetochecklistandroid.retrofit.config.RetrofitConfig;
 
 import java.util.List;
 
@@ -89,14 +89,14 @@ public class ListaCheckListsActivity extends AppCompatActivity {
                     @Override
                     public void onError(Throwable e) {
                         Toast.makeText(ListaCheckListsActivity.this,
-                                "Erro ao mostrar todos: " + e.getMessage(),
+                                "Erro ao mostrar checklists: " + e.getMessage(),
                                 Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onNext(List<CheckList> checkLists) {
                         Toast.makeText(ListaCheckListsActivity.this,
-                                "Mostrando todos!", Toast.LENGTH_SHORT).show();
+                                "Mostrando checklists!", Toast.LENGTH_SHORT).show();
                         configuraRecyclerView(checkLists);
                     }
                 });

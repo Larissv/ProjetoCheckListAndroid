@@ -36,10 +36,10 @@ public class ValidacaoActivity extends AppCompatActivity {
         botaoValidar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (senhaValidacao.getText().toString().equals("")){
-                    Toast.makeText(ValidacaoActivity.this, "Senha invalida",
+                if (senhaValidacao.getText().toString().equals("")) {
+                    Toast.makeText(ValidacaoActivity.this, "Senha inválida",
                             Toast.LENGTH_SHORT).show();
-                }else {
+                } else {
                     vaiParaFinalizar();
                 }
             }
