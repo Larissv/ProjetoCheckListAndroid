@@ -55,7 +55,7 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/prolog" />
+                app:srcCompat="@drawable/prolog_log" />
 
             <RadioGroup
                 android:id="@+id/formulario_rgSaidaRetorno"
@@ -208,7 +208,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/formulario_tracao"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imagem_fundo_titulo_formulario_pneu"
-                app:srcCompat="@drawable/pneu" />
+                app:srcCompat="@drawable/formulario_imagem_pneu" />
 
 
             <TextView
@@ -281,7 +281,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/formulario_calibragem"
                 app:layout_constraintStart_toStartOf="@+id/imagem_formulario_pneu_tracao"
                 app:layout_constraintTop_toBottomOf="@+id/imagem_formulario_pneu_tracao"
-                app:srcCompat="@drawable/pneu_calibragem" />
+                app:srcCompat="@drawable/formulario_imagem_pneu_calibragem" />
 
             <TextView
                 android:id="@+id/formulario_calibragem"
@@ -349,7 +349,7 @@
                 android:layout_marginTop="30dp"
                 app:layout_constraintStart_toStartOf="@+id/imagem_formulario_pneu_calibragem"
                 app:layout_constraintTop_toBottomOf="@+id/imagem_formulario_pneu_calibragem"
-                app:srcCompat="@drawable/pneu_estepe" />
+                app:srcCompat="@drawable/formulario_imagem_pneu_estepe" />
 
             <TextView
                 android:id="@+id/formulario_estepe"
@@ -438,7 +438,7 @@
                 android:layout_marginTop="20dp"
                 app:layout_constraintStart_toStartOf="@+id/formulario_imagem_pneu_estepe"
                 app:layout_constraintTop_toBottomOf="@+id/imagem_fundo_titulo_formulario_freios_suspensao"
-                app:srcCompat="@drawable/freio_freio" />
+                app:srcCompat="@drawable/formulario_imagem_freios_suspensao_freio" />
 
             <TextView
                 android:id="@+id/formulario_freioDianteiro"
@@ -506,7 +506,7 @@
                 android:layout_marginTop="30dp"
                 app:layout_constraintStart_toStartOf="@+id/formulario_imagem_freio1"
                 app:layout_constraintTop_toBottomOf="@+id/formulario_imagem_freio1"
-                app:srcCompat="@drawable/freio_freio" />
+                app:srcCompat="@drawable/formulario_imagem_freios_suspensao_freio" />
 
             <TextView
                 android:id="@+id/formulario_freioTraseiro"
@@ -572,7 +572,7 @@
                 android:layout_marginTop="30dp"
                 app:layout_constraintStart_toStartOf="@+id/formulario_imagem_freio2"
                 app:layout_constraintTop_toBottomOf="@+id/formulario_imagem_freio2"
-                app:srcCompat="@drawable/freios_suspensao_balanceamento" />
+                app:srcCompat="@drawable/formulario_imagem_freios_suspensao_balanceamento" />
 
             <TextView
                 android:id="@+id/formulario_balanceamento"
@@ -659,7 +659,7 @@
                 android:layout_marginTop="20dp"
                 app:layout_constraintStart_toStartOf="@+id/formulario_imagem_freio_balanceamento"
                 app:layout_constraintTop_toBottomOf="@+id/imagem_fundo_titulo_formulario_motor"
-                app:srcCompat="@drawable/motor_limpeza_radiador" />
+                app:srcCompat="@drawable/formulario_imagem_motor_limpeza_radiador" />
 
             <TextView
                 android:id="@+id/formulario_limpezaRadiador"
@@ -725,7 +725,7 @@
                 android:layout_marginTop="30dp"
                 app:layout_constraintStart_toStartOf="@+id/formulario_imagem_limpeza_radiador"
                 app:layout_constraintTop_toBottomOf="@id/formulario_imagem_limpeza_radiador"
-                app:srcCompat="@drawable/motor_oleo" />
+                app:srcCompat="@drawable/formulario_imagem_motor_oleo" />
 
             <TextView
                 android:id="@+id/formulario_oleoMotor"
@@ -792,7 +792,7 @@
                 android:layout_marginTop="30dp"
                 app:layout_constraintStart_toStartOf="@+id/formulario_imagem_oleo"
                 app:layout_constraintTop_toBottomOf="@+id/formulario_imagem_oleo"
-                app:srcCompat="@drawable/motor_filtro_oleo" />
+                app:srcCompat="@drawable/formulario_imagem_motor_filtro_oleo" />
 
             <TextView
                 android:id="@+id/formulario_filtroOleo"
@@ -880,7 +880,7 @@
                 android:layout_marginTop="20dp"
                 app:layout_constraintStart_toStartOf="@+id/formulario_imagem_motor_filtro_oleo"
                 app:layout_constraintTop_toBottomOf="@+id/item_titulo_formulario_divisor_parte_externa"
-                app:srcCompat="@drawable/externo_pc_dianteiro" />
+                app:srcCompat="@drawable/formulario_imagem_externo_pc_dianteiro" />
 
             <TextView
                 android:id="@+id/formulario_PCdianteiro"
@@ -946,7 +946,7 @@
                 android:layout_marginTop="30dp"
                 app:layout_constraintStart_toStartOf="@+id/formulario_imagem_parachoque_dianteiro"
                 app:layout_constraintTop_toBottomOf="@+id/formulario_imagem_parachoque_dianteiro"
-                app:srcCompat="@drawable/externo_pc_traseiro" />
+                app:srcCompat="@drawable/formulario_imagem_externo_pc_traseiro" />
 
             <TextView
                 android:id="@+id/formulario_PCtraseiro"
@@ -1013,7 +1013,7 @@
                 android:layout_marginTop="30dp"
                 app:layout_constraintStart_toStartOf="@+id/formulario_imagem_pc_traseiro"
                 app:layout_constraintTop_toBottomOf="@+id/formulario_imagem_pc_traseiro"
-                app:srcCompat="@drawable/externo_placas" />
+                app:srcCompat="@drawable/formulario_imagem_externo_placas" />
 
             <TextView
                 android:id="@+id/formulario_placasCaminhao"
@@ -1100,7 +1100,7 @@
                 android:layout_marginTop="20dp"
                 app:layout_constraintStart_toStartOf="@+id/formulario_imagem_externo_placas"
                 app:layout_constraintTop_toBottomOf="@+id/imagem_fundo_titulo_formulario_parte_interna"
-                app:srcCompat="@drawable/interno_cinto_seguranca" />
+                app:srcCompat="@drawable/formulario_imagem_interno_cinto_seguranca" />
 
             <TextView
                 android:id="@+id/formulario_cinto_seguranca"
@@ -1168,7 +1168,7 @@
                 android:layout_marginTop="30dp"
                 app:layout_constraintStart_toStartOf="@+id/formulario_imagem_interno_cinto_seguranca"
                 app:layout_constraintTop_toBottomOf="@+id/formulario_imagem_interno_cinto_seguranca"
-                app:srcCompat="@drawable/interno_pedais" />
+                app:srcCompat="@drawable/formulario_imagem_interno_pedais" />
 
             <TextView
                 android:id="@+id/formulario_pedais"
@@ -1235,7 +1235,7 @@
                 android:layout_marginTop="30dp"
                 app:layout_constraintStart_toStartOf="@+id/formulario_imagem_interno_pedais"
                 app:layout_constraintTop_toBottomOf="@+id/formulario_imagem_interno_pedais"
-                app:srcCompat="@drawable/interno_portas" />
+                app:srcCompat="@drawable/formulario_imagem_interno_portas" />
 
             <TextView
                 android:id="@+id/formulario_abertura_portas"

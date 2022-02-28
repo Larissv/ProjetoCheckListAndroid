@@ -42,7 +42,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.35"
-            app:srcCompat="@drawable/prolog" />
+            app:srcCompat="@drawable/prolog_log" />
 
         <TextView
             android:id="@+id/item_check_list_data"

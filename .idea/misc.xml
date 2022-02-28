@@ -3,17 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.132" />
         <entry key="app/src/main/res/drawable/botao_borda_redonda_azul.xml" value="0.17962962962962964" />
         <entry key="app/src/main/res/drawable/botao_borda_redonda_branco.xml" value="0.193" />
         <entry key="app/src/main/res/drawable/botao_borda_redonda_verde.xml" value="0.1395" />
         <entry key="app/src/main/res/drawable/externo_parachoque_dianteiro.xml" value="0.3687179487179487" />
         <entry key="app/src/main/res/drawable/externo_parachoque_dianteiro_background.xml" value="0.3687179487179487" />
         <entry key="app/src/main/res/drawable/formulario_radio_button_personalizado.xml" value="0.14444444444444443" />
+        <entry key="app/src/main/res/drawable/fundo_borda_redonda_azul.xml" value="0.132" />
         <entry key="app/src/main/res/drawable/fundo_botao_pagina_inicial_novo_checklist.xml" value="0.1395" />
         <entry key="app/src/main/res/drawable/fundo_redondo_pagina_inicial.xml" value="0.1395" />
         <entry key="app/src/main/res/drawable/gradiente.xml" value="0.32407407407407407" />
         <entry key="app/src/main/res/drawable/ic_formulario_salva_check_list_background.xml" value="0.37447916666666664" />
         <entry key="app/src/main/res/drawable/ic_formulario_salva_check_list_foreground.xml" value="0.37447916666666664" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.132" />
+        <entry key="app/src/main/res/drawable/ic_mostrar_checklists_background.xml" value="0.132" />
+        <entry key="app/src/main/res/drawable/ic_mostrar_checklists_foreground.xml" value="0.132" />
+        <entry key="app/src/main/res/drawable/ic_novo_checklist_background.xml" value="0.132" />
         <entry key="app/src/main/res/drawable/ic_pagina_inicial_novo_checklist_background.xml" value="0.24537037037037038" />
         <entry key="app/src/main/res/drawable/ic_pagina_inicial_novo_checklist_foreground.xml" value="0.1395" />
         <entry key="app/src/main/res/drawable/menu_formulario_salva_check_list_background.xml" value="0.15555555555555556" />

@@ -25,7 +25,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item_divisor_inicio_finalizacao"
         app:layout_constraintVertical_bias="0.376"
-        app:srcCompat="@drawable/botao_borda_redonda_branco" />
+        app:srcCompat="@drawable/pagina_inicial_fundo_borda_redonda_branco" />
 
     <ImageView
         android:id="@+id/finalizacao_logo_prolog"
@@ -37,7 +37,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item_divisor_inicio_finalizacao"
         app:layout_constraintVertical_bias="0.395"
-        app:srcCompat="@drawable/prolog_logo" />
+        app:srcCompat="@drawable/prolog_logo_nome" />
 
     <TextView
         android:id="@+id/titulo_finalizacao"

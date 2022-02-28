@@ -74,9 +74,9 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         inicializaCampos();
         configuraBotaoCancelar();
         configuraBotaoSalvar();
-        verificaRadioButtonsSelecionado();
+        checkedTodosRadioButtonsSelecionados();
         configuraCalendario();
-        configuraEscolhaHora();
+        configuraHora();
     }
 
     private void configuraBotaoCancelar() {
@@ -117,7 +117,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
 
     public void salvaCheckList() {
         CheckList checkListCriado = criaCheckList();
-        verificaRadioButtonsSelecionado();
+        checkedTodosRadioButtonsSelecionados();
         Observable<CheckList> observable = retrofitConfig.getRetrofit().create(
                 CheckListService.class).cadastraNovoCheckList(checkListCriado);
         observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
@@ -136,12 +136,12 @@ public class FormularioCheckListActivity extends AppCompatActivity {
                     @Override
                     public void onNext(CheckList checkList) {
                         Toast.makeText(FormularioCheckListActivity.this,
-                                "Check List salvo!", Toast.LENGTH_SHORT).show();
+                                "Salvo!", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
 
-    public EditText configuraEscolhaHora() {
+    public EditText configuraHora() {
         hora.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -228,49 +228,49 @@ public class FormularioCheckListActivity extends AppCompatActivity {
     @NonNull
     private CheckList criaCheckList() {
         return new CheckList(
-                pegaValorRadioSaidaRetorno(),
+                getValorRadioSaidaRetorno(),
                 dataC.getText().toString(),
                 hora.getText().toString(),
                 placa.getText().toString(),
                 motorista.getText().toString(),
                 km.getText().toString(),
-                pegaValorRadioTracao(),
-                pegaValorRadioCalibragemPneu(),
-                pegaValorRadioEstepe(),
-                pegaValorRadioFreioDianteiro(),
-                pegaValorRadioFreioTraseiro(),
-                pegaValorRadioBalanceamento(),
-                pegaValorRadioLimpezaRadiador(),
-                pegaValorRadioOleoMotor(),
-                pegaValorRadioFiltroOleo(),
-                pegaValorRadioParaChoqueDianteiro(),
-                pegaValorRadioParaChoqueTraseiro(),
-                pegaValorRadioPlacasCaminhao(),
-                pegaValorRadioCintoSeguranca(),
-                pegaValorRadioPedais(),
-                pegaValorRadioAberturaPortas());
+                getValorRadioTracao(),
+                getValorRadioCalibragemPneu(),
+                getValorRadioEstepe(),
+                getValorRadioFreioDianteiro(),
+                getValorRadioFreioTraseiro(),
+                getValorRadioBalanceamento(),
+                getValorRadioLimpezaRadiador(),
+                getValorRadioOleoMotor(),
+                getValorRadioFiltroOleo(),
+                getValorRadioParaChoqueDianteiro(),
+                getValorRadioParaChoqueTraseiro(),
+                getValorRadioPlacasCaminhao(),
+                getValorRadioCintoSeguranca(),
+                getValorRadioPedais(),
+                getValorRadioAberturaPortas());
     }
 
-    public void verificaRadioButtonsSelecionado() {
-        verificaRadioButtonSelecionadoSaidaRetorno();
-        verificaRadioButtonSelecionadoTracao();
-        verificaRadioButtonSelecionadoCalibragemPneu();
-        verificaRadioButtonSelecionadoEstepe();
-        verificaRadioButtonSelecionadoFreioDianteiro();
-        verificaRadioButtonSelecionadoFreioTraseiro();
-        verificaRadioButtonSelecionadoBalanceamento();
-        verificaRadioButtonSelecionadoLimpezaRadiador();
-        verificaRadioButtonSelecionadoOleoMotor();
-        verificaRadioButtonSelecionadoFiltroOleo();
-        verificaRadioButtonSelecionadoParaChoqueDianteiro();
-        verificaRadioButtonSelecionadoParaChoqueTraseiro();
-        verificaRadioButtonSelecionadoPlacasCaminhao();
-        verificaRadioButtonSelecionadoCintoSeguranca();
-        verificaRadioButtonSelecionadoPedais();
-        verificaRadioButtonSelecionadoAberturaPortas();
+    public void checkedTodosRadioButtonsSelecionados() {
+        checkRadioButtonSelecionadoSaidaRetorno();
+        checkRadioButtonSelecionadoTracao();
+        checkRadioButtonSelecionadoCalibragemPneu();
+        checkRadioButtonSelecionadoEstepe();
+        checkRadioButtonSelecionadoFreioDianteiro();
+        checkRadioButtonSelecionadoFreioTraseiro();
+        checkRadioButtonSelecionadoBalanceamento();
+        checkRadioButtonSelecionadoLimpezaRadiador();
+        checkRadioButtonSelecionadoOleoMotor();
+        checkRadioButtonSelecionadoFiltroOleo();
+        checkRadioButtonSelecionadoParaChoqueDianteiro();
+        checkRadioButtonSelecionadoParaChoqueTraseiro();
+        checkRadioButtonSelecionadoPlacasCaminhao();
+        checkRadioButtonSelecionadoCintoSeguranca();
+        checkRadioButtonSelecionadoPedais();
+        checkRadioButtonSelecionadoAberturaPortas();
     }
 
-    public String pegaValorRadioSaidaRetorno() {
+    public String getValorRadioSaidaRetorno() {
         String situacaoSaidaRetorno;
         idSelecionado = saidaRetorno.getCheckedRadioButtonId();
         selecionado = findViewById(idSelecionado);
@@ -279,7 +279,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         return situacaoSaidaRetorno;
     }
 
-    public void verificaRadioButtonSelecionadoSaidaRetorno() {
+    public void checkRadioButtonSelecionadoSaidaRetorno() {
         saidaRetorno.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int id) {
@@ -296,7 +296,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         });
     }
 
-    public String pegaValorRadioTracao() {
+    public String getValorRadioTracao() {
         String situacaoTracao;
         idSelecionado = tracao.getCheckedRadioButtonId();
         selecionado = findViewById(idSelecionado);
@@ -305,7 +305,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         return situacaoTracao;
     }
 
-    public void verificaRadioButtonSelecionadoTracao() {
+    public void checkRadioButtonSelecionadoTracao() {
         tracao.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int id) {
@@ -321,7 +321,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         });
     }
 
-    public String pegaValorRadioCalibragemPneu() {
+    public String getValorRadioCalibragemPneu() {
         String situacaoCalibragemPneu;
         idSelecionado = calibragemPneu.getCheckedRadioButtonId();
         selecionado = findViewById(idSelecionado);
@@ -330,7 +330,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         return situacaoCalibragemPneu;
     }
 
-    public void verificaRadioButtonSelecionadoCalibragemPneu() {
+    public void checkRadioButtonSelecionadoCalibragemPneu() {
         calibragemPneu.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int id) {
@@ -346,7 +346,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         });
     }
 
-    public String pegaValorRadioEstepe() {
+    public String getValorRadioEstepe() {
         String situacaoEstepe;
         idSelecionado = estepe.getCheckedRadioButtonId();
         selecionado = findViewById(idSelecionado);
@@ -355,7 +355,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         return situacaoEstepe;
     }
 
-    public void verificaRadioButtonSelecionadoEstepe() {
+    public void checkRadioButtonSelecionadoEstepe() {
         estepe.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int id) {
@@ -371,7 +371,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         });
     }
 
-    public String pegaValorRadioFreioDianteiro() {
+    public String getValorRadioFreioDianteiro() {
         String situacaoFreioDianteiro;
         idSelecionado = freioDianteiro.getCheckedRadioButtonId();
         selecionado = findViewById(idSelecionado);
@@ -380,7 +380,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         return situacaoFreioDianteiro;
     }
 
-    public void verificaRadioButtonSelecionadoFreioDianteiro() {
+    public void checkRadioButtonSelecionadoFreioDianteiro() {
         freioDianteiro.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int id) {
@@ -396,7 +396,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         });
     }
 
-    public String pegaValorRadioFreioTraseiro() {
+    public String getValorRadioFreioTraseiro() {
         String situacaoFreioTraseiro;
         idSelecionado = freioTraseiro.getCheckedRadioButtonId();
         selecionado = findViewById(idSelecionado);
@@ -405,7 +405,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         return situacaoFreioTraseiro;
     }
 
-    public void verificaRadioButtonSelecionadoFreioTraseiro() {
+    public void checkRadioButtonSelecionadoFreioTraseiro() {
         freioTraseiro.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int id) {
@@ -421,7 +421,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         });
     }
 
-    public String pegaValorRadioBalanceamento() {
+    public String getValorRadioBalanceamento() {
         String situacaoBalanceamento;
         idSelecionado = balanceamento.getCheckedRadioButtonId();
         selecionado = findViewById(idSelecionado);
@@ -430,7 +430,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         return situacaoBalanceamento;
     }
 
-    public void verificaRadioButtonSelecionadoBalanceamento() {
+    public void checkRadioButtonSelecionadoBalanceamento() {
         balanceamento.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int id) {
@@ -446,7 +446,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         });
     }
 
-    public String pegaValorRadioLimpezaRadiador() {
+    public String getValorRadioLimpezaRadiador() {
         String situacaoLimpezaRadiador;
         idSelecionado = limpezaRadiador.getCheckedRadioButtonId();
         selecionado = findViewById(idSelecionado);
@@ -455,7 +455,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         return situacaoLimpezaRadiador;
     }
 
-    public void verificaRadioButtonSelecionadoLimpezaRadiador() {
+    public void checkRadioButtonSelecionadoLimpezaRadiador() {
         limpezaRadiador.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int id) {
@@ -471,7 +471,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         });
     }
 
-    public String pegaValorRadioOleoMotor() {
+    public String getValorRadioOleoMotor() {
         String situacaoOleoMotor;
         idSelecionado = oleoMotor.getCheckedRadioButtonId();
         selecionado = findViewById(idSelecionado);
@@ -480,7 +480,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         return situacaoOleoMotor;
     }
 
-    public void verificaRadioButtonSelecionadoOleoMotor() {
+    public void checkRadioButtonSelecionadoOleoMotor() {
         oleoMotor.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int id) {
@@ -496,7 +496,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         });
     }
 
-    public String pegaValorRadioFiltroOleo() {
+    public String getValorRadioFiltroOleo() {
         String situacaoFiltroOleo;
         idSelecionado = filtroOleo.getCheckedRadioButtonId();
         selecionado = findViewById(idSelecionado);
@@ -505,7 +505,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         return situacaoFiltroOleo;
     }
 
-    public void verificaRadioButtonSelecionadoFiltroOleo() {
+    public void checkRadioButtonSelecionadoFiltroOleo() {
         filtroOleo.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int id) {
@@ -521,7 +521,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         });
     }
 
-    public String pegaValorRadioParaChoqueDianteiro() {
+    public String getValorRadioParaChoqueDianteiro() {
         String situacaoParaChoqueDianteiro;
         idSelecionado = paraChoqueDianteiro.getCheckedRadioButtonId();
         selecionado = findViewById(idSelecionado);
@@ -530,7 +530,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         return situacaoParaChoqueDianteiro;
     }
 
-    public void verificaRadioButtonSelecionadoParaChoqueDianteiro() {
+    public void checkRadioButtonSelecionadoParaChoqueDianteiro() {
         paraChoqueDianteiro.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int id) {
@@ -546,7 +546,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         });
     }
 
-    public String pegaValorRadioParaChoqueTraseiro() {
+    public String getValorRadioParaChoqueTraseiro() {
         String situacaoParaChoqueTraseiro;
         idSelecionado = paraChoqueTraseiro.getCheckedRadioButtonId();
         selecionado = findViewById(idSelecionado);
@@ -555,7 +555,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         return situacaoParaChoqueTraseiro;
     }
 
-    public void verificaRadioButtonSelecionadoParaChoqueTraseiro() {
+    public void checkRadioButtonSelecionadoParaChoqueTraseiro() {
         paraChoqueTraseiro.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int id) {
@@ -571,7 +571,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         });
     }
 
-    public String pegaValorRadioPlacasCaminhao() {
+    public String getValorRadioPlacasCaminhao() {
         String situacaoPlacasCaminhao;
         idSelecionado = placasCaminhao.getCheckedRadioButtonId();
         selecionado = findViewById(idSelecionado);
@@ -580,7 +580,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         return situacaoPlacasCaminhao;
     }
 
-    public void verificaRadioButtonSelecionadoPlacasCaminhao() {
+    public void checkRadioButtonSelecionadoPlacasCaminhao() {
         placasCaminhao.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int id) {
@@ -596,7 +596,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         });
     }
 
-    public String pegaValorRadioCintoSeguranca() {
+    public String getValorRadioCintoSeguranca() {
         String situacaoCintoSeguranca;
         idSelecionado = cintoSeguranca.getCheckedRadioButtonId();
         selecionado = findViewById(idSelecionado);
@@ -605,7 +605,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         return situacaoCintoSeguranca;
     }
 
-    public void verificaRadioButtonSelecionadoCintoSeguranca() {
+    public void checkRadioButtonSelecionadoCintoSeguranca() {
         cintoSeguranca.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int id) {
@@ -621,7 +621,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         });
     }
 
-    public String pegaValorRadioPedais() {
+    public String getValorRadioPedais() {
         String situacaoPedais;
         idSelecionado = pedais.getCheckedRadioButtonId();
         selecionado = findViewById(idSelecionado);
@@ -630,7 +630,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         return situacaoPedais;
     }
 
-    public void verificaRadioButtonSelecionadoPedais() {
+    public void checkRadioButtonSelecionadoPedais() {
         pedais.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int id) {
@@ -646,7 +646,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         });
     }
 
-    public String pegaValorRadioAberturaPortas() {
+    public String getValorRadioAberturaPortas() {
         String situacaoAberturaPortas;
         idSelecionado = aberturaPortas.getCheckedRadioButtonId();
         selecionado = findViewById(idSelecionado);
@@ -655,7 +655,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         return situacaoAberturaPortas;
     }
 
-    public void verificaRadioButtonSelecionadoAberturaPortas() {
+    public void checkRadioButtonSelecionadoAberturaPortas() {
         aberturaPortas.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int id) {

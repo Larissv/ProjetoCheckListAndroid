@@ -56,7 +56,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
-                app:srcCompat="@drawable/fundo_redondo_pagina_inicial" />
+                app:srcCompat="@drawable/pagina_inicial_fundo_redondo_branco" />
 
             <ImageView
                 android:id="@+id/fundo_redondo_pagina_principal_branco"
@@ -66,7 +66,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/logo_pagina_principal"
                 app:layout_constraintStart_toStartOf="@+id/logo_pagina_principal"
                 app:layout_constraintTop_toTopOf="@+id/logo_pagina_principal"
-                app:srcCompat="@drawable/prolog" />
+                app:srcCompat="@drawable/prolog_log" />
 
             <ImageView
                 android:id="@+id/fundo_botao_novo_checklist_pagina_principal"
@@ -79,7 +79,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/fundo_botao_lista_checklists_pagina_principal"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/fundo_botao_pagina_inicial_novo_checklist" />
+                app:srcCompat="@drawable/pagina_inicial_fundo_botao_borda_redonda_azulclaro" />
 
             <ImageView
                 android:id="@+id/fundo_botao_lista_checklists_pagina_principal"
@@ -89,7 +89,7 @@
                 android:layout_marginBottom="10dp"
                 app:layout_constraintBottom_toTopOf="@+id/fundo_botao_4_pagina_principal"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:srcCompat="@drawable/fundo_botao_pagina_inicial_novo_checklist" />
+                app:srcCompat="@drawable/pagina_inicial_fundo_botao_borda_redonda_azulclaro" />
 
             <ImageView
                 android:id="@+id/fundo_botao_chat_pagina_principal"
@@ -103,7 +103,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/fundo_botao_4_pagina_principal"
                 app:layout_constraintVertical_bias="1.0"
-                app:srcCompat="@drawable/fundo_botao_pagina_inicial_novo_checklist" />
+                app:srcCompat="@drawable/pagina_inicial_fundo_botao_borda_redonda_azulclaro" />
 
             <ImageView
                 android:id="@+id/fundo_botao_4_pagina_principal"
@@ -118,7 +118,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/fundo_botao_chat_pagina_principal"
                 app:layout_constraintVertical_bias="1.0"
-                app:srcCompat="@drawable/fundo_botao_pagina_inicial_novo_checklist" />
+                app:srcCompat="@drawable/pagina_inicial_fundo_botao_borda_redonda_azulclaro" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/botao_fab_pagina_inicial_novo_checklist"
