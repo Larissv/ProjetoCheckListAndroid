@@ -37,7 +37,7 @@ public class ValidacaoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (senhaValidacao.getText().toString().equals("")) {
-                    Toast.makeText(ValidacaoActivity.this, "Senha inválida",
+                    Toast.makeText(ValidacaoActivity.this, "Código de verificação inválido",
                             Toast.LENGTH_SHORT).show();
                 } else {
                     vaiParaFinalizar();
