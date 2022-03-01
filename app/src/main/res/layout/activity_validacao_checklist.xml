@@ -47,6 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
+        android:textAlignment="center"
         android:inputType="numberPassword"
         app:layout_constraintEnd_toEndOf="@+id/subtitulo_validacao"
         app:layout_constraintStart_toStartOf="@+id/subtitulo_validacao"
