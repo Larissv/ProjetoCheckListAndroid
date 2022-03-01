@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <View
-        android:id="@+id/item_divisor_inicio_faq"
+        android:id="@+id/item_divisor_inicio_help"
         android:layout_width="0dp"
         android:layout_height="3dp"
         android:background="#FF7B22"
@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/texto_inicial_faq"
+        android:id="@+id/texto_inicial_help"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -25,14 +25,14 @@
         android:textAlignment="center"
         android:textSize="20dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/texto_pergunta1_fac"
+        app:layout_constraintBottom_toTopOf="@+id/texto_pergunta1_help"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_divisor_inicio_faq" />
+        app:layout_constraintTop_toBottomOf="@+id/item_divisor_inicio_help" />
 
     <TextView
-        android:id="@+id/texto_pergunta1_fac"
+        android:id="@+id/texto_pergunta1_help"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="180dp"
@@ -45,17 +45,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/texto_resposta1_fac"
+        android:id="@+id/texto_resposta1_help"
         android:layout_width="333dp"
         android:layout_height="55dp"
         android:layout_marginTop="8dp"
         android:text="Acessando o menu inicial vocâ encontrará o botão NOVO CHECKLIST (+), levando diretamento à página de formulário para preenchimento.."
         android:textSize="15dp"
-        app:layout_constraintStart_toStartOf="@+id/texto_pergunta1_fac"
-        app:layout_constraintTop_toBottomOf="@+id/texto_pergunta1_fac" />
+        app:layout_constraintStart_toStartOf="@+id/texto_pergunta1_help"
+        app:layout_constraintTop_toBottomOf="@+id/texto_pergunta1_help" />
 
     <TextView
-        android:id="@+id/texto_pergunta2_fac"
+        android:id="@+id/texto_pergunta2_help"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -65,18 +65,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.093"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/texto_resposta1_fac" />
+        app:layout_constraintTop_toBottomOf="@+id/texto_resposta1_help" />
 
     <TextView
-        android:id="@+id/texto_resposta2_fac"
+        android:id="@+id/texto_resposta2_help"
         android:layout_width="355dp"
         android:layout_height="129dp"
         android:layout_marginTop="8dp"
         android:text="Acessando o menu inicial você encontrará o botão CHECKLISTS, levando você para a lista
         de checklists preenchidos por sua empresa. Para detalhes, clique no check list de seu interesse e visualize o resumo completo."
         android:textSize="15dp"
-        app:layout_constraintStart_toStartOf="@+id/texto_pergunta1_fac"
-        app:layout_constraintTop_toBottomOf="@+id/texto_pergunta2_fac" />
+        app:layout_constraintStart_toStartOf="@+id/texto_pergunta1_help"
+        app:layout_constraintTop_toBottomOf="@+id/texto_pergunta2_help" />
 
     <Button
         android:id="@+id/botao_retornar_tela_inicial"
@@ -88,6 +88,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/texto_resposta2_fac" />
+        app:layout_constraintTop_toBottomOf="@+id/texto_resposta2_help" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

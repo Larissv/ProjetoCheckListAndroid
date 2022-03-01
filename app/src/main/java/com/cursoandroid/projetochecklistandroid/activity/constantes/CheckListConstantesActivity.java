@@ -12,7 +12,7 @@ public interface CheckListConstantesActivity {
     String TITULO_APPBAR_VALIDACAO = "Validação";
     String TITULO_APPBAR_CHAT = "Fale Conosco";
     String TITULO_APPBAR_FINALIZACAO = "Concluído!";
-    String TITULO_APPBAR_FAQ = "FAQ";
+    String TITULO_APPBAR_HELP = "HELP";
 
     int CODIGO_INSERE_CHECKLIST = 1;
     int CODIGO_MOSTRA_CHECKLIST = 2;

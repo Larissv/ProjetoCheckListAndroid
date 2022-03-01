@@ -1,7 +1,7 @@
 package com.cursoandroid.projetochecklistandroid.activity.activitys;
 
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CODIGO_PAGINA_PRINCIPAL_CHECKLIST;
-import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.TITULO_APPBAR_FAQ;
+import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.TITULO_APPBAR_HELP;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,13 +12,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.cursoandroid.projetochecklistandroid.R;
 
-public class FaqActivity extends AppCompatActivity {
+public class HelpActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_faq_checklist);
+        setContentView(R.layout.activity_help_checklist);
 
-        setTitle(TITULO_APPBAR_FAQ);
+        setTitle(TITULO_APPBAR_HELP);
 
         configuraBotaoVoltarPaginaInicial();
     }
@@ -35,7 +35,7 @@ public class FaqActivity extends AppCompatActivity {
 
     private void retonaParaPaginaInicial() {
         Intent iniciaPaginaPrincipal =
-                new Intent(FaqActivity.this,
+                new Intent(HelpActivity.this,
                         PaginaPrincipalActivity.class);
         startActivityIfNeeded(iniciaPaginaPrincipal, CODIGO_PAGINA_PRINCIPAL_CHECKLIST);
     }

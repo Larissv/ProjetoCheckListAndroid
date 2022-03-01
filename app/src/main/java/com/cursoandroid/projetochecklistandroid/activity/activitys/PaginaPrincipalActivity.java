@@ -86,7 +86,7 @@ public class PaginaPrincipalActivity extends AppCompatActivity {
     }
 
     private void vaiParaFac() {
-        startActivity(new Intent(PaginaPrincipalActivity.this, FaqActivity.class));
+        startActivity(new Intent(PaginaPrincipalActivity.this, HelpActivity.class));
     }
 
 }
