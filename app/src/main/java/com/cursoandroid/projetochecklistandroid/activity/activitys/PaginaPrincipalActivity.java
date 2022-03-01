@@ -76,7 +76,7 @@ public class PaginaPrincipalActivity extends AppCompatActivity {
     }
 
     private void configuraBotaoFac() {
-        FloatingActionButton botaoFaq = findViewById(R.id.botao_fab_pagina_inicial_faq);
+        FloatingActionButton botaoFaq = findViewById(R.id.botao_fab_pagina_inicial_help);
         botaoFaq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

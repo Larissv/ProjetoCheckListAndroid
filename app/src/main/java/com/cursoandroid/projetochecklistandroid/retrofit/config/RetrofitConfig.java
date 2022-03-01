@@ -19,7 +19,7 @@ public class RetrofitConfig {
                 .build();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.0.219:8080/")
+                .baseUrl("http://192.168.0.137:8080/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .client(okHttpClient)
