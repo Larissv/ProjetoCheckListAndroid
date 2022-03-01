@@ -49,7 +49,7 @@
         android:layout_width="333dp"
         android:layout_height="55dp"
         android:layout_marginTop="8dp"
-        android:text="Acessando o menu inicial vocâ encontrará o botão NOVO CHECKLIST (+), levando diretamento à página de formulário para preenchimento.."
+        android:text="Acessando o menu inicial você encontrará o botão NOVO CHECKLIST (+), levando diretamente à página de formulário para preenchimento."
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="@+id/texto_pergunta1_help"
         app:layout_constraintTop_toBottomOf="@+id/texto_pergunta1_help" />
