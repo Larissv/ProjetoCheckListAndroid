@@ -27,14 +27,8 @@ public class FinalizacaoActivity extends AppCompatActivity {
     }
 
     private void configuraBotaoIrParaListaCheckLists() {
-        Button botaoIrParaListaCheckLists = findViewById(
-                R.id.botao_mostrar_checklists_finalizacao);
-        botaoIrParaListaCheckLists.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                vaiParaListaCheckLists();
-            }
-        });
+        Button botaoIrParaListaCheckLists = findViewById(R.id.botao_mostrar_checklists_finalizacao);
+        botaoIrParaListaCheckLists.setOnClickListener(view -> vaiParaListaCheckLists());
     }
 
     private void vaiParaListaCheckLists() {
@@ -45,14 +39,8 @@ public class FinalizacaoActivity extends AppCompatActivity {
     }
 
     private void configuraBotaoVoltarInicio() {
-        Button botaoVoltarInicio = findViewById(
-                R.id.botao_voltar_inicio_finalizacao);
-        botaoVoltarInicio.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                voltaParaPaginaInicial();
-            }
-        });
+        Button botaoVoltarInicio = findViewById(R.id.botao_voltar_inicio_finalizacao);
+        botaoVoltarInicio.setOnClickListener(view -> voltaParaPaginaInicial());
     }
 
     private void voltaParaPaginaInicial() {

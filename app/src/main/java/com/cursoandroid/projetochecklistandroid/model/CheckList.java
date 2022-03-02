@@ -9,7 +9,7 @@ public class CheckList implements Serializable {
     private String hora;
     private String placa;
     private String motorista;
-    private String km;
+    private Integer km;
     private String tracao;
     private String calibragemPneu;
     private String estepe;
@@ -30,7 +30,7 @@ public class CheckList implements Serializable {
     }
 
     public CheckList(String saidaRetorno, String dataC, String hora, String placa,
-                     String motorista, String km, String tracao, String calibragemPneu,
+                     String motorista, Integer km, String tracao, String calibragemPneu,
                      String estepe, String freioDianteiro, String freioTraseiro,
                      String balanceamento, String limpezaRadiador, String oleoMotor,
                      String filtroOleo, String paraChoqueDianteiro, String paraChoqueTraseiro,
@@ -75,7 +75,7 @@ public class CheckList implements Serializable {
         return motorista;
     }
 
-    public String getKm() {
+    public Integer getKm() {
         return km;
     }
 

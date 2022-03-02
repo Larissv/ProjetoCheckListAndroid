@@ -1,7 +1,6 @@
-package com.cursoandroid.projetochecklistandroid.retrofit.adapter;
+package com.cursoandroid.projetochecklistandroid.activity.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,24 +12,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.cursoandroid.projetochecklistandroid.R;
 import com.cursoandroid.projetochecklistandroid.activity.listener.OnItemClickListener;
 import com.cursoandroid.projetochecklistandroid.model.CheckList;
-import com.cursoandroid.projetochecklistandroid.retrofit.config.RetrofitConfig;
-import com.cursoandroid.projetochecklistandroid.retrofit.service.CheckListService;
 
 import java.util.List;
 
-import rx.Observable;
-import rx.Observer;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
-
-public class ListaCheckListsAdapter extends RecyclerView.Adapter<ListaCheckListsAdapter
-        .CheckListViewHolder> {
-
+public class ListaCheckListsAdapter extends
+        RecyclerView.Adapter<ListaCheckListsAdapter.CheckListViewHolder> {
     private final List<CheckList> checkLists;
     private final Context context;
     private OnItemClickListener onItemClickListener;
-    private ListaCheckListsAdapter adapter;
-    RetrofitConfig retrofitConfig = new RetrofitConfig();
 
     public ListaCheckListsAdapter(List<CheckList> checkLists, Context context) {
         this.checkLists = checkLists;
@@ -62,32 +51,7 @@ public class ListaCheckListsAdapter extends RecyclerView.Adapter<ListaCheckLists
         return checkLists.size();
     }
 
-    public void removeCheckList(int id, int posicao) {
-        Observable<CheckList> observable = (Observable<CheckList>) retrofitConfig.getRetrofit()
-                .create(CheckListService.class).removeCheckList(id);
-        observable.subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<CheckList>() {
-                    @Override
-                    public void onCompleted() {
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Log.i("Erro!", e.getLocalizedMessage());
-                    }
-
-                    @Override
-                    public void onNext(CheckList checkList) {
-                        Log.e("Check list removido!", "Removido!");
-                        checkLists.remove(posicao);
-                    }
-                });
-    }
-
-
     public class CheckListViewHolder extends RecyclerView.ViewHolder {
-
         private final TextView dataC;
         private final TextView hora;
         private final TextView placa;
@@ -103,12 +67,7 @@ public class ListaCheckListsAdapter extends RecyclerView.Adapter<ListaCheckLists
             motorista = itemView.findViewById(R.id.item_check_list_motorista);
             saidaRetorno = itemView.findViewById(R.id.item_check_list_saidaRetorno);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    onItemClickListener.onItemClick(checkList, getAbsoluteAdapterPosition());
-                }
-            });
+            itemView.setOnClickListener(view -> onItemClickListener.onItemClick(checkList, getAbsoluteAdapterPosition()));
         }
 
         public void vincula(CheckList checkList) {

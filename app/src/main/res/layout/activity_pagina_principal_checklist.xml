@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#3D5FD9">
@@ -135,7 +134,8 @@
                 app:layout_constraintStart_toStartOf="@+id/fundo_botao_novo_checklist_pagina_principal"
                 app:layout_constraintTop_toTopOf="@+id/fundo_botao_novo_checklist_pagina_principal"
                 app:layout_constraintVertical_bias="0.379"
-                app:srcCompat="@drawable/ic_pagina_inicial_novo_checklist_foreground" />
+                app:srcCompat="@drawable/ic_pagina_inicial_novo_checklist_foreground"
+                android:focusable="true" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/botao_fab_pagina_inicial_lista_checklist"
@@ -151,7 +151,8 @@
                 app:layout_constraintStart_toStartOf="@+id/fundo_botao_lista_checklists_pagina_principal"
                 app:layout_constraintTop_toTopOf="@+id/fundo_botao_lista_checklists_pagina_principal"
                 app:layout_constraintVertical_bias="0.379"
-                app:srcCompat="@drawable/ic_pagina_inicial_listar_todos_foreground" />
+                app:srcCompat="@drawable/ic_pagina_inicial_listar_todos_foreground"
+                android:focusable="true" />
 
             <TextView
                 android:id="@+id/texto_botao_novo_checklist"
@@ -226,9 +227,6 @@
                 app:layout_constraintEnd_toEndOf="@+id/botao_fab_pagina_inicial_help"
                 app:layout_constraintStart_toStartOf="@+id/botao_fab_pagina_inicial_help"
                 app:layout_constraintTop_toBottomOf="@+id/botao_fab_pagina_inicial_help" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </ScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
