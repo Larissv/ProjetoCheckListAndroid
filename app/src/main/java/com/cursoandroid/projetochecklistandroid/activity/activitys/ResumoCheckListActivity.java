@@ -3,16 +3,13 @@ package com.cursoandroid.projetochecklistandroid.activity.activitys;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CHAVE_CHECKLIST;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CHAVE_POSICAO;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CODIGO_PAGINA_PRINCIPAL_CHECKLIST;
-import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.POSICAO_INVALIDA;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.TITULO_APPBAR_MOSTRA_CHECKLIST;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.TITULO_APPBAR_RESUMO_CHECKLIST;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -21,13 +18,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.cursoandroid.projetochecklistandroid.R;
 import com.cursoandroid.projetochecklistandroid.model.CheckList;
-import com.cursoandroid.projetochecklistandroid.retrofit.adapter.ListaCheckListsAdapter;
-import com.cursoandroid.projetochecklistandroid.retrofit.config.RetrofitConfig;
-
-import java.util.List;
 
 public class ResumoCheckListActivity extends AppCompatActivity {
-
     private TextView data;
     private TextView hora;
     private TextView saidaRetorno;
@@ -49,10 +41,7 @@ public class ResumoCheckListActivity extends AppCompatActivity {
     private TextView cintoSeguranca;
     private TextView pedais;
     private TextView aberturaPortas;
-    private ListaCheckListsAdapter adapter;
-    private List<CheckList> checkLists;
-    private int posicaoRecebida = POSICAO_INVALIDA;
-    public CheckList updateCheckList = new CheckList();
+    private CheckList checkListMostrado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,11 +57,8 @@ public class ResumoCheckListActivity extends AppCompatActivity {
         if (dadosRecebidos.hasExtra(CHAVE_CHECKLIST) &&
                 dadosRecebidos.hasExtra(CHAVE_POSICAO)) {
             setTitle(TITULO_APPBAR_RESUMO_CHECKLIST);
-            CheckList checkListRecebido = (CheckList) dadosRecebidos
-                    .getSerializableExtra(CHAVE_CHECKLIST);
-            updateCheckList = checkListRecebido;
-            posicaoRecebida = dadosRecebidos.getIntExtra(CHAVE_POSICAO, POSICAO_INVALIDA);
-            preencheCheckList(checkListRecebido);
+            checkListMostrado = (CheckList) dadosRecebidos.getSerializableExtra(CHAVE_CHECKLIST);
+            preencheCheckList();
         }
     }
 
@@ -83,31 +69,18 @@ public class ResumoCheckListActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        super.onCreateContextMenu(menu, v, menuInfo);
-        getMenuInflater()
-                .inflate(R.menu.menu_lista_remover, menu);
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        deletaChecklist();
+        return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public boolean onContextItemSelected(MenuItem item) {
-        int itemId = item.getItemId();
-        if (itemId == R.id.item_menu_lista_remover) {
-            checkLists.remove(itemId);
-            adapter.removeCheckList(itemId, posicaoRecebida);
-        }
-        return super.onContextItemSelected(item);
+    private void deletaChecklist() {
+        // TODO - Aqui você deve usar o retrofit e chamar o 'delete' no WS
     }
 
     private void configuraBotaoConcluir() {
-        Button botaoConcluir = findViewById(
-                R.id.botao_resumo_concluir);
-        botaoConcluir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                retonaParaPaginaInicial();
-            }
-        });
+        Button botaoConcluir = findViewById(R.id.botao_resumo_concluir);
+        botaoConcluir.setOnClickListener(view -> retonaParaPaginaInicial());
     }
 
     private void retonaParaPaginaInicial() {
@@ -141,30 +114,29 @@ public class ResumoCheckListActivity extends AppCompatActivity {
         aberturaPortas = findViewById(R.id.resumo_abertura_portas);
     }
 
-    private void preencheCheckList(CheckList checkListPreenchido) {
-        data.setText(checkListPreenchido.getDataC());
-        hora.setText(checkListPreenchido.getHora());
-        saidaRetorno.setText(checkListPreenchido.getSaidaRetorno());
-        placa.setText(checkListPreenchido.getPlaca());
-        motorista.setText(checkListPreenchido.getMotorista());
-        km.setText(checkListPreenchido.getKm());
-        tracao.setText(checkListPreenchido.getTracao());
-        calibracao.setText(checkListPreenchido.getCalibragemPneu());
-        estepe.setText(checkListPreenchido.getEstepe());
-        freioDianteiro.setText(checkListPreenchido.getFreioDianteiro());
-        freioTraseiro.setText(checkListPreenchido.getFreioTraseiro());
-        balanceamento.setText(checkListPreenchido.getBalanceamento());
-        limpezaRadiador.setText(checkListPreenchido.getLimpezaRadiador());
-        oleoMotor.setText(checkListPreenchido.getOleoMotor());
-        filtroOleo.setText(checkListPreenchido.getFiltroOleo());
-        paraChoqueDianteiro.setText(checkListPreenchido.getParaChoqueDianteiro());
-        paraChoqueTraseiro.setText(checkListPreenchido.getParaChoqueTraseiro());
-        placas.setText(checkListPreenchido.getPlacasCaminhao());
-        cintoSeguranca.setText(checkListPreenchido.getCintoSeguranca());
-        pedais.setText(checkListPreenchido.getPedais());
-        aberturaPortas.setText(checkListPreenchido.getAberturaPortas());
+    private void preencheCheckList() {
+        data.setText(checkListMostrado.getDataC());
+        hora.setText(checkListMostrado.getHora());
+        saidaRetorno.setText(checkListMostrado.getSaidaRetorno());
+        placa.setText(checkListMostrado.getPlaca());
+        motorista.setText(checkListMostrado.getMotorista());
+        km.setText(checkListMostrado.getKm().toString());
+        tracao.setText(checkListMostrado.getTracao());
+        calibracao.setText(checkListMostrado.getCalibragemPneu());
+        estepe.setText(checkListMostrado.getEstepe());
+        freioDianteiro.setText(checkListMostrado.getFreioDianteiro());
+        freioTraseiro.setText(checkListMostrado.getFreioTraseiro());
+        balanceamento.setText(checkListMostrado.getBalanceamento());
+        limpezaRadiador.setText(checkListMostrado.getLimpezaRadiador());
+        oleoMotor.setText(checkListMostrado.getOleoMotor());
+        filtroOleo.setText(checkListMostrado.getFiltroOleo());
+        paraChoqueDianteiro.setText(checkListMostrado.getParaChoqueDianteiro());
+        paraChoqueTraseiro.setText(checkListMostrado.getParaChoqueTraseiro());
+        placas.setText(checkListMostrado.getPlacasCaminhao());
+        cintoSeguranca.setText(checkListMostrado.getCintoSeguranca());
+        pedais.setText(checkListMostrado.getPedais());
+        aberturaPortas.setText(checkListMostrado.getAberturaPortas());
     }
-
 }
 
 

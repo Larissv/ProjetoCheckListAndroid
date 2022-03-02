@@ -5,7 +5,6 @@ import static com.cursoandroid.projetochecklistandroid.activity.constantes.Check
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,18 +23,29 @@ public class PaginaPrincipalActivity extends AppCompatActivity {
         configuraBotaoNovoCheckList();
         configuraBotaoMostraTodosCheckLists();
         configuraBotaoChat();
-        configuraBotaoFac();
+        configuraBotaoHelp();
     }
 
     private void configuraBotaoNovoCheckList() {
         FloatingActionButton botaoNovoCheckList = findViewById(
                 R.id.botao_fab_pagina_inicial_novo_checklist);
-        botaoNovoCheckList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                vaiParaFormularioCheckList();
-            }
-        });
+        botaoNovoCheckList.setOnClickListener(view -> vaiParaFormularioCheckList());
+    }
+
+    private void configuraBotaoMostraTodosCheckLists() {
+        FloatingActionButton botaoMostrarTodosCheckLists = findViewById(
+                R.id.botao_fab_pagina_inicial_lista_checklist);
+        botaoMostrarTodosCheckLists.setOnClickListener(view -> vaiParaListaCheckLists());
+    }
+
+    private void configuraBotaoChat() {
+        FloatingActionButton botaoChat = findViewById(R.id.botao_fab_pagina_inicial_chat);
+        botaoChat.setOnClickListener(view -> vaiParaChat());
+    }
+
+    private void configuraBotaoHelp() {
+        FloatingActionButton botaoHelp = findViewById(R.id.botao_fab_pagina_inicial_help);
+        botaoHelp.setOnClickListener(view -> vaiParaHelp());
     }
 
     private void vaiParaFormularioCheckList() {
@@ -45,48 +55,16 @@ public class PaginaPrincipalActivity extends AppCompatActivity {
         startActivityIfNeeded(iniciaFormularioCheckList, CODIGO_INSERE_CHECKLIST);
     }
 
-    private void configuraBotaoMostraTodosCheckLists() {
-        FloatingActionButton botaoMostrarTodosCheckLists = findViewById(
-                R.id.botao_fab_pagina_inicial_lista_checklist);
-        botaoMostrarTodosCheckLists.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                vaiParaListaCheckLists();
-            }
-        });
-    }
-
     private void vaiParaListaCheckLists() {
         startActivity(new Intent(PaginaPrincipalActivity.this,
                 ListaCheckListsActivity.class));
-    }
-
-    private void configuraBotaoChat() {
-        FloatingActionButton botaoChat = findViewById(R.id.botao_fab_pagina_inicial_chat);
-        botaoChat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                vaiParaChat();
-            }
-        });
     }
 
     private void vaiParaChat() {
         startActivity(new Intent(PaginaPrincipalActivity.this, ChatActivity.class));
     }
 
-    private void configuraBotaoFac() {
-        FloatingActionButton botaoFaq = findViewById(R.id.botao_fab_pagina_inicial_help);
-        botaoFaq.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                vaiParaFac();
-            }
-        });
-    }
-
-    private void vaiParaFac() {
+    private void vaiParaHelp() {
         startActivity(new Intent(PaginaPrincipalActivity.this, HelpActivity.class));
     }
-
 }
