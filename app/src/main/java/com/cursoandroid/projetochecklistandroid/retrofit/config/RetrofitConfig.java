@@ -10,8 +10,6 @@ public class RetrofitConfig {
 
     public final Retrofit getRetrofit(){
 
-            // http://192.168.0.54:8080/
-
         HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
 
         OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor(

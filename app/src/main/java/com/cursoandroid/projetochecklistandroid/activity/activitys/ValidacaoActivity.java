@@ -33,15 +33,12 @@ public class ValidacaoActivity extends AppCompatActivity {
     private void configuraBotaoValidar() {
         Button botaoValidar = findViewById(
                 R.id.botao_validacao);
-        botaoValidar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (senhaValidacao.getText().toString().equals("")) {
-                    Toast.makeText(ValidacaoActivity.this, "Código de verificação inválido",
-                            Toast.LENGTH_SHORT).show();
-                } else {
-                    vaiParaFinalizar();
-                }
+        botaoValidar.setOnClickListener(view -> {
+            if (senhaValidacao.getText().toString().equals("")) {
+                Toast.makeText(ValidacaoActivity.this, "Código de verificação inválido",
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                vaiParaFinalizar();
             }
         });
     }

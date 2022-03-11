@@ -15,8 +15,6 @@ import rx.Observable;
 
 public interface CheckListService {
 
-    // http://localhost:8080/checklists
-
     @GET("checklists/")
     Observable<List<CheckList>> mostraTodosCheckLists();
 

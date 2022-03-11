@@ -21,8 +21,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.cursoandroid.projetochecklistandroid.R;
 import com.cursoandroid.projetochecklistandroid.model.CheckList;
-import com.cursoandroid.projetochecklistandroid.retrofit.adapter.ListaCheckListsAdapter;
-import com.cursoandroid.projetochecklistandroid.retrofit.config.RetrofitConfig;
+import com.cursoandroid.projetochecklistandroid.adapter.ListaCheckListsAdapter;
 
 import java.util.List;
 
@@ -102,12 +101,7 @@ public class ResumoCheckListActivity extends AppCompatActivity {
     private void configuraBotaoConcluir() {
         Button botaoConcluir = findViewById(
                 R.id.botao_resumo_concluir);
-        botaoConcluir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                retonaParaPaginaInicial();
-            }
-        });
+        botaoConcluir.setOnClickListener(view -> retonaParaPaginaInicial());
     }
 
     private void retonaParaPaginaInicial() {
@@ -164,7 +158,6 @@ public class ResumoCheckListActivity extends AppCompatActivity {
         pedais.setText(checkListPreenchido.getPedais());
         aberturaPortas.setText(checkListPreenchido.getAberturaPortas());
     }
-
 }
 
 

@@ -1,4 +1,4 @@
-package com.cursoandroid.projetochecklistandroid.retrofit.adapter;
+package com.cursoandroid.projetochecklistandroid.adapter;
 
 import android.content.Context;
 import android.util.Log;
@@ -29,7 +29,6 @@ public class ListaCheckListsAdapter extends RecyclerView.Adapter<ListaCheckLists
     private final List<CheckList> checkLists;
     private final Context context;
     private OnItemClickListener onItemClickListener;
-    private ListaCheckListsAdapter adapter;
     RetrofitConfig retrofitConfig = new RetrofitConfig();
 
     public ListaCheckListsAdapter(List<CheckList> checkLists, Context context) {
@@ -103,12 +102,8 @@ public class ListaCheckListsAdapter extends RecyclerView.Adapter<ListaCheckLists
             motorista = itemView.findViewById(R.id.item_check_list_motorista);
             saidaRetorno = itemView.findViewById(R.id.item_check_list_saidaRetorno);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    onItemClickListener.onItemClick(checkList, getAbsoluteAdapterPosition());
-                }
-            });
+            itemView.setOnClickListener(view ->
+                    onItemClickListener.onItemClick(checkList, getAbsoluteAdapterPosition()));
         }
 
         public void vincula(CheckList checkList) {

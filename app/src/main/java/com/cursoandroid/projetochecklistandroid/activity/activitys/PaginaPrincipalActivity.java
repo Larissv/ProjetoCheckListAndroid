@@ -30,12 +30,7 @@ public class PaginaPrincipalActivity extends AppCompatActivity {
     private void configuraBotaoNovoCheckList() {
         FloatingActionButton botaoNovoCheckList = findViewById(
                 R.id.botao_fab_pagina_inicial_novo_checklist);
-        botaoNovoCheckList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                vaiParaFormularioCheckList();
-            }
-        });
+        botaoNovoCheckList.setOnClickListener(view -> vaiParaFormularioCheckList());
     }
 
     private void vaiParaFormularioCheckList() {
@@ -48,12 +43,7 @@ public class PaginaPrincipalActivity extends AppCompatActivity {
     private void configuraBotaoMostraTodosCheckLists() {
         FloatingActionButton botaoMostrarTodosCheckLists = findViewById(
                 R.id.botao_fab_pagina_inicial_lista_checklist);
-        botaoMostrarTodosCheckLists.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                vaiParaListaCheckLists();
-            }
-        });
+        botaoMostrarTodosCheckLists.setOnClickListener(view -> vaiParaListaCheckLists());
     }
 
     private void vaiParaListaCheckLists() {
@@ -63,12 +53,7 @@ public class PaginaPrincipalActivity extends AppCompatActivity {
 
     private void configuraBotaoChat() {
         FloatingActionButton botaoChat = findViewById(R.id.botao_fab_pagina_inicial_chat);
-        botaoChat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                vaiParaChat();
-            }
-        });
+        botaoChat.setOnClickListener(view -> vaiParaChat());
     }
 
     private void vaiParaChat() {
@@ -77,12 +62,7 @@ public class PaginaPrincipalActivity extends AppCompatActivity {
 
     private void configuraBotaoFac() {
         FloatingActionButton botaoFaq = findViewById(R.id.botao_fab_pagina_inicial_help);
-        botaoFaq.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                vaiParaFac();
-            }
-        });
+        botaoFaq.setOnClickListener(view -> vaiParaFac());
     }
 
     private void vaiParaFac() {

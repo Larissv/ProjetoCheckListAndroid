@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cursoandroid.projetochecklistandroid.activity.listener.OnItemClickListener;
-import com.cursoandroid.projetochecklistandroid.retrofit.adapter.ListaCheckListsAdapter;
+import com.cursoandroid.projetochecklistandroid.adapter.ListaCheckListsAdapter;
 import com.cursoandroid.projetochecklistandroid.R;
 import com.cursoandroid.projetochecklistandroid.model.CheckList;
 import com.cursoandroid.projetochecklistandroid.retrofit.service.CheckListService;
@@ -111,12 +111,9 @@ public class ListaCheckListsActivity extends AppCompatActivity {
     private void configuraAdapter(List<CheckList> todosCheckLists, RecyclerView listaCheckLists) {
         listaCheckListsAdapter = new ListaCheckListsAdapter(todosCheckLists, this);
         listaCheckLists.setAdapter(listaCheckListsAdapter);
-        listaCheckListsAdapter.setOnItemClickListener(new OnItemClickListener() {
-            @Override
-            public void onItemClick(CheckList checkList, int posicao) {
-                mostraCheckListId();
-                vaiParaMostraCheckListPreenchido(checkList, posicao);
-            }
+        listaCheckListsAdapter.setOnItemClickListener((checkList, posicao) -> {
+            mostraCheckListId();
+            vaiParaMostraCheckListPreenchido(checkList, posicao);
         });
     }
 

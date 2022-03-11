@@ -82,12 +82,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
     private void configuraBotaoCancelar() {
         Button botaoCancelar = findViewById(
                 R.id.botao_formulario_cancelar);
-        botaoCancelar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                voltaParaPaginaPrincipal();
-            }
-        });
+        botaoCancelar.setOnClickListener(view -> voltaParaPaginaPrincipal());
     }
 
     private void voltaParaPaginaPrincipal() {
@@ -99,12 +94,9 @@ public class FormularioCheckListActivity extends AppCompatActivity {
 
     private void configuraBotaoSalvar() {
         Button botaoSalvar = findViewById(R.id.botao_formulario_salvar);
-        botaoSalvar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                salvaCheckList();
-                vaiParaValidacao();
-            }
+        botaoSalvar.setOnClickListener(view -> {
+            salvaCheckList();
+            vaiParaValidacao();
         });
     }
 
@@ -142,61 +134,49 @@ public class FormularioCheckListActivity extends AppCompatActivity {
     }
 
     public EditText configuraHora() {
-        hora.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                final Calendar calendar = Calendar.getInstance();
-                int hour = calendar.get(Calendar.HOUR_OF_DAY);
-                int minute = calendar.get(Calendar.MINUTE);
-                TimePickerDialog timePickerDialog = new TimePickerDialog(
-                        FormularioCheckListActivity.this, new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                        hora.setText(selectedHour + ":" + selectedMinute);
-                    }
-                }, hour, minute, true);
-                timePickerDialog.setTitle("Selecione a hora");
-                timePickerDialog.show();
-            }
+        hora.setOnClickListener(view -> {
+            final Calendar calendar = Calendar.getInstance();
+            int hour = calendar.get(Calendar.HOUR_OF_DAY);
+            int minute = calendar.get(Calendar.MINUTE);
+            TimePickerDialog timePickerDialog = new TimePickerDialog(
+                    FormularioCheckListActivity.this, (
+                            timePicker, selectedHour, selectedMinute) -> hora.setText(
+                                    selectedHour + ":" + selectedMinute), hour, minute, true);
+            timePickerDialog.setTitle("Selecione a hora");
+            timePickerDialog.show();
         });
         return null;
     }
 
     public EditText configuraCalendario() {
-        dataC.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final Calendar calendar = Calendar.getInstance();
-                int year = calendar.get(Calendar.YEAR);
-                int month = calendar.get(Calendar.MONTH);
-                int day = calendar.get(Calendar.DAY_OF_MONTH);
-                DatePickerDialog datePickerDialog = new DatePickerDialog(
-                        FormularioCheckListActivity.this,
-                        new DatePickerDialog.OnDateSetListener() {
-                            @Override
-                            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                                calendar.set(year, month, day);
-                                String format = "dd/MM/yyyy";
-                                SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.ENGLISH);
-                                Date date;
+        dataC.setOnClickListener(v -> {
+            final Calendar calendar = Calendar.getInstance();
+            int year = calendar.get(Calendar.YEAR);
+            int month = calendar.get(Calendar.MONTH);
+            int day = calendar.get(Calendar.DAY_OF_MONTH);
+            DatePickerDialog datePickerDialog = new DatePickerDialog(
+                    FormularioCheckListActivity.this,
+                    (datePicker, year1, month1, day1) -> {
+                        calendar.set(year1, month1, day1);
+                        String format = "dd/MM/yyyy";
+                        SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.ENGLISH);
+                        Date date;
 
-                                try {
-                                    date = sdf.parse(sdf.format(calendar.getTime()));
-                                    String dayS = new SimpleDateFormat(
-                                            "dd", Locale.ENGLISH).format(date);
-                                    String monthS = new SimpleDateFormat(
-                                            "MM", Locale.ENGLISH).format(date);
-                                    String yearS = new SimpleDateFormat(
-                                            "yyyy", Locale.ENGLISH).format(date);
+                        try {
+                            date = sdf.parse(sdf.format(calendar.getTime()));
+                            String dayS = new SimpleDateFormat(
+                                    "dd", Locale.ENGLISH).format(date);
+                            String monthS = new SimpleDateFormat(
+                                    "MM", Locale.ENGLISH).format(date);
+                            String yearS = new SimpleDateFormat(
+                                    "yyyy", Locale.ENGLISH).format(date);
 
-                                    dataC.setText((dayS + "/" + monthS + "/" + yearS));
-                                } catch (ParseException ignored) {
-                                }
-                            }
-                        }, year, month, day);
-                datePickerDialog.show();
-                datePickerDialog.getDatePicker();
-            }
+                            dataC.setText((dayS + "/" + monthS + "/" + yearS));
+                        } catch (ParseException ignored) {
+                        }
+                    }, year, month, day);
+            datePickerDialog.show();
+            datePickerDialog.getDatePicker();
         });
         return null;
     }
@@ -280,18 +260,15 @@ public class FormularioCheckListActivity extends AppCompatActivity {
     }
 
     public void checkRadioButtonSelecionadoSaidaRetorno() {
-        saidaRetorno.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int id) {
-                if (id == R.id.formulario_rbSaida) {
-                    saidaRetorno.check(R.id.formulario_rbSaida);
-                    Toast.makeText(getApplicationContext(),
-                            "Saída", Toast.LENGTH_SHORT).show();
-                } else {
-                    saidaRetorno.check(R.id.formulario_rbRetorno);
-                    Toast.makeText(getApplicationContext(),
-                            "Retorno", Toast.LENGTH_SHORT).show();
-                }
+        saidaRetorno.setOnCheckedChangeListener((radioGroup, id) -> {
+            if (id == R.id.formulario_rbSaida) {
+                saidaRetorno.check(R.id.formulario_rbSaida);
+                Toast.makeText(getApplicationContext(),
+                        "Saída", Toast.LENGTH_SHORT).show();
+            } else {
+                saidaRetorno.check(R.id.formulario_rbRetorno);
+                Toast.makeText(getApplicationContext(),
+                        "Retorno", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -306,17 +283,14 @@ public class FormularioCheckListActivity extends AppCompatActivity {
     }
 
     public void checkRadioButtonSelecionadoTracao() {
-        tracao.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int id) {
-                if (id == R.id.formulario_rbtracao_ok) {
-                    Toast.makeText(getApplicationContext(), "OK",
-                            Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getApplicationContext(),
-                            "ATENÇÃO! Verificar tração - NOK",
-                            Toast.LENGTH_SHORT).show();
-                }
+        tracao.setOnCheckedChangeListener((radioGroup, id) -> {
+            if (id == R.id.formulario_rbtracao_ok) {
+                Toast.makeText(getApplicationContext(), "OK",
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getApplicationContext(),
+                        "ATENÇÃO! Verificar tração - NOK",
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -331,17 +305,14 @@ public class FormularioCheckListActivity extends AppCompatActivity {
     }
 
     public void checkRadioButtonSelecionadoCalibragemPneu() {
-        calibragemPneu.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int id) {
-                if (id == R.id.formulario_rbcalibragem_ok) {
-                    Toast.makeText(getApplicationContext(), "OK",
-                            Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getApplicationContext(),
-                            "ATENÇÃO! Verificar calibragem do pneu - NOK",
-                            Toast.LENGTH_SHORT).show();
-                }
+        calibragemPneu.setOnCheckedChangeListener((radioGroup, id) -> {
+            if (id == R.id.formulario_rbcalibragem_ok) {
+                Toast.makeText(getApplicationContext(), "OK",
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getApplicationContext(),
+                        "ATENÇÃO! Verificar calibragem do pneu - NOK",
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -356,17 +327,14 @@ public class FormularioCheckListActivity extends AppCompatActivity {
     }
 
     public void checkRadioButtonSelecionadoEstepe() {
-        estepe.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int id) {
-                if (id == R.id.formulario_rbestepe_ok) {
-                    Toast.makeText(getApplicationContext(), "OK",
-                            Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getApplicationContext(),
-                            "ATENÇÃO! Verificar estepe - NOK",
-                            Toast.LENGTH_SHORT).show();
-                }
+        estepe.setOnCheckedChangeListener((radioGroup, id) -> {
+            if (id == R.id.formulario_rbestepe_ok) {
+                Toast.makeText(getApplicationContext(), "OK",
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getApplicationContext(),
+                        "ATENÇÃO! Verificar estepe - NOK",
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -381,17 +349,14 @@ public class FormularioCheckListActivity extends AppCompatActivity {
     }
 
     public void checkRadioButtonSelecionadoFreioDianteiro() {
-        freioDianteiro.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int id) {
-                if (id == R.id.formulario_rbfreioDianteiro_ok) {
-                    Toast.makeText(getApplicationContext(), "OK",
-                            Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getApplicationContext(),
-                            "ATENÇÃO! Verificar freio dianteiro - NOK",
-                            Toast.LENGTH_SHORT).show();
-                }
+        freioDianteiro.setOnCheckedChangeListener((radioGroup, id) -> {
+            if (id == R.id.formulario_rbfreioDianteiro_ok) {
+                Toast.makeText(getApplicationContext(), "OK",
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getApplicationContext(),
+                        "ATENÇÃO! Verificar freio dianteiro - NOK",
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -406,17 +371,14 @@ public class FormularioCheckListActivity extends AppCompatActivity {
     }
 
     public void checkRadioButtonSelecionadoFreioTraseiro() {
-        freioTraseiro.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int id) {
-                if (id == R.id.formulario_rbfreioTraseiro_ok) {
-                    Toast.makeText(getApplicationContext(), "OK",
-                            Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getApplicationContext(),
-                            "ATENÇÃO! Verificar freio traseiro - NOK",
-                            Toast.LENGTH_SHORT).show();
-                }
+        freioTraseiro.setOnCheckedChangeListener((radioGroup, id) -> {
+            if (id == R.id.formulario_rbfreioTraseiro_ok) {
+                Toast.makeText(getApplicationContext(), "OK",
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getApplicationContext(),
+                        "ATENÇÃO! Verificar freio traseiro - NOK",
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -431,17 +393,14 @@ public class FormularioCheckListActivity extends AppCompatActivity {
     }
 
     public void checkRadioButtonSelecionadoBalanceamento() {
-        balanceamento.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int id) {
-                if (id == R.id.formulario_rbBalanceamento_ok) {
-                    Toast.makeText(getApplicationContext(), "OK",
-                            Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getApplicationContext(),
-                            "ATENÇÃO! Verificar balanceamento - NOK",
-                            Toast.LENGTH_SHORT).show();
-                }
+        balanceamento.setOnCheckedChangeListener((radioGroup, id) -> {
+            if (id == R.id.formulario_rbBalanceamento_ok) {
+                Toast.makeText(getApplicationContext(), "OK",
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getApplicationContext(),
+                        "ATENÇÃO! Verificar balanceamento - NOK",
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -456,17 +415,14 @@ public class FormularioCheckListActivity extends AppCompatActivity {
     }
 
     public void checkRadioButtonSelecionadoLimpezaRadiador() {
-        limpezaRadiador.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int id) {
-                if (id == R.id.formulario_rbLimpezaRadiador_ok) {
-                    Toast.makeText(getApplicationContext(), "OK",
-                            Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getApplicationContext(),
-                            "ATENÇÃO! Verificar a limpeza do radiador - NOK",
-                            Toast.LENGTH_SHORT).show();
-                }
+        limpezaRadiador.setOnCheckedChangeListener((radioGroup, id) -> {
+            if (id == R.id.formulario_rbLimpezaRadiador_ok) {
+                Toast.makeText(getApplicationContext(), "OK",
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getApplicationContext(),
+                        "ATENÇÃO! Verificar a limpeza do radiador - NOK",
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -481,17 +437,14 @@ public class FormularioCheckListActivity extends AppCompatActivity {
     }
 
     public void checkRadioButtonSelecionadoOleoMotor() {
-        oleoMotor.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int id) {
-                if (id == R.id.formulario_rbOleoMotor_ok) {
-                    Toast.makeText(getApplicationContext(), "OK",
-                            Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getApplicationContext(),
-                            "ATENÇÃO! Verificar o óleo do motor - NOK",
-                            Toast.LENGTH_SHORT).show();
-                }
+        oleoMotor.setOnCheckedChangeListener((radioGroup, id) -> {
+            if (id == R.id.formulario_rbOleoMotor_ok) {
+                Toast.makeText(getApplicationContext(), "OK",
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getApplicationContext(),
+                        "ATENÇÃO! Verificar o óleo do motor - NOK",
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -506,17 +459,14 @@ public class FormularioCheckListActivity extends AppCompatActivity {
     }
 
     public void checkRadioButtonSelecionadoFiltroOleo() {
-        filtroOleo.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int id) {
-                if (id == R.id.formulario_rbFiltroOleo_ok) {
-                    Toast.makeText(getApplicationContext(), "OK",
-                            Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getApplicationContext(),
-                            "ATENÇÃO! Verificar o filtro de óleo - NOK",
-                            Toast.LENGTH_SHORT).show();
-                }
+        filtroOleo.setOnCheckedChangeListener((radioGroup, id) -> {
+            if (id == R.id.formulario_rbFiltroOleo_ok) {
+                Toast.makeText(getApplicationContext(), "OK",
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getApplicationContext(),
+                        "ATENÇÃO! Verificar o filtro de óleo - NOK",
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -531,17 +481,14 @@ public class FormularioCheckListActivity extends AppCompatActivity {
     }
 
     public void checkRadioButtonSelecionadoParaChoqueDianteiro() {
-        paraChoqueDianteiro.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int id) {
-                if (id == R.id.formulario_rbPcDianteiro_ok) {
-                    Toast.makeText(getApplicationContext(), "OK",
-                            Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getApplicationContext(),
-                            "ATENÇÃO! Verificar o para-choque dianteiro - NOK",
-                            Toast.LENGTH_SHORT).show();
-                }
+        paraChoqueDianteiro.setOnCheckedChangeListener((radioGroup, id) -> {
+            if (id == R.id.formulario_rbPcDianteiro_ok) {
+                Toast.makeText(getApplicationContext(), "OK",
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getApplicationContext(),
+                        "ATENÇÃO! Verificar o para-choque dianteiro - NOK",
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -556,17 +503,14 @@ public class FormularioCheckListActivity extends AppCompatActivity {
     }
 
     public void checkRadioButtonSelecionadoParaChoqueTraseiro() {
-        paraChoqueTraseiro.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int id) {
-                if (id == R.id.formulario_rbPcTraseiro_ok) {
-                    Toast.makeText(getApplicationContext(), "OK",
-                            Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getApplicationContext(),
-                            "ATENÇÃO! Verificar o para-choque traseiro - NOK",
-                            Toast.LENGTH_SHORT).show();
-                }
+        paraChoqueTraseiro.setOnCheckedChangeListener((radioGroup, id) -> {
+            if (id == R.id.formulario_rbPcTraseiro_ok) {
+                Toast.makeText(getApplicationContext(), "OK",
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getApplicationContext(),
+                        "ATENÇÃO! Verificar o para-choque traseiro - NOK",
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -581,17 +525,14 @@ public class FormularioCheckListActivity extends AppCompatActivity {
     }
 
     public void checkRadioButtonSelecionadoPlacasCaminhao() {
-        placasCaminhao.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int id) {
-                if (id == R.id.formulario_rbPlacasCaminhao_ok) {
-                    Toast.makeText(getApplicationContext(), "OK",
-                            Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getApplicationContext(),
-                            "ATENÇÃO! Verificar as placas - NOK",
-                            Toast.LENGTH_SHORT).show();
-                }
+        placasCaminhao.setOnCheckedChangeListener((radioGroup, id) -> {
+            if (id == R.id.formulario_rbPlacasCaminhao_ok) {
+                Toast.makeText(getApplicationContext(), "OK",
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getApplicationContext(),
+                        "ATENÇÃO! Verificar as placas - NOK",
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -606,17 +547,14 @@ public class FormularioCheckListActivity extends AppCompatActivity {
     }
 
     public void checkRadioButtonSelecionadoCintoSeguranca() {
-        cintoSeguranca.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int id) {
-                if (id == R.id.formulario_rbcinto_seguranca_ok) {
-                    Toast.makeText(getApplicationContext(), "OK",
-                            Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getApplicationContext(),
-                            "ATENÇÃO! Verificar cintos de segurança - NOK",
-                            Toast.LENGTH_SHORT).show();
-                }
+        cintoSeguranca.setOnCheckedChangeListener((radioGroup, id) -> {
+            if (id == R.id.formulario_rbcinto_seguranca_ok) {
+                Toast.makeText(getApplicationContext(), "OK",
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getApplicationContext(),
+                        "ATENÇÃO! Verificar cintos de segurança - NOK",
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -631,17 +569,14 @@ public class FormularioCheckListActivity extends AppCompatActivity {
     }
 
     public void checkRadioButtonSelecionadoPedais() {
-        pedais.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int id) {
-                if (id == R.id.formulario_rbpedais_ok) {
-                    Toast.makeText(getApplicationContext(), "OK",
-                            Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getApplicationContext(),
-                            "ATENÇÃO! Verificar os pedais - NOK",
-                            Toast.LENGTH_SHORT).show();
-                }
+        pedais.setOnCheckedChangeListener((radioGroup, id) -> {
+            if (id == R.id.formulario_rbpedais_ok) {
+                Toast.makeText(getApplicationContext(), "OK",
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getApplicationContext(),
+                        "ATENÇÃO! Verificar os pedais - NOK",
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -656,17 +591,14 @@ public class FormularioCheckListActivity extends AppCompatActivity {
     }
 
     public void checkRadioButtonSelecionadoAberturaPortas() {
-        aberturaPortas.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int id) {
-                if (id == R.id.formulario_rbabertura_portas_ok) {
-                    Toast.makeText(getApplicationContext(), "OK",
-                            Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getApplicationContext(),
-                            "ATENÇÃO! Verificar abertura de portas - NOK",
-                            Toast.LENGTH_SHORT).show();
-                }
+        aberturaPortas.setOnCheckedChangeListener((radioGroup, id) -> {
+            if (id == R.id.formulario_rbabertura_portas_ok) {
+                Toast.makeText(getApplicationContext(), "OK",
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getApplicationContext(),
+                        "ATENÇÃO! Verificar abertura de portas - NOK",
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }

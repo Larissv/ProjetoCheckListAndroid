@@ -25,12 +25,7 @@ public class HelpActivity extends AppCompatActivity {
 
     private void configuraBotaoVoltarPaginaInicial() {
         Button botaoVoltar = findViewById(R.id.botao_retornar_tela_inicial);
-        botaoVoltar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                retonaParaPaginaInicial();
-            }
-        });
+        botaoVoltar.setOnClickListener(view -> retonaParaPaginaInicial());
     }
 
     private void retonaParaPaginaInicial() {
