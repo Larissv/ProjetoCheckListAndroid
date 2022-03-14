@@ -5,7 +5,6 @@ import static com.cursoandroid.projetochecklistandroid.activity.constantes.Check
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,7 +23,7 @@ public class PaginaPrincipalActivity extends AppCompatActivity {
         configuraBotaoNovoCheckList();
         configuraBotaoMostraTodosCheckLists();
         configuraBotaoChat();
-        configuraBotaoFac();
+        configuraBotaoHelp();
     }
 
     private void configuraBotaoNovoCheckList() {
@@ -60,12 +59,12 @@ public class PaginaPrincipalActivity extends AppCompatActivity {
         startActivity(new Intent(PaginaPrincipalActivity.this, ChatActivity.class));
     }
 
-    private void configuraBotaoFac() {
-        FloatingActionButton botaoFaq = findViewById(R.id.botao_fab_pagina_inicial_help);
-        botaoFaq.setOnClickListener(view -> vaiParaFac());
+    private void configuraBotaoHelp() {
+        FloatingActionButton botaoHelp = findViewById(R.id.botao_fab_pagina_inicial_help);
+        botaoHelp.setOnClickListener(view -> vaiParaHelp());
     }
 
-    private void vaiParaFac() {
+    private void vaiParaHelp() {
         startActivity(new Intent(PaginaPrincipalActivity.this, HelpActivity.class));
     }
 

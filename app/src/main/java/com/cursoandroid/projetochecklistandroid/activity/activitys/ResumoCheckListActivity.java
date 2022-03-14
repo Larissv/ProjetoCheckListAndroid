@@ -9,6 +9,7 @@ import static com.cursoandroid.projetochecklistandroid.activity.constantes.Check
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,8 +23,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.cursoandroid.projetochecklistandroid.R;
 import com.cursoandroid.projetochecklistandroid.model.CheckList;
 import com.cursoandroid.projetochecklistandroid.adapter.ListaCheckListsAdapter;
+import com.cursoandroid.projetochecklistandroid.retrofit.service.CheckListService;
 
 import java.util.List;
+
+import rx.Observable;
+import rx.Observer;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 public class ResumoCheckListActivity extends AppCompatActivity {
 
@@ -48,10 +55,7 @@ public class ResumoCheckListActivity extends AppCompatActivity {
     private TextView cintoSeguranca;
     private TextView pedais;
     private TextView aberturaPortas;
-    private ListaCheckListsAdapter adapter;
-    private List<CheckList> checkLists;
-    private int posicaoRecebida = POSICAO_INVALIDA;
-    public CheckList updateCheckList = new CheckList();
+    private CheckList checkListMostrado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,36 +71,40 @@ public class ResumoCheckListActivity extends AppCompatActivity {
         if (dadosRecebidos.hasExtra(CHAVE_CHECKLIST) &&
                 dadosRecebidos.hasExtra(CHAVE_POSICAO)) {
             setTitle(TITULO_APPBAR_RESUMO_CHECKLIST);
-            CheckList checkListRecebido = (CheckList) dadosRecebidos
-                    .getSerializableExtra(CHAVE_CHECKLIST);
-            updateCheckList = checkListRecebido;
-            posicaoRecebida = dadosRecebidos.getIntExtra(CHAVE_POSICAO, POSICAO_INVALIDA);
-            preencheCheckList(checkListRecebido);
+            checkListMostrado = (CheckList) dadosRecebidos.getSerializableExtra(CHAVE_CHECKLIST);
+            preencheCheckList();
         }
     }
 
     @Override
-    public boolean onCreateOptionsMenu(@NonNull Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_lista_remover, menu);
-        return super.onCreateOptionsMenu(menu);
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        deletaChecklist();
+        return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        super.onCreateContextMenu(menu, v, menuInfo);
-        getMenuInflater()
-                .inflate(R.menu.menu_lista_remover, menu);
+    private void deletaChecklist() {
+//        Observable<CheckList> observable = (Observable<CheckList>) retrofitConfig.getRetrofit()
+//                .create(CheckListService.class).removeCheckList(id);
+//        observable.subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(new Observer<CheckList>() {
+//                    @Override
+//                    public void onCompleted() {
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//                        Log.i("Erro!", e.getLocalizedMessage());
+//                    }
+//
+//                    @Override
+//                    public void onNext(CheckList checkList) {
+//                        Log.e("Check list removido!", "Removido!");
+//                        checkLists.remove(posicao);
+//                    }
+//                });
     }
 
-    @Override
-    public boolean onContextItemSelected(MenuItem item) {
-        int itemId = item.getItemId();
-        if (itemId == R.id.item_menu_lista_remover) {
-            checkLists.remove(itemId);
-            adapter.removeCheckList(itemId, posicaoRecebida);
-        }
-        return super.onContextItemSelected(item);
-    }
 
     private void configuraBotaoConcluir() {
         Button botaoConcluir = findViewById(
@@ -135,28 +143,28 @@ public class ResumoCheckListActivity extends AppCompatActivity {
         aberturaPortas = findViewById(R.id.resumo_abertura_portas);
     }
 
-    private void preencheCheckList(CheckList checkListPreenchido) {
-        data.setText(checkListPreenchido.getDataC());
-        hora.setText(checkListPreenchido.getHora());
-        saidaRetorno.setText(checkListPreenchido.getSaidaRetorno());
-        placa.setText(checkListPreenchido.getPlaca());
-        motorista.setText(checkListPreenchido.getMotorista());
-        km.setText(checkListPreenchido.getKm());
-        tracao.setText(checkListPreenchido.getTracao());
-        calibracao.setText(checkListPreenchido.getCalibragemPneu());
-        estepe.setText(checkListPreenchido.getEstepe());
-        freioDianteiro.setText(checkListPreenchido.getFreioDianteiro());
-        freioTraseiro.setText(checkListPreenchido.getFreioTraseiro());
-        balanceamento.setText(checkListPreenchido.getBalanceamento());
-        limpezaRadiador.setText(checkListPreenchido.getLimpezaRadiador());
-        oleoMotor.setText(checkListPreenchido.getOleoMotor());
-        filtroOleo.setText(checkListPreenchido.getFiltroOleo());
-        paraChoqueDianteiro.setText(checkListPreenchido.getParaChoqueDianteiro());
-        paraChoqueTraseiro.setText(checkListPreenchido.getParaChoqueTraseiro());
-        placas.setText(checkListPreenchido.getPlacasCaminhao());
-        cintoSeguranca.setText(checkListPreenchido.getCintoSeguranca());
-        pedais.setText(checkListPreenchido.getPedais());
-        aberturaPortas.setText(checkListPreenchido.getAberturaPortas());
+    private void preencheCheckList() {
+        data.setText(checkListMostrado.getDataC());
+        hora.setText(checkListMostrado.getHora());
+        saidaRetorno.setText(checkListMostrado.getSaidaRetorno());
+        placa.setText(checkListMostrado.getPlaca());
+        motorista.setText(checkListMostrado.getMotorista());
+        km.setText(checkListMostrado.getKm());
+        tracao.setText(checkListMostrado.getTracao());
+        calibracao.setText(checkListMostrado.getCalibragemPneu());
+        estepe.setText(checkListMostrado.getEstepe());
+        freioDianteiro.setText(checkListMostrado.getFreioDianteiro());
+        freioTraseiro.setText(checkListMostrado.getFreioTraseiro());
+        balanceamento.setText(checkListMostrado.getBalanceamento());
+        limpezaRadiador.setText(checkListMostrado.getLimpezaRadiador());
+        oleoMotor.setText(checkListMostrado.getOleoMotor());
+        filtroOleo.setText(checkListMostrado.getFiltroOleo());
+        paraChoqueDianteiro.setText(checkListMostrado.getParaChoqueDianteiro());
+        paraChoqueTraseiro.setText(checkListMostrado.getParaChoqueTraseiro());
+        placas.setText(checkListMostrado.getPlacasCaminhao());
+        cintoSeguranca.setText(checkListMostrado.getCintoSeguranca());
+        pedais.setText(checkListMostrado.getPedais());
+        aberturaPortas.setText(checkListMostrado.getAberturaPortas());
     }
 }
 

@@ -2,20 +2,16 @@ package com.cursoandroid.projetochecklistandroid.activity.activitys;
 
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CODIGO_PAGINA_PRINCIPAL_CHECKLIST;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CODIGO_VALIDACAO_CHECKLIST;
-import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.POSICAO_INVALIDA;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.TITULO_APPBAR_NOVO_CHECKLIST;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -39,7 +35,6 @@ import rx.schedulers.Schedulers;
 
 public class FormularioCheckListActivity extends AppCompatActivity {
 
-    private int posicaoRecebida = POSICAO_INVALIDA;
     private RadioGroup saidaRetorno;
     private EditText dataC;
     private EditText hora;
@@ -139,8 +134,8 @@ public class FormularioCheckListActivity extends AppCompatActivity {
             int hour = calendar.get(Calendar.HOUR_OF_DAY);
             int minute = calendar.get(Calendar.MINUTE);
             TimePickerDialog timePickerDialog = new TimePickerDialog(
-                    FormularioCheckListActivity.this, (
-                            timePicker, selectedHour, selectedMinute) -> hora.setText(
+                    FormularioCheckListActivity.this,
+                    (timePicker, selectedHour, selectedMinute) -> hora.setText(
                                     selectedHour + ":" + selectedMinute), hour, minute, true);
             timePickerDialog.setTitle("Selecione a hora");
             timePickerDialog.show();

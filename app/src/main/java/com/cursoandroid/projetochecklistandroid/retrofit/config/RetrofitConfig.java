@@ -8,21 +8,23 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitConfig {
 
-    public final Retrofit getRetrofit(){
+    public static Retrofit RETROFIT = null;
 
-        HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
+    public final Retrofit getRetrofit() {
+        if (RETROFIT == null) {
+            HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
 
-        OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor(
-                httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY))
-                .build();
+            OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor(
+                    httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY))
+                    .build();
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.0.137:8080/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .client(okHttpClient)
-                .build();
-
-        return retrofit;
+            RETROFIT = new Retrofit.Builder()
+                    .baseUrl("http://192.168.0.137:8080/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                    .client(okHttpClient)
+                    .build();
+        }
+        return RETROFIT;
     }
 }
