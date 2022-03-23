@@ -15,8 +15,8 @@ import com.cursoandroid.projetochecklistandroid.model.CheckList;
 
 import java.util.List;
 
-public class ListaCheckListsAdapter extends RecyclerView.Adapter<ListaCheckListsAdapter
-        .CheckListViewHolder> {
+public class ListaCheckListsAdapter extends
+        RecyclerView.Adapter<ListaCheckListsAdapter.CheckListViewHolder> {
 
     private final List<CheckList> checkLists;
     private final Context context;
@@ -55,7 +55,7 @@ public class ListaCheckListsAdapter extends RecyclerView.Adapter<ListaCheckLists
 
     public class CheckListViewHolder extends RecyclerView.ViewHolder {
 
-        private final TextView dataC;
+        private final TextView data;
         private final TextView hora;
         private final TextView placa;
         private final TextView motorista;
@@ -64,7 +64,7 @@ public class ListaCheckListsAdapter extends RecyclerView.Adapter<ListaCheckLists
 
         public CheckListViewHolder(View itemView) {
             super(itemView);
-            dataC = itemView.findViewById(R.id.item_check_list_data);
+            data = itemView.findViewById(R.id.item_check_list_data);
             hora = itemView.findViewById(R.id.item_check_list_hora);
             placa = itemView.findViewById(R.id.item_check_list_placa);
             motorista = itemView.findViewById(R.id.item_check_list_motorista);
@@ -76,11 +76,11 @@ public class ListaCheckListsAdapter extends RecyclerView.Adapter<ListaCheckLists
 
         public void vincula(CheckList checkList) {
             this.checkList = checkList;
-            preencheCampo(checkList);
+            preencheCampos(checkList);
         }
 
-        private void preencheCampo(CheckList checkList) {
-            dataC.setText(checkList.getDataC());
+        private void preencheCampos(CheckList checkList) {
+            data.setText(checkList.getData());
             hora.setText(checkList.getHora());
             placa.setText(checkList.getPlaca());
             motorista.setText(checkList.getMotorista());

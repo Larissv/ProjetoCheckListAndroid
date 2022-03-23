@@ -3,17 +3,12 @@ package com.cursoandroid.projetochecklistandroid.activity.activitys;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CHAVE_CHECKLIST;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CHAVE_POSICAO;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CODIGO_PAGINA_PRINCIPAL_CHECKLIST;
-import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.POSICAO_INVALIDA;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.TITULO_APPBAR_MOSTRA_CHECKLIST;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.TITULO_APPBAR_RESUMO_CHECKLIST;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.ContextMenu;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -22,15 +17,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.cursoandroid.projetochecklistandroid.R;
 import com.cursoandroid.projetochecklistandroid.model.CheckList;
-import com.cursoandroid.projetochecklistandroid.adapter.ListaCheckListsAdapter;
-import com.cursoandroid.projetochecklistandroid.retrofit.service.CheckListService;
-
-import java.util.List;
-
-import rx.Observable;
-import rx.Observer;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 public class ResumoCheckListActivity extends AppCompatActivity {
 
@@ -83,39 +69,17 @@ public class ResumoCheckListActivity extends AppCompatActivity {
     }
 
     private void deletaChecklist() {
-//        Observable<CheckList> observable = (Observable<CheckList>) retrofitConfig.getRetrofit()
-//                .create(CheckListService.class).removeCheckList(id);
-//        observable.subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(new Observer<CheckList>() {
-//                    @Override
-//                    public void onCompleted() {
-//                    }
-//
-//                    @Override
-//                    public void onError(Throwable e) {
-//                        Log.i("Erro!", e.getLocalizedMessage());
-//                    }
-//
-//                    @Override
-//                    public void onNext(CheckList checkList) {
-//                        Log.e("Check list removido!", "Removido!");
-//                        checkLists.remove(posicao);
-//                    }
-//                });
+
     }
 
-
     private void configuraBotaoConcluir() {
-        Button botaoConcluir = findViewById(
-                R.id.botao_resumo_concluir);
+        Button botaoConcluir = findViewById(R.id.botao_resumo_concluir);
         botaoConcluir.setOnClickListener(view -> retonaParaPaginaInicial());
     }
 
     private void retonaParaPaginaInicial() {
         Intent iniciaPaginaPrincipal =
-                new Intent(ResumoCheckListActivity.this,
-                        PaginaPrincipalActivity.class);
+                new Intent(ResumoCheckListActivity.this, PaginaPrincipalActivity.class);
         startActivityIfNeeded(iniciaPaginaPrincipal, CODIGO_PAGINA_PRINCIPAL_CHECKLIST);
     }
 
@@ -144,7 +108,7 @@ public class ResumoCheckListActivity extends AppCompatActivity {
     }
 
     private void preencheCheckList() {
-        data.setText(checkListMostrado.getDataC());
+        data.setText(checkListMostrado.getData());
         hora.setText(checkListMostrado.getHora());
         saidaRetorno.setText(checkListMostrado.getSaidaRetorno());
         placa.setText(checkListMostrado.getPlaca());

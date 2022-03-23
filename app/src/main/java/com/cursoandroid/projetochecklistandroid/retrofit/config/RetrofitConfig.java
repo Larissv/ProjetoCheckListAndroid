@@ -10,7 +10,7 @@ public class RetrofitConfig {
 
     public static Retrofit RETROFIT = null;
 
-    public final Retrofit getRetrofit() {
+    public static Retrofit getRetrofit() {
         if (RETROFIT == null) {
             HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
 
@@ -19,7 +19,7 @@ public class RetrofitConfig {
                     .build();
 
             RETROFIT = new Retrofit.Builder()
-                    .baseUrl("http://192.168.0.137:8080/")
+                    .baseUrl("http://192.168.0.54:8080/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                     .client(okHttpClient)

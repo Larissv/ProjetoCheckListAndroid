@@ -32,12 +32,6 @@ public class PaginaPrincipalActivity extends AppCompatActivity {
         botaoNovoCheckList.setOnClickListener(view -> vaiParaFormularioCheckList());
     }
 
-    private void vaiParaFormularioCheckList() {
-        Intent iniciaFormularioCheckList =
-                new Intent(PaginaPrincipalActivity.this,
-                        FormularioCheckListActivity.class);
-        startActivityIfNeeded(iniciaFormularioCheckList, CODIGO_INSERE_CHECKLIST);
-    }
 
     private void configuraBotaoMostraTodosCheckLists() {
         FloatingActionButton botaoMostrarTodosCheckLists = findViewById(
@@ -45,23 +39,30 @@ public class PaginaPrincipalActivity extends AppCompatActivity {
         botaoMostrarTodosCheckLists.setOnClickListener(view -> vaiParaListaCheckLists());
     }
 
-    private void vaiParaListaCheckLists() {
-        startActivity(new Intent(PaginaPrincipalActivity.this,
-                ListaCheckListsActivity.class));
-    }
-
     private void configuraBotaoChat() {
         FloatingActionButton botaoChat = findViewById(R.id.botao_fab_pagina_inicial_chat);
         botaoChat.setOnClickListener(view -> vaiParaChat());
     }
 
-    private void vaiParaChat() {
-        startActivity(new Intent(PaginaPrincipalActivity.this, ChatActivity.class));
-    }
-
     private void configuraBotaoHelp() {
         FloatingActionButton botaoHelp = findViewById(R.id.botao_fab_pagina_inicial_help);
         botaoHelp.setOnClickListener(view -> vaiParaHelp());
+    }
+
+    private void vaiParaFormularioCheckList() {
+        Intent iniciaFormularioCheckList =
+                new Intent(PaginaPrincipalActivity.this,
+                        FormularioCheckListActivity.class);
+        startActivityIfNeeded(iniciaFormularioCheckList, CODIGO_INSERE_CHECKLIST);
+    }
+
+    private void vaiParaListaCheckLists() {
+        startActivity(new Intent(PaginaPrincipalActivity.this,
+                ListaCheckListsActivity.class));
+    }
+
+    private void vaiParaChat() {
+        startActivity(new Intent(PaginaPrincipalActivity.this, ChatActivity.class));
     }
 
     private void vaiParaHelp() {

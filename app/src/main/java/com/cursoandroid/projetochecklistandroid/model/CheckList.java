@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class CheckList implements Serializable {
     private int id;
     private String saidaRetorno;
-    private String dataC;
+    private String data;
     private String hora;
     private String placa;
     private String motorista;
@@ -26,10 +26,7 @@ public class CheckList implements Serializable {
     private String pedais;
     private String aberturaPortas;
 
-    public CheckList() {
-    }
-
-    public CheckList(String saidaRetorno, String dataC, String hora, String placa,
+    public CheckList(String saidaRetorno, String data, String hora, String placa,
                      String motorista, Integer km, String tracao, String calibragemPneu,
                      String estepe, String freioDianteiro, String freioTraseiro,
                      String balanceamento, String limpezaRadiador, String oleoMotor,
@@ -37,7 +34,7 @@ public class CheckList implements Serializable {
                      String placasCaminhao, String cintoSeguranca, String pedais,
                      String aberturaPortas) {
         this.saidaRetorno = saidaRetorno;
-        this.dataC = dataC;
+        this.data = data;
         this.hora = hora;
         this.placa = placa;
         this.motorista = motorista;
@@ -59,8 +56,8 @@ public class CheckList implements Serializable {
         this.aberturaPortas = aberturaPortas;
     }
 
-    public String getDataC() {
-        return dataC;
+    public String getData() {
+        return data;
     }
 
     public String getHora() {
