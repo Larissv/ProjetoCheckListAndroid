@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cursoandroid.projetochecklistandroid">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -10,46 +10,46 @@
         android:label="Check List"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.ProjetoCheckListAndroid" >
+        android:theme="@style/Theme.ProjetoCheckListAndroid"
+        android:usesCleartextTraffic="true">
 
-    <activity
-        android:name=".activity.activitys.PaginaPrincipalActivity"
-        android:screenOrientation="portrait"
-        android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
-    <activity android:name=".activity.activitys.FormularioCheckListActivity"
-        android:screenOrientation="portrait">
-    </activity>
-
-    <activity android:name=".activity.activitys.ListaCheckListsActivity"
-        android:screenOrientation="portrait">
-    </activity>
-
-        <activity android:name=".activity.activitys.ChatActivity"
+        <activity
+            android:name=".activity.activitys.PaginaPrincipalActivity"
+            android:exported="true"
             android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+        <activity
+            android:name=".activity.activitys.FormularioCheckListActivity"
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".activity.activitys.ResumoCheckListActivity"
-            android:screenOrientation="portrait">
-        </activity>
+        <activity
+            android:name=".activity.activitys.ListaCheckListsActivity"
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".activity.activitys.ValidacaoActivity"
-            android:screenOrientation="portrait">
-        </activity>
+        <activity
+            android:name=".activity.activitys.ChatActivity"
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".activity.activitys.FinalizacaoActivity"
-            android:screenOrientation="portrait">
-        </activity>
+        <activity
+            android:name=".activity.activitys.ResumoCheckListActivity"
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".activity.activitys.HelpActivity"
-            android:screenOrientation="portrait">
-        </activity>
+        <activity
+            android:name=".activity.activitys.ValidacaoActivity"
+            android:screenOrientation="portrait" />
 
-</application>
+        <activity
+            android:name=".activity.activitys.FinalizacaoActivity"
+            android:screenOrientation="portrait" />
 
-    </manifest>
+        <activity
+            android:name=".activity.activitys.HelpActivity"
+            android:screenOrientation="portrait" />
+
+    </application>
+
+</manifest>

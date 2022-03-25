@@ -1299,11 +1299,11 @@
                 app:layout_constraintTop_toBottomOf="@+id/formulario_imagem_interno_abertura_portas" />
 
             <Button
-                android:id="@+id/botao_formulario_salvar"
+                android:id="@+id/botao_formulario_continuar"
                 android:layout_width="190dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/fundo_borda_redonda_azul"
-                android:text="Salvar"
+                android:text="Continuar"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="@+id/botao_formulario_cancelar"
                 app:layout_constraintEnd_toEndOf="parent"

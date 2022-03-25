@@ -1,5 +1,6 @@
 package com.cursoandroid.projetochecklistandroid.activity.activitys;
 
+import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CODIGO_INSERE_CHECKLIST;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CODIGO_PAGINA_PRINCIPAL_CHECKLIST;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CODIGO_VALIDACAO_CHECKLIST;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.TITULO_APPBAR_NOVO_CHECKLIST;
@@ -13,14 +14,15 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
 import java.text.SimpleDateFormat;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.cursoandroid.projetochecklistandroid.R;
-import com.cursoandroid.projetochecklistandroid.model.CheckList;
 import com.cursoandroid.projetochecklistandroid.activity.service.CheckListService;
+import com.cursoandroid.projetochecklistandroid.model.CheckList;
 import com.cursoandroid.projetochecklistandroid.retrofit.config.RetrofitConfig;
 
 import java.util.Calendar;
@@ -57,6 +59,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
     private RadioGroup aberturaPortas;
     CompositeSubscription subscription = new CompositeSubscription();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,7 +68,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         setTitle(TITULO_APPBAR_NOVO_CHECKLIST);
         inicializaCampos();
         configuraBotaoCancelar();
-        configuraBotaoSalvar();
+        configuraBotaoContinuar();
         configuraCalendario();
         configuraHora();
     }
@@ -90,10 +93,9 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         startActivityIfNeeded(iniciaPaginaPrincipal, CODIGO_PAGINA_PRINCIPAL_CHECKLIST);
     }
 
-    private void configuraBotaoSalvar() {
-        Button botaoSalvar = findViewById(R.id.botao_formulario_salvar);
-        botaoSalvar.setOnClickListener(view -> {
-            salvaCheckList();
+    private void configuraBotaoContinuar() {
+        Button botaoContinuar = findViewById(R.id.botao_formulario_continuar);
+        botaoContinuar.setOnClickListener(view -> {
             vaiParaValidacao();
         });
     }
@@ -105,30 +107,6 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         startActivityIfNeeded(iniciaValidacao, CODIGO_VALIDACAO_CHECKLIST);
     }
 
-    public void salvaCheckList() {
-        CheckList checkListCriado = criaCheckList();
-        Observable<CheckList> observable = RetrofitConfig.getRetrofit().create(
-                CheckListService.class).cadastraNovoCheckList(checkListCriado);
-        subscription.add(observable.subscribeOn(Schedulers.io())
-        .observeOn(AndroidSchedulers.mainThread())
-        .subscribe(new Observer<CheckList>() {
-            @Override
-            public void onCompleted() {
-                finish();
-            }
-
-            @Override
-            public void onError(Throwable e) {
-                Toast.makeText(FormularioCheckListActivity.this,
-                        "Opa! Ocorreu um erro." + e.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onNext(CheckList checkList) {
-
-            }
-        }));
-    }
 
     public void configuraHora() {
         hora.setOnClickListener(view -> {
@@ -192,6 +170,37 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         cintoSeguranca = findViewById(R.id.formulario_rgcinto_seguranca);
         pedais = findViewById(R.id.formulario_rgpedais);
         aberturaPortas = findViewById(R.id.formulario_rgabertura_portas);
+    }
+
+    public void salvaCheckList() {
+        CheckList checkListCriado = criaCheckList();
+        Observable<CheckList> observable = RetrofitConfig.getRetrofit().create(
+                CheckListService.class).cadastraNovoCheckList(checkListCriado);
+        subscription.add(observable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<CheckList>() {
+                    @Override
+                    public void onCompleted() {
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Toast.makeText(FormularioCheckListActivity.this,
+                                "Opa! Ocorreu um erro." + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onNext(CheckList checkList) {
+                        vaiParaFinalizar();
+                    }
+                }));
+    }
+
+    private void vaiParaFinalizar() {
+        Intent iniciaFinalizar =
+                new Intent(FormularioCheckListActivity.this,
+                        FinalizacaoActivity.class);
+        startActivityIfNeeded(iniciaFinalizar, CODIGO_INSERE_CHECKLIST);
     }
 
     @NonNull
@@ -363,6 +372,9 @@ public class FormularioCheckListActivity extends AppCompatActivity {
 
         return situacaoAberturaPortas;
     }
+
+
+
 
 //    public void checkedTodosRadioButtonsSelecionados() {
 //        checkRadioButtonSelecionadoSaidaRetorno();

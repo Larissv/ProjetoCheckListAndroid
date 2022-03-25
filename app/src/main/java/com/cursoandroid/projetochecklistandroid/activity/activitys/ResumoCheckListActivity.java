@@ -6,9 +6,15 @@ import static com.cursoandroid.projetochecklistandroid.activity.constantes.Check
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.TITULO_APPBAR_MOSTRA_CHECKLIST;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.TITULO_APPBAR_RESUMO_CHECKLIST;
 
+import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.ContextMenu;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -16,7 +22,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.cursoandroid.projetochecklistandroid.R;
+import com.cursoandroid.projetochecklistandroid.activity.service.CheckListService;
 import com.cursoandroid.projetochecklistandroid.model.CheckList;
+import com.cursoandroid.projetochecklistandroid.retrofit.config.RetrofitConfig;
+
+import rx.Observable;
+import rx.Observer;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
+import rx.subscriptions.CompositeSubscription;
 
 public class ResumoCheckListActivity extends AppCompatActivity {
 
@@ -42,6 +56,7 @@ public class ResumoCheckListActivity extends AppCompatActivity {
     private TextView pedais;
     private TextView aberturaPortas;
     private CheckList checkListMostrado;
+    CompositeSubscription subscription = new CompositeSubscription();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,13 +78,52 @@ public class ResumoCheckListActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(@NonNull Menu menu){
+        getMenuInflater().inflate(R.menu.menu_lista_remover, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        getMenuInflater()
+                .inflate(R.menu.menu_lista_remover, menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        deletaChecklist();
+        confirmaRemocao();
         return super.onOptionsItemSelected(item);
     }
 
-    private void deletaChecklist() {
+    private void confirmaRemocao() {
+        new AlertDialog.Builder(this).setMessage("Deseja remover permanentemente o checklist?")
+                .setPositiveButton("Sim",
+                        (dialogInterface, i) -> deletaChecklist())
+                .setNegativeButton("Nao", null).show();
+    }
 
+    private void deletaChecklist() {
+        Observable<CheckList> observable = RetrofitConfig.getRetrofit().create(
+                CheckListService.class).removeCheckList();
+        subscription.add(observable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<CheckList>() {
+                    @Override
+                    public void onCompleted() {
+                        finish();
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.i("Opa, algo deu errado", e.getLocalizedMessage());
+                    }
+
+                    @Override
+                    public void onNext(CheckList checkList) {
+                        notifyAll();
+                        retonaParaPaginaInicial();
+                    }
+                }));
     }
 
     private void configuraBotaoConcluir() {
@@ -113,7 +167,7 @@ public class ResumoCheckListActivity extends AppCompatActivity {
         saidaRetorno.setText(checkListMostrado.getSaidaRetorno());
         placa.setText(checkListMostrado.getPlaca());
         motorista.setText(checkListMostrado.getMotorista());
-        km.setText(checkListMostrado.getKm());
+        km.setText(checkListMostrado.getKm().toString());
         tracao.setText(checkListMostrado.getTracao());
         calibracao.setText(checkListMostrado.getCalibragemPneu());
         estepe.setText(checkListMostrado.getEstepe());
@@ -125,9 +179,9 @@ public class ResumoCheckListActivity extends AppCompatActivity {
         filtroOleo.setText(checkListMostrado.getFiltroOleo());
         paraChoqueDianteiro.setText(checkListMostrado.getParaChoqueDianteiro());
         paraChoqueTraseiro.setText(checkListMostrado.getParaChoqueTraseiro());
-        placas.setText(checkListMostrado.getPlacasCaminhao());
+        placa.setText(checkListMostrado.getPlaca());
         cintoSeguranca.setText(checkListMostrado.getCintoSeguranca());
-        pedais.setText(checkListMostrado.getPedais());
+        pedais.setText(checkListMostrado.getCintoSeguranca());
         aberturaPortas.setText(checkListMostrado.getAberturaPortas());
     }
 }
