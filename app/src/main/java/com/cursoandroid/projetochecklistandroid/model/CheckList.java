@@ -3,7 +3,7 @@ package com.cursoandroid.projetochecklistandroid.model;
 import java.io.Serializable;
 
 public class CheckList implements Serializable {
-    private int id;
+    private Integer id;
     private final String saidaRetorno;
     private final String data;
     private final String hora;
@@ -76,7 +76,7 @@ public class CheckList implements Serializable {
         return km;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

@@ -62,7 +62,7 @@ public class ResumoCheckListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resumo_checklist_preenchido);
-        setTitle(TITULO_APPBAR_MOSTRA_CHECKLIST);
+        setTitle(TITULO_APPBAR_RESUMO_CHECKLIST);
 
         inicializaCampos();
         configuraBotaoConcluir();
@@ -71,7 +71,6 @@ public class ResumoCheckListActivity extends AppCompatActivity {
 
         if (dadosRecebidos.hasExtra(CHAVE_CHECKLIST) &&
                 dadosRecebidos.hasExtra(CHAVE_POSICAO)) {
-            setTitle(TITULO_APPBAR_RESUMO_CHECKLIST);
             checkListMostrado = (CheckList) dadosRecebidos.getSerializableExtra(CHAVE_CHECKLIST);
             preencheCheckList();
         }
@@ -97,7 +96,7 @@ public class ResumoCheckListActivity extends AppCompatActivity {
     }
 
     private void confirmaRemocao() {
-        new AlertDialog.Builder(this).setMessage("Deseja remover permanentemente o checklist?")
+        new AlertDialog.Builder(this).setMessage("Ops, quer mesmo remover o checklist?")
                 .setPositiveButton("Sim",
                         (dialogInterface, i) -> deletaChecklist())
                 .setNegativeButton("Nao", null).show();
@@ -179,9 +178,9 @@ public class ResumoCheckListActivity extends AppCompatActivity {
         filtroOleo.setText(checkListMostrado.getFiltroOleo());
         paraChoqueDianteiro.setText(checkListMostrado.getParaChoqueDianteiro());
         paraChoqueTraseiro.setText(checkListMostrado.getParaChoqueTraseiro());
-        placa.setText(checkListMostrado.getPlaca());
+        placas.setText(checkListMostrado.getPlacasCaminhao());
         cintoSeguranca.setText(checkListMostrado.getCintoSeguranca());
-        pedais.setText(checkListMostrado.getCintoSeguranca());
+        pedais.setText(checkListMostrado.getPedais());
         aberturaPortas.setText(checkListMostrado.getAberturaPortas());
     }
 }

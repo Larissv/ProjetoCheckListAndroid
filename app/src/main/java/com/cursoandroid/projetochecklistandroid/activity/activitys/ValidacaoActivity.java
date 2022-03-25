@@ -12,7 +12,11 @@ import com.cursoandroid.projetochecklistandroid.R;
 public class ValidacaoActivity extends AppCompatActivity {
 
     private EditText senhaValidacao;
-    private FormularioCheckListActivity formularioCheckListActivity;
+    private final FormularioCheckListActivity formularioCheckListActivity;
+
+    public ValidacaoActivity(FormularioCheckListActivity formularioCheckListActivity) {
+        this.formularioCheckListActivity = formularioCheckListActivity;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
