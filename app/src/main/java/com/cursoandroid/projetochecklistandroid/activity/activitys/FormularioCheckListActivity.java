@@ -59,7 +59,6 @@ public class FormularioCheckListActivity extends AppCompatActivity {
     private RadioGroup aberturaPortas;
     CompositeSubscription subscription = new CompositeSubscription();
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -191,6 +190,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
 
                     @Override
                     public void onNext(CheckList checkList) {
+                        finish();
                         vaiParaFinalizar();
                     }
                 }));

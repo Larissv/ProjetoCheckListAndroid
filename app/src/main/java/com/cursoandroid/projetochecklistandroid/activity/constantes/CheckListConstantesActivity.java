@@ -15,7 +15,7 @@ public interface CheckListConstantesActivity {
     String TITULO_APPBAR_HELP = "HELP";
 
     int CODIGO_INSERE_CHECKLIST = 1;
-    int CODIGO_MOSTRA_CHECKLIST = 2;
+    int CODIGO_LISTA_CHECKLIST = 2;
     int CODIGO_PAGINA_PRINCIPAL_CHECKLIST = 3;
     int CODIGO_RESUMO_CHECKLIST = 4;
     int CODIGO_VALIDACAO_CHECKLIST = 5;

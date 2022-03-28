@@ -1,12 +1,11 @@
 package com.cursoandroid.projetochecklistandroid.activity.activitys;
 
-import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CODIGO_MOSTRA_CHECKLIST;
+import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CODIGO_LISTA_CHECKLIST;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CODIGO_PAGINA_PRINCIPAL_CHECKLIST;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.TITULO_APPBAR_FINALIZACAO;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,7 +33,7 @@ public class FinalizacaoActivity extends AppCompatActivity {
     private void vaiParaListaCheckLists() {
         Intent voltaPaginaInicial =
                 new Intent(FinalizacaoActivity.this, ListaCheckListsActivity.class);
-        startActivityIfNeeded(voltaPaginaInicial, CODIGO_MOSTRA_CHECKLIST);
+        startActivityIfNeeded(voltaPaginaInicial, CODIGO_LISTA_CHECKLIST);
     }
 
     private void configuraBotaoVoltarInicio() {
