@@ -8,11 +8,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.cursoandroid.projetochecklistandroid.R;
+import com.cursoandroid.projetochecklistandroid.model.CheckList;
 
 public class ValidacaoActivity extends AppCompatActivity {
 
     private EditText senhaValidacao;
-    private FormularioCheckListActivity formularioCheckListActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class ValidacaoActivity extends AppCompatActivity {
                 Toast.makeText(ValidacaoActivity.this, "Código de verificação inválido",
                         Toast.LENGTH_SHORT).show();
             } else {
-                formularioCheckListActivity.salvaCheckList();
+           //     salvacheckList();
             }
         });
     }

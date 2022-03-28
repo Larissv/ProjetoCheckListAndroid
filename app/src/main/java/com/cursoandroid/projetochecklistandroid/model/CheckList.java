@@ -143,4 +143,5 @@ public class CheckList implements Serializable {
     public String getAberturaPortas() {
         return aberturaPortas;
     }
+
 }

@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.cursoandroid.projetochecklistandroid.R;
 import com.cursoandroid.projetochecklistandroid.activity.service.CheckListService;
@@ -57,8 +58,7 @@ public class ResumoCheckListActivity extends AppCompatActivity {
     private TextView pedais;
     private TextView aberturaPortas;
     private CheckList checkListMostrado;
-    private List<CheckList> checkLists;
-    private List<ListaCheckListsAdapter> adapter;
+    private ListaCheckListsActivity activity;
     CompositeSubscription subscription = new CompositeSubscription();
 
 
@@ -107,10 +107,10 @@ public class ResumoCheckListActivity extends AppCompatActivity {
     }
 
     private void deletaChecklist() {
-        Observable<CheckList> observable = RetrofitConfig.getRetrofit().create(
+        Observable<List<CheckList>> observable = RetrofitConfig.getRetrofit().create(
                 CheckListService.class).removeCheckList(checkListMostrado.getId());
         subscription.remove(observable.subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<>() {
+                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<List<CheckList>>() {
                     @Override
                     public void onCompleted() {
                         finish();
@@ -122,8 +122,7 @@ public class ResumoCheckListActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onNext() {
-                        checkLists.remove();
+                    public void onNext(List<CheckList> checkLists) {
 
                     }
                 }));
