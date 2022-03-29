@@ -85,18 +85,18 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         botaoCancelar.setOnClickListener(view -> voltaParaPaginaPrincipal());
     }
 
-    private void voltaParaPaginaPrincipal() {
-        Intent iniciaPaginaPrincipal =
-                new Intent(FormularioCheckListActivity.this,
-                        PaginaPrincipalActivity.class);
-        startActivityIfNeeded(iniciaPaginaPrincipal, CODIGO_PAGINA_PRINCIPAL_CHECKLIST);
-    }
-
     private void configuraBotaoContinuar() {
         Button botaoContinuar = findViewById(R.id.botao_formulario_continuar);
         botaoContinuar.setOnClickListener(view -> {
             vaiParaValidacao();
         });
+    }
+
+    private void voltaParaPaginaPrincipal() {
+        Intent iniciaPaginaPrincipal =
+                new Intent(FormularioCheckListActivity.this,
+                        PaginaPrincipalActivity.class);
+        startActivityIfNeeded(iniciaPaginaPrincipal, CODIGO_PAGINA_PRINCIPAL_CHECKLIST);
     }
 
     private void vaiParaValidacao() {
@@ -105,7 +105,6 @@ public class FormularioCheckListActivity extends AppCompatActivity {
                         ValidacaoActivity.class);
         startActivityIfNeeded(iniciaValidacao, CODIGO_VALIDACAO_CHECKLIST);
     }
-
 
     public void configuraHora() {
         hora.setOnClickListener(view -> {

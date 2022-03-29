@@ -58,9 +58,7 @@ public class ResumoCheckListActivity extends AppCompatActivity {
     private TextView pedais;
     private TextView aberturaPortas;
     private CheckList checkListMostrado;
-    private ListaCheckListsActivity activity;
     CompositeSubscription subscription = new CompositeSubscription();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
