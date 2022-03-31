@@ -78,7 +78,6 @@ public class ListaCheckListsActivity extends AppCompatActivity {
                     }
                 })
         );
-
     }
 
     private void configuraRecyclerView(List<CheckList> todosCheckLists) {

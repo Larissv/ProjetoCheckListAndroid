@@ -4,56 +4,56 @@ import java.io.Serializable;
 
 public class CheckList implements Serializable {
     private Integer id;
-    private String saidaRetorno;
+    private String saida_retorno;
     private String data;
     private String hora;
     private String placa;
     private String motorista;
     private Integer km;
     private String tracao;
-    private String calibragemPneu;
+    private String calibragem_pneu;
     private String estepe;
-    private String freioDianteiro;
-    private String freioTraseiro;
+    private String freio_dianteiro;
+    private String freio_traseiro;
     private String balanceamento;
-    private String limpezaRadiador;
-    private String oleoMotor;
-    private String filtroOleo;
-    private String paraChoqueDianteiro;
-    private String paraChoqueTraseiro;
-    private String placasCaminhao;
-    private String cintoSeguranca;
+    private String limpeza_radiador;
+    private String oleo_motor;
+    private String filtro_oleo;
+    private String parachoque_dianteiro;
+    private String parachoque_traseiro;
+    private String placas_caminhao;
+    private String cinto_seguranca;
     private String pedais;
-    private String aberturaPortas;
+    private String abertura_portas;
 
     public CheckList(String saidaRetorno, String data, String hora, String placa,
-                     String motorista, Integer km, String tracao, String calibragemPneu,
-                     String estepe, String freioDianteiro, String freioTraseiro,
-                     String balanceamento, String limpezaRadiador, String oleoMotor,
-                     String filtroOleo, String paraChoqueDianteiro, String paraChoqueTraseiro,
-                     String placasCaminhao, String cintoSeguranca, String pedais,
-                     String aberturaPortas) {
-        this.saidaRetorno = saidaRetorno;
+                     String motorista, Integer km, String tracao, String calibragem_pneu,
+                     String estepe, String freio_dianteiro, String freio_traseiro,
+                     String balanceamento, String limpeza_radiador, String oleo_motor,
+                     String filtro_oleo, String parachoque_dianteiro, String parachoque_traseiro,
+                     String placas_caminhao, String cinto_seguranca, String pedais,
+                     String abertura_portas) {
+        this.saida_retorno = saidaRetorno;
         this.data = data;
         this.hora = hora;
         this.placa = placa;
         this.motorista = motorista;
         this.km = km;
         this.tracao = tracao;
-        this.calibragemPneu = calibragemPneu;
+        this.calibragem_pneu = calibragem_pneu;
         this.estepe = estepe;
-        this.freioDianteiro = freioDianteiro;
-        this.freioTraseiro = freioTraseiro;
+        this.freio_dianteiro = freio_dianteiro;
+        this.freio_traseiro = freio_traseiro;
         this.balanceamento = balanceamento;
-        this.limpezaRadiador = limpezaRadiador;
-        this.oleoMotor = oleoMotor;
-        this.filtroOleo = filtroOleo;
-        this.paraChoqueDianteiro = paraChoqueDianteiro;
-        this.paraChoqueTraseiro = paraChoqueTraseiro;
-        this.placasCaminhao = placasCaminhao;
-        this.cintoSeguranca = cintoSeguranca;
+        this.limpeza_radiador = limpeza_radiador;
+        this.oleo_motor = oleo_motor;
+        this.filtro_oleo = filtro_oleo;
+        this.parachoque_dianteiro = parachoque_dianteiro;
+        this.parachoque_traseiro = parachoque_traseiro;
+        this.placas_caminhao = placas_caminhao;
+        this.cinto_seguranca = cinto_seguranca;
         this.pedais = pedais;
-        this.aberturaPortas = aberturaPortas;
+        this.abertura_portas = abertura_portas;
     }
 
     public CheckList() {
@@ -85,7 +85,7 @@ public class CheckList implements Serializable {
     }
 
     public String getSaidaRetorno() {
-        return saidaRetorno;
+        return saida_retorno;
     }
 
     public String getTracao() {
@@ -93,7 +93,7 @@ public class CheckList implements Serializable {
     }
 
     public String getCalibragemPneu() {
-        return calibragemPneu;
+        return calibragem_pneu;
     }
 
     public String getEstepe() {
@@ -101,11 +101,11 @@ public class CheckList implements Serializable {
     }
 
     public String getFreioDianteiro() {
-        return freioDianteiro;
+        return freio_dianteiro;
     }
 
     public String getFreioTraseiro() {
-        return freioTraseiro;
+        return freio_traseiro;
     }
 
     public String getBalanceamento() {
@@ -113,31 +113,31 @@ public class CheckList implements Serializable {
     }
 
     public String getLimpezaRadiador() {
-        return limpezaRadiador;
+        return limpeza_radiador;
     }
 
     public String getOleoMotor() {
-        return oleoMotor;
+        return oleo_motor;
     }
 
     public String getFiltroOleo() {
-        return filtroOleo;
+        return filtro_oleo;
     }
 
     public String getParaChoqueDianteiro() {
-        return paraChoqueDianteiro;
+        return parachoque_dianteiro;
     }
 
     public String getParaChoqueTraseiro() {
-        return paraChoqueTraseiro;
+        return parachoque_traseiro;
     }
 
     public String getPlacasCaminhao() {
-        return placasCaminhao;
+        return placas_caminhao;
     }
 
     public String getCintoSeguranca() {
-        return cintoSeguranca;
+        return cinto_seguranca;
     }
 
     public String getPedais() {
@@ -145,7 +145,7 @@ public class CheckList implements Serializable {
     }
 
     public String getAberturaPortas() {
-        return aberturaPortas;
+        return abertura_portas;
     }
 
 }

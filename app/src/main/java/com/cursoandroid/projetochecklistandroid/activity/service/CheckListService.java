@@ -19,7 +19,7 @@ public interface CheckListService {
     Observable<List<CheckList>> mostraTodosCheckLists();
 
     @PUT("checklists/{id}")
-    Observable<CheckList> verificaCheckList(@Path("id") int id,
+    Observable<CheckList> atualizaCheckList(@Path("id") int id,
                                             @Body CheckList checkList);
 
     @POST("checklists/")

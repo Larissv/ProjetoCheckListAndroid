@@ -3,7 +3,7 @@ package com.cursoandroid.projetochecklistandroid.activity.activitys;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CHAVE_CHECKLIST;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CHAVE_POSICAO;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CODIGO_LISTA_CHECKLIST;
-import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.POSICAO_INVALIDA;
+import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CODIGO_RESUMO_CHECKLIST;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.TITULO_APPBAR_RESUMO_CHECKLIST;
 
 import android.app.AlertDialog;
@@ -24,8 +24,6 @@ import com.cursoandroid.projetochecklistandroid.R;
 import com.cursoandroid.projetochecklistandroid.activity.service.CheckListService;
 import com.cursoandroid.projetochecklistandroid.model.CheckList;
 import com.cursoandroid.projetochecklistandroid.retrofit.config.RetrofitConfig;
-
-import java.util.List;
 
 import rx.Observable;
 import rx.Observer;
@@ -56,8 +54,7 @@ public class ResumoCheckListActivity extends AppCompatActivity {
     private TextView cintoSeguranca;
     private TextView pedais;
     private TextView aberturaPortas;
-    public CheckList checkListUp = new CheckList();
-    private int posicaoRecebida = POSICAO_INVALIDA;
+    public CheckList checkListMostrado = new CheckList();
     CompositeSubscription subscription = new CompositeSubscription();
 
     @Override
@@ -73,10 +70,8 @@ public class ResumoCheckListActivity extends AppCompatActivity {
 
         if (dadosRecebidos.hasExtra(CHAVE_CHECKLIST) &&
                 dadosRecebidos.hasExtra(CHAVE_POSICAO)) {
-            CheckList checkListRecebido = (CheckList) dadosRecebidos.getSerializableExtra(CHAVE_CHECKLIST);
-            checkListUp = checkListRecebido;
-            posicaoRecebida = dadosRecebidos.getIntExtra(CHAVE_POSICAO, POSICAO_INVALIDA);
-            preencheCheckList(checkListRecebido);
+            checkListMostrado = (CheckList) dadosRecebidos.getSerializableExtra(CHAVE_CHECKLIST);
+            preencheCheckList(checkListMostrado);
         }
     }
 
@@ -102,7 +97,7 @@ public class ResumoCheckListActivity extends AppCompatActivity {
     private void confirmaRemocao() {
         new AlertDialog.Builder(this).setMessage("Ops, quer mesmo remover o checklist?")
                 .setPositiveButton("Sim",
-                        (dialogInterface, i) -> deletaChecklist(checkListUp.getId()))
+                        (dialogInterface, i) -> deletaChecklist(checkListMostrado.getId()))
                 .setNegativeButton("Nao", null).show();
     }
 
