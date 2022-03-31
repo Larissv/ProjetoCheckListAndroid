@@ -91,6 +91,7 @@ public class ValidacaoActivity extends AppCompatActivity {
         });
     }
 
+    @NonNull
     public void salvaCheckList() {
         Observable<CheckList> observable = RetrofitConfig.getRetrofit().create(
                 CheckListService.class).cadastraNovoCheckList(checkListMostrado);
@@ -104,7 +105,7 @@ public class ValidacaoActivity extends AppCompatActivity {
                     @Override
                     public void onError(Throwable e) {
                         Toast.makeText(ValidacaoActivity.this,
-                                "Opa! Ocorreu um erro." + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                "Opa! Algo deu errado." + e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
 
                     @Override

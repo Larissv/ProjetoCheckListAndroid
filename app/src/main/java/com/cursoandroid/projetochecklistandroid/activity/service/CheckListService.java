@@ -26,6 +26,6 @@ public interface CheckListService {
     Observable<CheckList> cadastraNovoCheckList(@Body CheckList checkList);
 
     @DELETE("checklists/remove/{id}")
-    Observable<List<CheckList>> removeCheckList(@Path(value = "id") Integer id);
+    Observable<Void> removeCheckList(@Path(value = "id") Integer id);
 
 }

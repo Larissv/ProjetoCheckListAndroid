@@ -4,27 +4,27 @@ import java.io.Serializable;
 
 public class CheckList implements Serializable {
     private Integer id;
-    private final String saidaRetorno;
-    private final String data;
-    private final String hora;
-    private final String placa;
-    private final String motorista;
-    private final Integer km;
-    private final String tracao;
-    private final String calibragemPneu;
-    private final String estepe;
-    private final String freioDianteiro;
-    private final String freioTraseiro;
-    private final String balanceamento;
-    private final String limpezaRadiador;
-    private final String oleoMotor;
-    private final String filtroOleo;
-    private final String paraChoqueDianteiro;
-    private final String paraChoqueTraseiro;
-    private final String placasCaminhao;
-    private final String cintoSeguranca;
-    private final String pedais;
-    private final String aberturaPortas;
+    private String saidaRetorno;
+    private String data;
+    private String hora;
+    private String placa;
+    private String motorista;
+    private Integer km;
+    private String tracao;
+    private String calibragemPneu;
+    private String estepe;
+    private String freioDianteiro;
+    private String freioTraseiro;
+    private String balanceamento;
+    private String limpezaRadiador;
+    private String oleoMotor;
+    private String filtroOleo;
+    private String paraChoqueDianteiro;
+    private String paraChoqueTraseiro;
+    private String placasCaminhao;
+    private String cintoSeguranca;
+    private String pedais;
+    private String aberturaPortas;
 
     public CheckList(String saidaRetorno, String data, String hora, String placa,
                      String motorista, Integer km, String tracao, String calibragemPneu,
@@ -54,6 +54,10 @@ public class CheckList implements Serializable {
         this.cintoSeguranca = cintoSeguranca;
         this.pedais = pedais;
         this.aberturaPortas = aberturaPortas;
+    }
+
+    public CheckList() {
+
     }
 
     public String getData() {
