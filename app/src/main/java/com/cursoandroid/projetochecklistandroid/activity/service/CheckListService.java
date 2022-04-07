@@ -23,7 +23,7 @@ public interface CheckListService {
                                             @Body CheckList checkList);
 
     @POST("checklists/")
-    Observable<CheckList> cadastraNovoCheckList(@Body CheckList checkList);
+    Observable<CheckList> cadastraNovoCheckList(@Body String checkList);
 
     @DELETE("checklists/remove/{id}")
     Observable<Void> removeCheckList(@Path(value = "id") Integer id);

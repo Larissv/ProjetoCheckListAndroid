@@ -67,7 +67,6 @@ public class ResumoCheckListActivity extends AppCompatActivity {
         configuraBotaoConcluir();
 
         Intent dadosRecebidos = getIntent();
-
         if (dadosRecebidos.hasExtra(CHAVE_CHECKLIST) &&
                 dadosRecebidos.hasExtra(CHAVE_POSICAO)) {
             checkListMostrado = (CheckList) dadosRecebidos.getSerializableExtra(CHAVE_CHECKLIST);

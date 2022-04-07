@@ -1,5 +1,7 @@
 package com.cursoandroid.projetochecklistandroid.model;
 
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 
 public class CheckList implements Serializable {
@@ -148,4 +150,32 @@ public class CheckList implements Serializable {
         return abertura_portas;
     }
 
+    @NonNull
+    @Override
+    public String toString() {
+        return "CheckList{" +
+                "id=" + id +
+                ", saida_retorno='" + saida_retorno + '\'' +
+                ", data='" + data + '\'' +
+                ", hora='" + hora + '\'' +
+                ", placa='" + placa + '\'' +
+                ", motorista='" + motorista + '\'' +
+                ", km=" + km +
+                ", tracao='" + tracao + '\'' +
+                ", calibragem_pneu='" + calibragem_pneu + '\'' +
+                ", estepe='" + estepe + '\'' +
+                ", freio_dianteiro='" + freio_dianteiro + '\'' +
+                ", freio_traseiro='" + freio_traseiro + '\'' +
+                ", balanceamento='" + balanceamento + '\'' +
+                ", limpeza_radiador='" + limpeza_radiador + '\'' +
+                ", oleo_motor='" + oleo_motor + '\'' +
+                ", filtro_oleo='" + filtro_oleo + '\'' +
+                ", parachoque_dianteiro='" + parachoque_dianteiro + '\'' +
+                ", parachoque_traseiro='" + parachoque_traseiro + '\'' +
+                ", placas_caminhao='" + placas_caminhao + '\'' +
+                ", cinto_seguranca='" + cinto_seguranca + '\'' +
+                ", pedais='" + pedais + '\'' +
+                ", abertura_portas='" + abertura_portas + '\'' +
+                '}';
+    }
 }
