@@ -24,15 +24,18 @@
         </activity>
         <activity
             android:name=".activity.activitys.FormularioCheckListActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:parentActivityName=".activity.activitys.FormularioCheckListActivity"/>
 
         <activity
             android:name=".activity.activitys.ListaCheckListsActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:parentActivityName=".activity.activitys.ListaCheckListsActivity"/>
 
         <activity
             android:name=".activity.activitys.ChatActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:parentActivityName=".activity.activitys.ChatActivity"/>
 
         <activity
             android:name=".activity.activitys.ResumoCheckListActivity"
@@ -48,7 +51,8 @@
 
         <activity
             android:name=".activity.activitys.HelpActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:parentActivityName=".activity.activitys.HelpActivity"/>
 
     </application>
 
