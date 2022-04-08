@@ -166,7 +166,7 @@ public class FormularioCheckListActivity extends AppCompatActivity {
         abertura_portas = findViewById(R.id.formulario_rgabertura_portas);
     }
 
-    private CheckList criaCheckList() {
+    private CheckList criaCheckListString() {
         return new CheckList(
                 getValorRadioSaidaRetorno(),
                 data.getText().toString(),

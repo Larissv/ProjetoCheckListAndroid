@@ -19,6 +19,7 @@ public interface CheckListConstantesActivity {
     int CODIGO_PAGINA_PRINCIPAL_CHECKLIST = 3;
     int CODIGO_RESUMO_CHECKLIST = 4;
     int CODIGO_VALIDACAO_CHECKLIST = 5;
+    int CODIGO_FINALIZACAO_CHECKLIST = 6;
     int POSICAO_INVALIDA = -1;
 
 }

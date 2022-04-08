@@ -1,8 +1,11 @@
 package com.cursoandroid.projetochecklistandroid.activity.activitys;
 
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CHAVE_CHECKLIST;
+import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CODIGO_FINALIZACAO_CHECKLIST;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.CODIGO_INSERE_CHECKLIST;
 import static com.cursoandroid.projetochecklistandroid.activity.constantes.CheckListConstantesActivity.TITULO_APPBAR_VALIDACAO;
+
+import static java.lang.String.valueOf;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,7 +29,7 @@ import rx.subscriptions.CompositeSubscription;
 public class ValidacaoActivity extends AppCompatActivity {
 
     private EditText senhaValidacao;
-    private String checkListMostrado = String.valueOf(new CheckList());
+    public String checkListMostrado = valueOf(new CheckList());
     CompositeSubscription subscription = new CompositeSubscription();
 
     @Override
@@ -40,19 +43,15 @@ public class ValidacaoActivity extends AppCompatActivity {
 
         configuraBotaoValidar();
 
-//        Bundle extras = getIntent().getExtras();
-//        if (extras != null) {
-//            checkListMostrado = extras.getString(CHAVE_CHECKLIST);
-//        }
         Intent intent = getIntent();
         if (intent != null){
             checkListMostrado = (String) intent.getSerializableExtra(CHAVE_CHECKLIST);
         }
+
     }
 
     private void configuraBotaoValidar() {
-        Button botaoValidar = findViewById(
-                R.id.botao_validacao);
+        Button botaoValidar = findViewById(R.id.botao_validacao);
         botaoValidar.setOnClickListener(view -> {
             if (senhaValidacao.getText().toString().equals("")) {
                 Toast.makeText(ValidacaoActivity.this, "Código de verificação inválido",
@@ -64,11 +63,11 @@ public class ValidacaoActivity extends AppCompatActivity {
     }
 
     public void salvaCheckList() {
-        Observable<CheckList> observable = RetrofitConfig.getRetrofit().create(
+        Observable<String> observable = RetrofitConfig.getRetrofit().create(
                 CheckListService.class).cadastraNovoCheckList(checkListMostrado);
         subscription.add(observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<CheckList>() {
+                .subscribe(new Observer<String>() {
                     @Override
                     public void onCompleted() {
                         finish();
@@ -81,7 +80,7 @@ public class ValidacaoActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onNext(CheckList checkList) {
+                    public void onNext(String checkList) {
                         vaiParaFinalizar();
                     }
                 }));
@@ -91,7 +90,6 @@ public class ValidacaoActivity extends AppCompatActivity {
         Intent iniciaFinalizar =
                 new Intent(ValidacaoActivity.this,
                         FinalizacaoActivity.class);
-        startActivityIfNeeded(iniciaFinalizar, CODIGO_INSERE_CHECKLIST);
+        startActivityIfNeeded(iniciaFinalizar, CODIGO_FINALIZACAO_CHECKLIST);
     }
-
 }
